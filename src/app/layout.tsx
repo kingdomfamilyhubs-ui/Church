@@ -6,7 +6,7 @@ import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
   title: 'Growing In Faith Global Church',
-  description: 'Growing deeper in faith, together. A global mandate to raise a supernatural generation.',
+  description: 'Transforming non extinct into existence, Romans 4:17. A global mandate to walk in supernatural power and divine revelation.',
 };
 
 export default function RootLayout({

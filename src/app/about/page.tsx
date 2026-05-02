@@ -8,33 +8,34 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-black pt-20">
       {/* Header */}
-      <section className="bg-zinc-950 py-24 px-4 text-center border-b border-white/5">
-        <div className="max-w-5xl mx-auto">
+      <section className="bg-zinc-950 py-16 px-4 text-center border-b border-white/5">
+        <div className="max-w-4xl mx-auto">
           <div className="inline-block px-3 py-1 bg-primary text-black text-[9px] font-black uppercase tracking-[0.3em] mb-6">
             Our Identity
           </div>
-          <h1 className="text-5xl md:text-8xl mb-6 font-black italic tracking-tighter uppercase text-white">WHO WE ARE</h1>
-          <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto uppercase tracking-widest leading-relaxed">
+          <h1 className="text-4xl md:text-6xl mb-6 font-black italic tracking-tighter uppercase text-white">WHO WE ARE</h1>
+          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto uppercase tracking-widest leading-relaxed">
             A global family united by faith, driven by divine purpose, and anchored in the supernatural power of God.
           </p>
         </div>
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-24 px-4">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div className="space-y-16">
+            <div className="space-y-12">
               <div className="relative group">
                 <div className="absolute -left-4 top-0 w-1 h-full bg-primary" />
-                <h2 className="text-3xl md:text-5xl font-black italic mb-4 text-white">OUR VISION</h2>
-                <p className="text-sm text-muted-foreground leading-relaxed uppercase tracking-wider font-light">
-                  To raise a global community of believers who are spiritually mature, impact-driven, and living evidence of God's power and love in every sphere of life.
+                <h2 className="text-2xl md:text-4xl font-black italic mb-4 text-white uppercase">OUR VISION</h2>
+                <p className="text-sm md:text-lg text-primary leading-relaxed uppercase tracking-wider font-bold italic">
+                  "Transforming non extinct into existence" <br/>
+                  <span className="text-xs text-muted-foreground not-italic">— Romans 4:17</span>
                 </p>
               </div>
               <div className="relative group">
                 <div className="absolute -left-4 top-0 w-1 h-full bg-primary" />
-                <h2 className="text-3xl md:text-5xl font-black italic mb-4 text-white">OUR MISSION</h2>
+                <h2 className="text-2xl md:text-4xl font-black italic mb-4 text-white uppercase">OUR MISSION</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed uppercase tracking-wider font-light">
                   To preach the gospel of Jesus Christ, making disciples of all nations through sound biblical teaching, passionate worship, and authentic community engagement.
                 </p>
@@ -54,22 +55,22 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Section */}
-      <section className="py-24 bg-zinc-950 border-y border-white/5">
+      <section className="py-20 bg-zinc-950 border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black italic mb-4 leading-none text-white">PROPHETIC <br/> LEADERSHIP</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-black italic mb-4 leading-none text-white">PROPHETIC LEADERSHIP</h2>
             <div className="w-16 h-1 bg-primary mx-auto" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 space-y-6">
-              <h3 className="text-2xl font-black italic text-primary">A VOICE TO THE NATIONS</h3>
+              <h3 className="text-xl font-black italic text-primary">A VOICE TO THE NATIONS</h3>
               <p className="text-sm text-muted-foreground leading-relaxed uppercase tracking-widest font-light">
                 Our ministry is built on the foundation of accurate prophecy and apostolic authority. We believe in the leadership that follows the Spirit, providing a clear path for millions to find their divine identity.
               </p>
               <div className="grid grid-cols-1 gap-3">
                 {["Infallible Word of God", "The Holy Trinity", "Supernatural Healing", "Prophetic Revelation", "Kingdom Expansion"].map(item => (
-                  <div key={item} className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-white">
-                    <Star className="h-3.5 w-3.5 text-primary fill-primary" />
+                  <div key={item} className="flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.2em] text-white">
+                    <Star className="h-3 w-3 text-primary fill-primary" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -89,7 +90,7 @@ export default function AboutPage() {
       </section>
 
       {/* Beliefs Grid */}
-      <section className="py-24 px-4 bg-black">
+      <section className="py-20 px-4 bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5">
             {[
@@ -100,9 +101,9 @@ export default function AboutPage() {
               { title: "Resurrection", desc: "The resurrection of both the saved and the lost." },
               { title: "Authority", desc: "Believers are called to walk in divine power and dominion." }
             ].map((belief, idx) => (
-              <div key={idx} className="bg-black p-10 group hover:bg-primary transition-all duration-500">
-                <h4 className="text-xl font-black italic mb-3 text-primary group-hover:text-black">{belief.title}</h4>
-                <p className="text-[10px] uppercase tracking-widest leading-loose text-muted-foreground group-hover:text-black/80">{belief.desc}</p>
+              <div key={idx} className="bg-black p-8 group hover:bg-primary transition-all duration-500">
+                <h4 className="text-lg font-black italic mb-3 text-primary group-hover:text-black">{belief.title}</h4>
+                <p className="text-[9px] uppercase tracking-widest leading-loose text-muted-foreground group-hover:text-black/80">{belief.desc}</p>
               </div>
             ))}
           </div>
