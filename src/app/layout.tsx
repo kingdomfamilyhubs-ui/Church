@@ -6,7 +6,7 @@ import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
   title: 'Growing In Faith Global Church',
-  description: 'Transforming non extinct into existence, Romans 4:17. A global mandate to walk in supernatural power and divine revelation.',
+  description: 'Transforming non extinct into existence, Romans 4:17. Our mission is to Save, equip and deploy people into their God ordained purpose here on earth.',
 };
 
 export default function RootLayout({

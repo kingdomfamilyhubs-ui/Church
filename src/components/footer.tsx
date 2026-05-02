@@ -19,7 +19,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-muted-foreground leading-loose text-justify italic">
-              "Transforming non extinct into existence" — Romans 4:17. Operating in divine authority to reveal God's glory globally.
+              "Transforming non extinct into existence" — Romans 4:17. Our mission is to Save, equip and deploy people into their God ordained purpose here on earth.
             </p>
           </div>
 
