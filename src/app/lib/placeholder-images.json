@@ -1,64 +1,34 @@
 {
   "placeholderImages": [
     {
-      "id": "hero-church",
-      "description": "A modern church interior with warm lighting.",
-      "imageUrl": "https://picsum.photos/seed/church1/1920/1080",
-      "imageHint": "church interior"
+      "id": "hero-prophetic",
+      "description": "Powerful worship scene with dynamic lighting.",
+      "imageUrl": "https://picsum.photos/seed/src-prophetic/1920/1080",
+      "imageHint": "church power"
     },
     {
-      "id": "about-vision",
-      "description": "People gathered in a modern spiritual setting.",
-      "imageUrl": "https://picsum.photos/seed/vision/800/600",
-      "imageHint": "community worship"
+      "id": "prophet-lead",
+      "description": "The Lead Prophet speaking with authority.",
+      "imageUrl": "https://picsum.photos/seed/prophet/800/1000",
+      "imageHint": "pastor leadership"
     },
     {
-      "id": "sermon-1",
-      "description": "Pastor speaking at a pulpit.",
-      "imageUrl": "https://picsum.photos/seed/sermon1/600/400",
-      "imageHint": "pastor speaking"
+      "id": "revelation-service",
+      "description": "A service filled with the word and revelation.",
+      "imageUrl": "https://picsum.photos/seed/revelation/800/600",
+      "imageHint": "spiritual meeting"
     },
     {
-      "id": "sermon-2",
-      "description": "Bible study group.",
-      "imageUrl": "https://picsum.photos/seed/sermon2/600/400",
-      "imageHint": "bible study"
+      "id": "media-messages",
+      "description": "High-quality sermon recording equipment.",
+      "imageUrl": "https://picsum.photos/seed/media/600/400",
+      "imageHint": "broadcast ministry"
     },
     {
-      "id": "sermon-3",
-      "description": "Healing and prayer service.",
-      "imageUrl": "https://picsum.photos/seed/sermon3/600/400",
-      "imageHint": "healing prayer"
-    },
-    {
-      "id": "sermon-4",
-      "description": "Financial stewardship workshop.",
-      "imageUrl": "https://picsum.photos/seed/sermon4/600/400",
-      "imageHint": "stewardship"
-    },
-    {
-      "id": "event-youth",
-      "description": "Youth summit gathering.",
-      "imageUrl": "https://picsum.photos/seed/youth/800/500",
-      "imageHint": "youth summit"
-    },
-    {
-      "id": "event-missions",
-      "description": "Global missions report night.",
-      "imageUrl": "https://picsum.photos/seed/missions/800/500",
-      "imageHint": "global missions"
-    },
-    {
-      "id": "event-easter",
-      "description": "Easter Sunday celebration service.",
-      "imageUrl": "https://picsum.photos/seed/easter/800/500",
-      "imageHint": "easter service"
-    },
-    {
-      "id": "ai-scripture",
-      "description": "Bible study with AI tools.",
-      "imageUrl": "https://picsum.photos/seed/ai-scripture/800/600",
-      "imageHint": "bible study"
+      "id": "conference-event",
+      "description": "Large scale prophetic conference.",
+      "imageUrl": "https://picsum.photos/seed/conference/800/500",
+      "imageHint": "global conference"
     }
   ]
 }

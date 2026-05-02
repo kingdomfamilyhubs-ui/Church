@@ -1,30 +1,29 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 270 14% 9%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 98%;
-    --card: 270 14% 12%;
+    --card: 0 0% 5%;
     --card-foreground: 0 0% 98%;
-    --popover: 270 14% 9%;
+    --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 251 58% 38%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 270 10% 20%;
+    --primary: 47 95% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 270 10% 15%;
-    --muted-foreground: 270 5% 70%;
-    --accent: 206 61% 64%;
-    --accent-foreground: 270 14% 9%;
-    --destructive: 0 84.2% 60.2%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 47 95% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 270 10% 20%;
-    --input: 270 10% 20%;
-    --ring: 251 58% 38%;
-    --radius: 0.75rem;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 47 95% 50%;
+    --radius: 0.5rem;
   }
 }
 
@@ -36,12 +35,12 @@
     @apply bg-background text-foreground font-body antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-headline font-bold tracking-tight;
+    @apply font-headline font-bold tracking-tight uppercase;
   }
 }
 
-.bg-church-hero {
-  background: linear-gradient(rgba(24, 20, 26, 0.7), rgba(24, 20, 26, 0.9)), url('https://picsum.photos/seed/church1/1920/1080');
+.bg-src-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url('https://picsum.photos/seed/spirit-church/1920/1080');
   background-size: cover;
   background-position: center;
 }
