@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,7 +24,7 @@
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 47 95% 50%;
-    --radius: 0.5rem;
+    --radius: 0rem;
   }
 }
 
@@ -32,7 +33,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground font-body antialiased selection:bg-primary selection:text-primary-foreground;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline font-black tracking-tighter uppercase italic;
@@ -42,5 +43,8 @@
 @layer utilities {
   .tracking-widest-plus {
     letter-spacing: 0.4em;
+  }
+  .text-shadow-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
   }
 }
