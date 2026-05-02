@@ -79,7 +79,7 @@ export default function AdminEventsPage() {
                   value={formData.title}
                   onChange={(e) => setFormData({...formData, title: e.target.value})}
                   placeholder="e.g., Youth Summit 2024" 
-                  className="h-12 bg-secondary/10 border-border rounded-md text-sm" 
+                  className="h-11 bg-secondary/10 border-border rounded-md text-sm" 
                   required 
                 />
               </div>
@@ -91,7 +91,7 @@ export default function AdminEventsPage() {
                     value={formData.date}
                     onChange={(e) => setFormData({...formData, date: e.target.value})}
                     placeholder="e.g., March 15-17, 2024" 
-                    className="h-12 bg-secondary/10 border-border rounded-md text-sm" 
+                    className="h-11 bg-secondary/10 border-border rounded-md text-sm" 
                     required 
                   />
                 </div>
@@ -101,7 +101,7 @@ export default function AdminEventsPage() {
                     value={formData.time}
                     onChange={(e) => setFormData({...formData, time: e.target.value})}
                     placeholder="e.g., 6:00 PM" 
-                    className="h-12 bg-secondary/10 border-border rounded-md text-sm" 
+                    className="h-11 bg-secondary/10 border-border rounded-md text-sm" 
                     required 
                   />
                 </div>
@@ -113,7 +113,7 @@ export default function AdminEventsPage() {
                   value={formData.location}
                   onChange={(e) => setFormData({...formData, location: e.target.value})}
                   placeholder="e.g., Main Sanctuary" 
-                  className="h-12 bg-secondary/10 border-border rounded-md text-sm" 
+                  className="h-11 bg-secondary/10 border-border rounded-md text-sm" 
                   required 
                 />
               </div>
@@ -124,7 +124,7 @@ export default function AdminEventsPage() {
                   value={formData.imageUrl}
                   onChange={(e) => setFormData({...formData, imageUrl: e.target.value})}
                   placeholder="https://images.unsplash.com/..." 
-                  className="h-12 bg-secondary/10 border-border rounded-md text-sm" 
+                  className="h-11 bg-secondary/10 border-border rounded-md text-sm" 
                 />
               </div>
 
@@ -134,17 +134,17 @@ export default function AdminEventsPage() {
                   value={formData.description}
                   onChange={(e) => setFormData({...formData, description: e.target.value})}
                   placeholder="Provide details about the event..." 
-                  className="min-h-[150px] bg-secondary/10 border-border rounded-md text-sm resize-none" 
+                  className="min-h-[120px] bg-secondary/10 border-border rounded-md text-sm resize-none" 
                   required 
                 />
               </div>
 
               <Button 
                 type="submit"
-                className="w-full h-14 bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-[0.3em] rounded-md hover:opacity-90 transition-all"
+                className="w-full h-12 bg-primary text-primary-foreground text-[9px] font-black uppercase tracking-[0.3em] rounded-md hover:opacity-90 transition-all shadow-lg"
                 disabled={loading}
               >
-                {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : "PUBLISH EVENT"}
+                {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "PUBLISH EVENT"}
               </Button>
             </form>
           </CardContent>

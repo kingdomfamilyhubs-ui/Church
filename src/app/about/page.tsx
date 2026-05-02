@@ -14,8 +14,8 @@ export default function AboutPage() {
           </div>
         </div>
         <div className="max-w-4xl mx-auto relative z-10">
-          <div className="inline-block px-4 py-1 border border-primary/20 bg-primary/5 text-primary text-[9px] font-black uppercase tracking-[0.4em] mb-8">
-            Our Divine Mandate
+          <div className="inline-block px-3 py-1 border border-primary/20 bg-primary/5 text-primary text-[8px] font-black uppercase tracking-[0.4em] mb-8">
+            OUR DIVINE MANDATE
           </div>
           <h1 className="text-3xl md:text-4xl mb-6 font-black italic tracking-tighter uppercase text-card-foreground leading-none">WHO WE ARE</h1>
           <p className="text-[11px] md:text-xs text-card-foreground/80 max-w-2xl mx-auto leading-relaxed italic">
@@ -24,11 +24,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Core Identity Pillars - Grid Layout */}
+      {/* Core Identity Pillars */}
       <section className="py-24 px-6 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="grid grid-cols-1 gap-12">
+            <div className="grid grid-cols-1 gap-8">
               <div className="relative group p-6 border-l-2 border-primary/20 hover:border-primary transition-colors bg-secondary/10 rounded-r-xl">
                 <h2 className="text-lg font-black italic mb-3 text-foreground uppercase tracking-tight">OUR VISION</h2>
                 <p className="text-[11px] text-muted-foreground leading-relaxed">
@@ -74,7 +74,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Kingdom Principles - Dark Cards */}
+      {/* Kingdom Principles */}
       <section className="py-24 bg-card border-y border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">

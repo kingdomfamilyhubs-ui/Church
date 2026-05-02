@@ -27,8 +27,8 @@ export default function EventsPage() {
           </div>
         </div>
         <div className="max-w-4xl mx-auto relative z-10">
-          <div className="inline-block px-4 py-1.5 border border-primary/20 bg-primary/5 text-primary text-[9px] font-black uppercase tracking-[0.4em] mb-8">
-            Kingdom Gatherings
+          <div className="inline-block px-3 py-1 border border-primary/20 bg-primary/5 text-primary text-[8px] font-black uppercase tracking-[0.4em] mb-8">
+            KINGDOM GATHERINGS
           </div>
           <h1 className="text-3xl md:text-5xl mb-6 font-black italic tracking-tighter uppercase text-card-foreground leading-none">UPCOMING EVENTS</h1>
           <p className="text-[11px] md:text-xs text-card-foreground/80 max-w-xl mx-auto leading-relaxed italic font-medium">
@@ -61,22 +61,22 @@ export default function EventsPage() {
                     <div className="space-y-4 mb-8">
                       <div className="flex items-center gap-3 text-primary">
                         <Calendar className="h-4 w-4" />
-                        <span className="font-black uppercase text-[9px] tracking-[0.15em]">{event.date}</span>
+                        <span className="font-black uppercase text-[8px] tracking-[0.15em]">{event.date}</span>
                       </div>
                       <div className="flex items-center gap-3 text-card-foreground/60">
                         <Clock className="h-4 w-4" />
-                        <span className="text-[9px] font-black uppercase tracking-[0.15em]">{event.time}</span>
+                        <span className="text-[8px] font-black uppercase tracking-[0.15em]">{event.time}</span>
                       </div>
                       <div className="flex items-center gap-3 text-card-foreground/60">
                         <MapPin className="h-4 w-4" />
-                        <span className="text-[9px] font-black uppercase tracking-[0.15em]">{event.location}</span>
+                        <span className="text-[8px] font-black uppercase tracking-[0.15em]">{event.location}</span>
                       </div>
                     </div>
                     <p className="text-[11px] text-card-foreground/70 leading-relaxed italic mb-10 font-medium">
                       {event.description}
                     </p>
                     <Button className="bg-primary text-primary-foreground w-fit px-8 rounded-md h-11 flex items-center gap-3 group/btn uppercase text-[9px] font-black tracking-widest shadow-lg">
-                      Register Now <ArrowRight className="h-3 w-3 group-hover/btn:translate-x-1 transition-transform" />
+                      REGISTER NOW <ArrowRight className="h-3 w-3 group-hover/btn:translate-x-1 transition-transform" />
                     </Button>
                   </CardContent>
                 </div>
@@ -84,7 +84,7 @@ export default function EventsPage() {
             ))
           ) : (
             <div className="text-center py-24 border border-dashed border-border/20 rounded-xl bg-secondary/5">
-              <p className="text-muted-foreground uppercase text-[9px] font-black tracking-[0.3em]">No upcoming events at this time.</p>
+              <p className="text-muted-foreground uppercase text-[8px] font-black tracking-[0.3em]">No upcoming events at this time.</p>
             </div>
           )}
         </div>
