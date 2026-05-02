@@ -7,10 +7,10 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-background pt-20">
-      {/* Advanced Header */}
-      <section className="bg-secondary/30 py-32 px-6 text-center border-b border-border relative overflow-hidden">
+      {/* Dark Advanced Header */}
+      <section className="bg-card py-32 px-6 text-center border-b border-border relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black italic uppercase text-foreground whitespace-nowrap">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black italic uppercase text-primary whitespace-nowrap">
             IDENTITY
           </div>
         </div>
@@ -18,7 +18,7 @@ export default function AboutPage() {
           <div className="inline-block px-4 py-1.5 border border-primary/20 bg-primary/5 text-primary text-[10px] font-black uppercase tracking-[0.4em] mb-10">
             Our Divine Mandate
           </div>
-          <h1 className="text-4xl md:text-6xl mb-8 font-black italic tracking-tighter uppercase text-foreground leading-[0.9]">WHO WE ARE</h1>
+          <h1 className="text-4xl md:text-6xl mb-8 font-black italic tracking-tighter uppercase text-card-foreground leading-[0.9]">WHO WE ARE</h1>
           <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed italic">
             A global family united by faith, driven by divine purpose, and anchored in the supernatural power of God.
           </p>
@@ -79,7 +79,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Kingdom Principles */}
+      {/* Kingdom Principles in Dark Cards */}
       <section className="py-32 bg-secondary/20 border-y border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-24">
@@ -95,9 +95,9 @@ export default function AboutPage() {
               { title: "DIVINE HEALING", desc: "We believe that the redemptive work of Christ provides healing for the whole human person." },
               { title: "DOMINION MANDATE", desc: "We believe in the power and authority of the believer to govern and occupy the earth for the Kingdom." }
             ].map((belief, idx) => (
-              <div key={idx} className="bg-background p-10 border border-border hover:border-primary hover:shadow-xl transition-all duration-500 rounded-md group">
+              <div key={idx} className="bg-card p-10 border border-border hover:border-primary hover:shadow-xl transition-all duration-500 rounded-md group">
                 <h4 className="text-[10px] font-black italic mb-4 text-primary uppercase tracking-widest">{belief.title}</h4>
-                <p className="text-xs text-muted-foreground group-hover:text-foreground leading-relaxed transition-colors">{belief.desc}</p>
+                <p className="text-xs text-card-foreground group-hover:text-primary leading-relaxed transition-colors">{belief.desc}</p>
               </div>
             ))}
           </div>

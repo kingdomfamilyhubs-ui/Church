@@ -49,7 +49,7 @@ export default function Home() {
       <section className="py-32 bg-secondary/20 text-center px-6 border-b border-border">
         <div className="max-w-3xl mx-auto space-y-10">
           <Star className="h-8 w-8 text-primary mx-auto" />
-          <h2 className="text-3xl md:text-5xl font-black italic text-foreground uppercase leading-none">A Global Mandate</h2>
+          <h2 className="text-2xl font-black italic text-foreground uppercase leading-none">A Global Mandate</h2>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-xl mx-auto">
             We are a unique prophetic generation raised to dominate, govern and colonize the earth with kingdom principles, leadership, lifestyle, values and culture.
           </p>

@@ -3,7 +3,7 @@ import { Zap, Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube } from 
 
 export function Footer() {
   return (
-    <footer className="bg-secondary/30 py-24 border-t border-border">
+    <footer className="bg-card py-24 border-t border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-12">
           <div className="space-y-8">
@@ -12,7 +12,7 @@ export function Footer() {
                 <Zap className="h-5 w-5 text-primary-foreground -rotate-45" />
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-black tracking-tighter text-foreground leading-none uppercase italic">
+                <span className="text-lg font-black tracking-tighter text-card-foreground leading-none uppercase italic">
                   GROWING <span className="text-primary transition-colors">IN FAITH</span>
                 </span>
                 <span className="text-[7px] tracking-[0.4em] text-muted-foreground uppercase mt-1">Global Church</span>
@@ -38,15 +38,15 @@ export function Footer() {
             <ul className="space-y-5 text-[11px] text-muted-foreground font-medium">
               <li className="flex items-center gap-4">
                 <MapPin className="h-4 w-4 text-primary shrink-0" /> 
-                <span>Faith HQ, Global City Hub</span>
+                <span className="text-card-foreground">Faith HQ, Global City Hub</span>
               </li>
               <li className="flex items-center gap-4">
                 <Phone className="h-4 w-4 text-primary shrink-0" /> 
-                <span>+1 (800) FAITH-NOW</span>
+                <span className="text-card-foreground">+1 (800) FAITH-NOW</span>
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="h-4 w-4 text-primary shrink-0" /> 
-                <span>office@gifglobalchurch.org</span>
+                <span className="text-card-foreground">office@gifglobalchurch.org</span>
               </li>
             </ul>
           </div>
@@ -62,7 +62,7 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="mt-24 pt-8 border-t border-border text-center text-[9px] font-bold uppercase tracking-widest text-muted-foreground">
+        <div className="mt-24 pt-8 border-t border-border/10 text-center text-[9px] font-bold uppercase tracking-widest text-muted-foreground">
           <p>© {new Date().getFullYear()} Growing In Faith Global Church. Transforming non extinct into existence.</p>
         </div>
       </div>
