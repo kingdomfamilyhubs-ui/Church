@@ -1,5 +1,12 @@
+
 {
   "placeholderImages": [
+    {
+      "id": "hero-landing",
+      "description": "A high-impact, cinematic image of a modern church sanctuary with dynamic light rays, representing spiritual clarity and power.",
+      "imageUrl": "https://picsum.photos/seed/gif-landing/1920/1080",
+      "imageHint": "modern church"
+    },
     {
       "id": "hero-prophetic",
       "description": "Powerful worship scene with dynamic gold lighting at Growing In Faith Global Church.",
