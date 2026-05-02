@@ -11,6 +11,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import {
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -72,6 +79,7 @@ export function Navbar() {
             </Link>
           </div>
 
+          {/* Desktop Nav */}
           <div className="hidden lg:block">
             <div className="flex items-center space-x-8">
               {navLinks.map((link) => (
@@ -113,66 +121,74 @@ export function Navbar() {
             </div>
           </div>
 
+          {/* Mobile Nav Toggle */}
           <div className="lg:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-white hover:text-primary transition-colors"
-            >
-              {isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
-            </button>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <button className="p-2 text-white hover:text-primary transition-colors">
+                  <Menu className="h-8 w-8" />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="right" className="bg-black border-white/10 p-0 text-white w-[300px]">
+                <SheetHeader className="p-6 border-b border-white/5">
+                  <SheetTitle className="text-left">
+                     <div className="flex items-center gap-3">
+                        <Zap className="h-5 w-5 text-primary" />
+                        <span className="text-sm font-black tracking-tighter uppercase italic">
+                          GROWING <span className="text-primary">IN FAITH</span>
+                        </span>
+                     </div>
+                  </SheetTitle>
+                </SheetHeader>
+                <div className="px-6 py-8 space-y-2">
+                  <Accordion type="single" collapsible className="w-full">
+                    {navLinks.map((link) => (
+                      <div key={link.name} className="border-b border-white/5">
+                        {link.subItems ? (
+                          <AccordionItem value={link.name} className="border-none">
+                            <AccordionTrigger className="py-5 text-[10px] font-black uppercase tracking-widest text-white hover:text-primary hover:no-underline">
+                              {link.name}
+                            </AccordionTrigger>
+                            <AccordionContent className="pb-6">
+                              <div className="flex flex-col pl-4 space-y-4">
+                                {link.subItems.map((sub) => (
+                                  <Link
+                                    key={sub.name}
+                                    href={sub.href}
+                                    className="text-[9px] font-black uppercase tracking-widest text-muted-foreground hover:text-primary py-1"
+                                    onClick={() => setIsOpen(false)}
+                                  >
+                                    {sub.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+                        ) : (
+                          <Link
+                            href={link.href}
+                            className="block py-5 text-[10px] font-black uppercase tracking-widest text-white hover:text-primary"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {link.name}
+                          </Link>
+                        )}
+                      </div>
+                    ))}
+                  </Accordion>
+                  <div className="pt-12">
+                    <Button asChild className="w-full bg-primary text-black h-14 rounded-none font-black uppercase tracking-widest text-[10px]">
+                      <Link href="/give" onClick={() => setIsOpen(false)}>
+                        Give & Partner
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
-
-      {isOpen && (
-        <div className="lg:hidden fixed inset-0 top-20 bg-black z-40 overflow-y-auto">
-          <div className="px-6 py-12 space-y-2">
-            <Accordion type="single" collapsible className="w-full">
-              {navLinks.map((link) => (
-                <div key={link.name} className="border-b border-white/5">
-                  {link.subItems ? (
-                    <AccordionItem value={link.name} className="border-none">
-                      <AccordionTrigger className="py-5 text-xs font-black uppercase tracking-widest text-white hover:text-primary hover:no-underline">
-                        {link.name}
-                      </AccordionTrigger>
-                      <AccordionContent className="pb-6">
-                        <div className="flex flex-col pl-4 space-y-4">
-                          {link.subItems.map((sub) => (
-                            <Link
-                              key={sub.name}
-                              href={sub.href}
-                              className="text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:text-primary py-1"
-                              onClick={() => setIsOpen(false)}
-                            >
-                              {sub.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className="block py-5 text-xs font-black uppercase tracking-widest text-white hover:text-primary"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  )}
-                </div>
-              ))}
-            </Accordion>
-            
-            <div className="pt-12">
-              <Button asChild className="w-full bg-primary text-black h-16 rounded-none font-black uppercase tracking-widest text-[11px]">
-                <Link href="/give" onClick={() => setIsOpen(false)}>
-                  Giving & Partnership
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
     </nav>
   );
 }
