@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Heart, Zap, ChevronDown } from "lucide-react";
+import { Menu, Heart, Zap, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -62,19 +62,19 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-black/95 backdrop-blur-md border-b border-white/10">
+    <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex justify-between h-20 md:h-24 items-center">
+        <div className="flex justify-between h-20 items-center">
           <div className="flex-shrink-0 flex items-center gap-4">
             <Link href="/" className="flex items-center gap-4 group">
-              <div className="bg-primary p-2 group-hover:bg-white transition-all rotate-45">
-                <Zap className="h-6 w-6 text-black -rotate-45" />
+              <div className="bg-primary p-2 rotate-45">
+                <Zap className="h-5 w-5 text-primary-foreground -rotate-45" />
               </div>
               <div className="flex flex-col">
-                <span className="text-lg md:text-xl font-black tracking-tighter text-white leading-none uppercase italic">
+                <span className="text-lg font-black tracking-tighter text-foreground leading-none uppercase italic">
                   GROWING <span className="text-primary">IN FAITH</span>
                 </span>
-                <span className="text-[8px] md:text-[9px] tracking-[0.4em] text-muted-foreground uppercase mt-1">Global Church</span>
+                <span className="text-[8px] tracking-[0.4em] text-muted-foreground uppercase mt-1">Global Church</span>
               </div>
             </Link>
           </div>
@@ -86,15 +86,15 @@ export function Navbar() {
                 <div key={link.name}>
                   {link.subItems ? (
                     <DropdownMenu>
-                      <DropdownMenuTrigger className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-white hover:text-primary transition-colors outline-none">
+                      <DropdownMenuTrigger className="flex items-center gap-1 text-[10px] font-black uppercase tracking-widest text-foreground hover:text-primary transition-colors outline-none">
                         {link.name} <ChevronDown className="h-3 w-3" />
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent className="bg-zinc-950 border-white/10 text-white min-w-[240px] rounded-none p-0 mt-4">
+                      <DropdownMenuContent className="bg-background border-border min-w-[200px] rounded-md p-1 mt-2 shadow-xl">
                         {link.subItems.map((sub) => (
                           <DropdownMenuItem key={sub.name} asChild>
                             <Link
                               href={sub.href}
-                              className="w-full text-[9px] font-black uppercase tracking-[0.2em] py-4 px-6 hover:bg-primary hover:text-black transition-colors cursor-pointer block"
+                              className="w-full text-[9px] font-bold uppercase tracking-[0.1em] py-3 px-4 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer block"
                             >
                               {sub.name}
                             </Link>
@@ -105,16 +105,16 @@ export function Navbar() {
                   ) : (
                     <Link
                       href={link.href}
-                      className="text-[10px] font-black uppercase tracking-widest text-white hover:text-primary transition-colors"
+                      className="text-[10px] font-black uppercase tracking-widest text-foreground hover:text-primary transition-colors"
                     >
                       {link.name}
                     </Link>
                   )}
                 </div>
               ))}
-              <Button asChild className="bg-primary text-black hover:bg-white rounded-none h-11 px-8 font-black uppercase tracking-widest text-[10px]">
+              <Button asChild size="sm" className="bg-primary text-primary-foreground hover:opacity-90 rounded-md font-black uppercase tracking-widest text-[9px] px-6">
                 <Link href="/give" className="flex items-center gap-2">
-                  <Heart className="h-3.5 w-3.5 fill-current" />
+                  <Heart className="h-3 w-3 fill-current" />
                   Partnership
                 </Link>
               </Button>
@@ -125,12 +125,12 @@ export function Navbar() {
           <div className="lg:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <button className="p-2 text-white hover:text-primary transition-colors">
-                  <Menu className="h-8 w-8" />
+                <button className="p-2 text-foreground hover:text-primary transition-colors">
+                  <Menu className="h-7 w-7" />
                 </button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-black border-white/10 p-0 text-white w-[300px]">
-                <SheetHeader className="p-6 border-b border-white/5">
+              <SheetContent side="right" className="bg-background border-l border-border p-0 w-[300px]">
+                <SheetHeader className="p-6 border-b border-border">
                   <SheetTitle className="text-left">
                      <div className="flex items-center gap-3">
                         <Zap className="h-5 w-5 text-primary" />
@@ -140,22 +140,22 @@ export function Navbar() {
                      </div>
                   </SheetTitle>
                 </SheetHeader>
-                <div className="px-6 py-8 space-y-2">
+                <div className="px-6 py-6 space-y-1">
                   <Accordion type="single" collapsible className="w-full">
                     {navLinks.map((link) => (
-                      <div key={link.name} className="border-b border-white/5">
+                      <div key={link.name} className="border-b border-border/50">
                         {link.subItems ? (
                           <AccordionItem value={link.name} className="border-none">
-                            <AccordionTrigger className="py-5 text-[10px] font-black uppercase tracking-widest text-white hover:text-primary hover:no-underline">
+                            <AccordionTrigger className="py-4 text-[10px] font-black uppercase tracking-widest text-foreground hover:text-primary hover:no-underline">
                               {link.name}
                             </AccordionTrigger>
-                            <AccordionContent className="pb-6">
-                              <div className="flex flex-col pl-4 space-y-4">
+                            <AccordionContent className="pb-4">
+                              <div className="flex flex-col pl-4 space-y-3">
                                 {link.subItems.map((sub) => (
                                   <Link
                                     key={sub.name}
                                     href={sub.href}
-                                    className="text-[9px] font-black uppercase tracking-widest text-muted-foreground hover:text-primary py-1"
+                                    className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground hover:text-primary py-1"
                                     onClick={() => setIsOpen(false)}
                                   >
                                     {sub.name}
@@ -167,7 +167,7 @@ export function Navbar() {
                         ) : (
                           <Link
                             href={link.href}
-                            className="block py-5 text-[10px] font-black uppercase tracking-widest text-white hover:text-primary"
+                            className="block py-4 text-[10px] font-black uppercase tracking-widest text-foreground hover:text-primary"
                             onClick={() => setIsOpen(false)}
                           >
                             {link.name}
@@ -176,8 +176,8 @@ export function Navbar() {
                       </div>
                     ))}
                   </Accordion>
-                  <div className="pt-12">
-                    <Button asChild className="w-full bg-primary text-black h-14 rounded-none font-black uppercase tracking-widest text-[10px]">
+                  <div className="pt-8">
+                    <Button asChild className="w-full bg-primary text-primary-foreground h-12 rounded-md font-black uppercase tracking-widest text-[10px]">
                       <Link href="/give" onClick={() => setIsOpen(false)}>
                         Give & Partner
                       </Link>
