@@ -2,33 +2,27 @@
   "placeholderImages": [
     {
       "id": "hero-prophetic",
-      "description": "Powerful worship scene with dynamic lighting.",
+      "description": "Powerful worship scene with dynamic gold lighting.",
       "imageUrl": "https://picsum.photos/seed/src-prophetic/1920/1080",
       "imageHint": "church power"
     },
     {
       "id": "prophet-lead",
-      "description": "The Lead Prophet speaking with authority.",
-      "imageUrl": "https://picsum.photos/seed/prophet/800/1000",
-      "imageHint": "pastor leadership"
+      "description": "Leadership speaking with apostolic authority.",
+      "imageUrl": "https://picsum.photos/seed/prophet-main/800/1000",
+      "imageHint": "religious leader"
+    },
+    {
+      "id": "about-vision",
+      "description": "Global community gathered in spiritual unity.",
+      "imageUrl": "https://picsum.photos/seed/vision-global/800/1000",
+      "imageHint": "spiritual community"
     },
     {
       "id": "revelation-service",
-      "description": "A service filled with the word and revelation.",
-      "imageUrl": "https://picsum.photos/seed/revelation/800/600",
+      "description": "A service filled with deep biblical revelation.",
+      "imageUrl": "https://picsum.photos/seed/revelation-meeting/800/600",
       "imageHint": "spiritual meeting"
-    },
-    {
-      "id": "media-messages",
-      "description": "High-quality sermon recording equipment.",
-      "imageUrl": "https://picsum.photos/seed/media/600/400",
-      "imageHint": "broadcast ministry"
-    },
-    {
-      "id": "conference-event",
-      "description": "Large scale prophetic conference.",
-      "imageUrl": "https://picsum.photos/seed/conference/800/500",
-      "imageHint": "global conference"
     }
   ]
 }

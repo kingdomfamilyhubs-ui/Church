@@ -23,7 +23,7 @@
     --border: 0 0% 15%;
     --input: 0 0% 15%;
     --ring: 47 95% 50%;
-    --radius: 0.5rem;
+    --radius: 0rem;
   }
 }
 
@@ -39,8 +39,16 @@
   }
 }
 
-.bg-src-hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url('https://picsum.photos/seed/spirit-church/1920/1080');
+.bg-hero-pattern {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.95)), url('https://picsum.photos/seed/spirit-church/1920/1080');
   background-size: cover;
   background-position: center;
+}
+
+.text-gold {
+  color: hsl(var(--primary));
+}
+
+.border-gold {
+  border-color: hsl(var(--primary));
 }
