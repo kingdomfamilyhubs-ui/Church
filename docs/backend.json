@@ -1,0 +1,27 @@
+{
+  "entities": {
+    "Event": {
+      "title": "Church Event",
+      "description": "Information about a ministry event.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The name of the event." },
+        "date": { "type": "string", "description": "The date of the event." },
+        "time": { "type": "string", "description": "The time of the event." },
+        "location": { "type": "string", "description": "Where the event takes place." },
+        "description": { "type": "string", "description": "Details about the event." },
+        "imageUrl": { "type": "string", "description": "Link to an event image." }
+      },
+      "required": ["title", "date", "time", "location", "description"]
+    }
+  },
+  "auth": {
+    "providers": ["google.com"]
+  },
+  "firestore": {
+    "/events/{eventId}": {
+      "schema": "Event",
+      "description": "Collection of ministry events."
+    }
+  }
+}

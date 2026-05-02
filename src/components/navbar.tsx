@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
-import { Menu, Heart, Zap, ChevronDown } from "lucide-react";
+import { Menu, Heart, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -47,6 +48,7 @@ export function Navbar() {
         { name: "USA PROPERTY VOW", href: "/give" },
       ],
     },
+    { name: "EVENTS", href: "/events" },
     { name: "VISIT", href: "/contact" },
     {
       name: "RESOURCES",
@@ -55,7 +57,6 @@ export function Navbar() {
         { name: "GIF STORE", href: "/resources/library" },
         { name: "DIGITAL SUBSCRIPTION", href: "/resources/library" },
         { name: "DIGITAL LIBRARY", href: "/resources/library" },
-        { name: "PARTNERSHIP", href: "/give" },
       ],
     },
     { name: "JOIN YOUR TRIBE", href: "/join" },
@@ -65,10 +66,11 @@ export function Navbar() {
     <nav className="fixed top-0 w-full z-50 bg-card border-b border-border/10 shadow-lg">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex justify-between h-20 items-center">
-          <div className="flex-shrink-0 flex items-center gap-4">
+          <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center gap-4 group">
-              <div className="bg-primary p-2 rotate-45">
-                <Zap className="h-5 w-5 text-primary-foreground -rotate-45" />
+              {/* Replace with actual logo image when available */}
+              <div className="relative h-10 w-10 overflow-hidden rounded-md bg-primary/20 flex items-center justify-center">
+                <span className="text-primary font-black italic text-xl">GIF</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-black tracking-tighter text-card-foreground leading-none uppercase italic">
@@ -133,7 +135,6 @@ export function Navbar() {
                 <SheetHeader className="p-6 border-b border-border/10">
                   <SheetTitle className="text-left">
                      <div className="flex items-center gap-3">
-                        <Zap className="h-5 w-5 text-primary" />
                         <span className="text-sm font-black tracking-tighter uppercase italic text-card-foreground">
                           GROWING <span className="text-primary">IN FAITH</span>
                         </span>

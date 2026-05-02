@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Zap, Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 
 export function Footer() {
   return (
@@ -8,8 +8,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-12">
           <div className="space-y-8">
             <Link href="/" className="flex items-center gap-4 group">
-              <div className="bg-primary p-2 rotate-45">
-                <Zap className="h-5 w-5 text-primary-foreground -rotate-45" />
+              <div className="relative h-8 w-8 overflow-hidden rounded-md bg-primary/20 flex items-center justify-center">
+                <span className="text-primary font-black italic text-sm">GIF</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-black tracking-tighter text-card-foreground leading-none uppercase italic">
