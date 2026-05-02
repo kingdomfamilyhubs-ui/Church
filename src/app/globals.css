@@ -35,7 +35,7 @@
     @apply bg-background text-foreground font-body antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-headline font-bold tracking-tight uppercase;
+    @apply font-headline font-bold tracking-tighter uppercase italic;
   }
 }
 
@@ -51,4 +51,10 @@
 
 .border-gold {
   border-color: hsl(var(--primary));
+}
+
+@layer utilities {
+  .tracking-extrawide {
+    letter-spacing: 0.5em;
+  }
 }
