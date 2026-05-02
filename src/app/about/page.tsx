@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
@@ -14,7 +15,7 @@ export default function AboutPage() {
           </div>
         </div>
         <div className="max-w-4xl mx-auto relative z-10">
-          <div className="inline-block px-3 py-1 border border-primary/20 bg-primary/5 text-primary text-[8px] font-black uppercase tracking-[0.4em] mb-8">
+          <div className="inline-block px-3 py-1 border border-primary/20 bg-primary/5 text-primary text-[8px] font-black uppercase tracking-[0.4em] mb-8 rounded-md">
             OUR DIVINE MANDATE
           </div>
           <h1 className="text-3xl md:text-4xl mb-6 font-black italic tracking-tighter uppercase text-card-foreground leading-none">WHO WE ARE</h1>
