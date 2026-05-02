@@ -20,65 +20,71 @@ export default function EventsPage() {
 
   return (
     <div className="min-h-screen bg-background pt-20">
-      <section className="bg-card py-24 px-6 text-center border-b border-border">
-        <div className="max-w-4xl mx-auto">
-          <div className="inline-block px-4 py-1.5 border border-primary/20 bg-primary/5 text-primary text-[10px] font-black uppercase tracking-[0.4em] mb-10">
+      <section className="bg-card py-20 px-6 text-center border-b border-white/5 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[10vw] font-black italic uppercase text-primary whitespace-nowrap">
+            GATHERING
+          </div>
+        </div>
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="inline-block px-4 py-1.5 border border-primary/20 bg-primary/5 text-primary text-[9px] font-black uppercase tracking-[0.4em] mb-8">
             Kingdom Gatherings
           </div>
-          <h1 className="text-4xl md:text-6xl mb-8 font-black italic tracking-tighter uppercase text-card-foreground leading-none">UPCOMING EVENTS</h1>
-          <p className="text-sm md:text-base text-card-foreground/80 max-w-2xl mx-auto leading-relaxed italic">
-            Stay connected with our community. There is always a place for you at our table.
+          <h1 className="text-3xl md:text-5xl mb-6 font-black italic tracking-tighter uppercase text-card-foreground leading-none">UPCOMING EVENTS</h1>
+          <p className="text-[11px] md:text-xs text-card-foreground/80 max-w-xl mx-auto leading-relaxed italic font-medium">
+            Stay connected with our global community. There is always a place for you at our prophetic table.
           </p>
         </div>
       </section>
 
-      <section className="py-24 px-6">
-        <div className="max-w-6xl mx-auto space-y-12">
+      <section className="py-20 px-6">
+        <div className="max-w-5xl mx-auto space-y-10">
           {loading ? (
             <div className="flex justify-center py-20">
-              <Loader2 className="h-10 w-10 animate-spin text-primary" />
+              <Loader2 className="h-8 w-8 animate-spin text-primary" />
             </div>
           ) : events && events.length > 0 ? (
             events.map((event: any) => (
-              <Card key={event.id} className="bg-card border border-border shadow-2xl overflow-hidden hover:border-primary transition-all duration-500 rounded-xl group">
+              <Card key={event.id} className="bg-card border border-white/5 shadow-xl overflow-hidden hover:border-primary transition-all duration-500 rounded-xl group">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
-                  <div className="relative h-64 lg:h-auto overflow-hidden">
+                  <div className="relative h-56 lg:h-auto overflow-hidden">
                     <Image 
                       src={event.imageUrl || "https://picsum.photos/seed/church-event/800/600"} 
                       alt={event.title} 
                       fill 
                       className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-r from-card/40 to-transparent" />
                   </div>
-                  <CardContent className="p-8 md:p-12 flex flex-col justify-center">
-                    <h2 className="text-3xl font-black italic mb-6 text-card-foreground uppercase leading-none tracking-tight">{event.title}</h2>
+                  <CardContent className="p-8 md:p-10 flex flex-col justify-center">
+                    <h2 className="text-2xl font-black italic mb-6 text-card-foreground uppercase leading-none tracking-tight">{event.title}</h2>
                     <div className="space-y-4 mb-8">
-                      <div className="flex items-center gap-4 text-primary">
-                        <Calendar className="h-5 w-5" />
-                        <span className="font-bold uppercase text-xs tracking-widest">{event.date}</span>
+                      <div className="flex items-center gap-3 text-primary">
+                        <Calendar className="h-4 w-4" />
+                        <span className="font-black uppercase text-[9px] tracking-[0.15em]">{event.date}</span>
                       </div>
-                      <div className="flex items-center gap-4 text-card-foreground/60">
-                        <Clock className="h-5 w-5" />
-                        <span className="text-xs font-bold uppercase tracking-widest">{event.time}</span>
+                      <div className="flex items-center gap-3 text-card-foreground/60">
+                        <Clock className="h-4 w-4" />
+                        <span className="text-[9px] font-black uppercase tracking-[0.15em]">{event.time}</span>
                       </div>
-                      <div className="flex items-center gap-4 text-card-foreground/60">
-                        <MapPin className="h-5 w-5" />
-                        <span className="text-xs font-bold uppercase tracking-widest">{event.location}</span>
+                      <div className="flex items-center gap-3 text-card-foreground/60">
+                        <MapPin className="h-4 w-4" />
+                        <span className="text-[9px] font-black uppercase tracking-[0.15em]">{event.location}</span>
                       </div>
                     </div>
-                    <p className="text-xs text-card-foreground/80 leading-relaxed italic mb-10">
+                    <p className="text-[11px] text-card-foreground/70 leading-relaxed italic mb-10 font-medium">
                       {event.description}
                     </p>
-                    <Button className="bg-primary text-primary-foreground w-fit px-10 rounded-md h-12 flex items-center gap-3 group/btn uppercase text-[10px] font-black tracking-widest">
-                      Register Now <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                    <Button className="bg-primary text-primary-foreground w-fit px-8 rounded-md h-11 flex items-center gap-3 group/btn uppercase text-[9px] font-black tracking-widest shadow-lg">
+                      Register Now <ArrowRight className="h-3 w-3 group-hover/btn:translate-x-1 transition-transform" />
                     </Button>
                   </CardContent>
                 </div>
               </Card>
             ))
           ) : (
-            <div className="text-center py-20 border border-dashed border-border rounded-xl">
-              <p className="text-muted-foreground uppercase text-[10px] font-black tracking-widest">No upcoming events at this time.</p>
+            <div className="text-center py-24 border border-dashed border-border/20 rounded-xl bg-secondary/5">
+              <p className="text-muted-foreground uppercase text-[9px] font-black tracking-[0.3em]">No upcoming events at this time.</p>
             </div>
           )}
         </div>

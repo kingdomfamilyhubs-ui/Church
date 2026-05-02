@@ -3,29 +3,29 @@ import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube } from "luci
 
 export function Footer() {
   return (
-    <footer className="bg-card py-24 border-t border-border/10">
+    <footer className="bg-card py-20 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-12">
-          <div className="space-y-8">
-            <Link href="/" className="flex items-center gap-4 group">
-              <div className="relative h-8 w-8 overflow-hidden rounded-md bg-primary/20 flex items-center justify-center">
-                <span className="text-primary font-black italic text-sm">GIF</span>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div className="space-y-6">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative h-8 w-8 overflow-hidden rounded-md bg-primary/20 flex items-center justify-center border border-primary/10">
+                <span className="text-primary font-black italic text-xs">GIF</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-black tracking-tighter text-card-foreground leading-none uppercase italic">
-                  GROWING <span className="text-primary transition-colors">IN FAITH</span>
+                <span className="text-sm font-black tracking-tighter text-card-foreground leading-none uppercase italic">
+                  GROWING <span className="text-primary">IN FAITH</span>
                 </span>
-                <span className="text-[7px] tracking-[0.4em] text-card-foreground/50 uppercase mt-1">Global Church</span>
+                <span className="text-[6px] tracking-[0.4em] text-card-foreground/50 uppercase mt-1 font-black">Global Church</span>
               </div>
             </Link>
-            <p className="text-[11px] text-card-foreground/60 leading-relaxed italic">
-              "Transforming non extinct into existence" — Romans 4:17. Our assignment is to raise a unique prophetic generation of disciples who will dominate and colonize the earth with Kingdom principles.
+            <p className="text-[10px] text-card-foreground/60 leading-relaxed italic font-medium">
+              "Transforming non extinct into existence" — Romans 4:17. Raising a unique prophetic generation of disciples to govern and colonize the earth.
             </p>
           </div>
 
           <div>
-            <h4 className="text-[10px] font-black mb-8 uppercase tracking-widest text-primary italic">THE MINISTRY</h4>
-            <ul className="space-y-4 text-[10px] font-bold uppercase tracking-widest text-card-foreground/70">
+            <h4 className="text-[9px] font-black mb-8 uppercase tracking-widest text-primary italic">THE MINISTRY</h4>
+            <ul className="space-y-4 text-[9px] font-black uppercase tracking-[0.2em] text-card-foreground/70">
               <li><Link href="/about" className="hover:text-primary transition-colors">VISION & MISSION</Link></li>
               <li><Link href="/sermons" className="hover:text-primary transition-colors">MEDIA ARCHIVE</Link></li>
               <li><Link href="/events" className="hover:text-primary transition-colors">UPCOMING EVENTS</Link></li>
@@ -34,36 +34,36 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[10px] font-black mb-8 uppercase tracking-widest text-primary italic">GET IN TOUCH</h4>
-            <ul className="space-y-5 text-[11px] text-card-foreground/70 font-medium">
+            <h4 className="text-[9px] font-black mb-8 uppercase tracking-widest text-primary italic">GET IN TOUCH</h4>
+            <ul className="space-y-5 text-[10px] text-card-foreground/70 font-medium">
               <li className="flex items-center gap-4">
                 <MapPin className="h-4 w-4 text-primary shrink-0" /> 
-                <span className="text-card-foreground uppercase text-[9px] font-bold tracking-wider">Faith HQ, Global City Hub</span>
+                <span className="text-card-foreground uppercase text-[8px] font-black tracking-wider">Faith HQ, Global City Hub</span>
               </li>
               <li className="flex items-center gap-4">
                 <Phone className="h-4 w-4 text-primary shrink-0" /> 
-                <span className="text-card-foreground uppercase text-[9px] font-bold tracking-wider">+1 (800) FAITH-NOW</span>
+                <span className="text-card-foreground uppercase text-[8px] font-black tracking-wider">+1 (800) FAITH-NOW</span>
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="h-4 w-4 text-primary shrink-0" /> 
-                <span className="text-card-foreground text-[9px] font-bold tracking-wider">growinginfaithglobalchurch@gmail.com</span>
+                <span className="text-card-foreground text-[8px] font-black tracking-wider break-all uppercase">growinginfaithglobalchurch@gmail.com</span>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-[10px] font-black mb-8 uppercase tracking-widest text-primary italic">OUR SOCIALS</h4>
-            <div className="flex gap-6">
-              <Link href="#" className="text-card-foreground/40 hover:text-primary transition-colors"><Facebook className="h-5 w-5" /></Link>
-              <Link href="#" className="text-card-foreground/40 hover:text-primary transition-colors"><Twitter className="h-5 w-5" /></Link>
-              <Link href="#" className="text-card-foreground/40 hover:text-primary transition-colors"><Instagram className="h-5 w-5" /></Link>
-              <Link href="#" className="text-card-foreground/40 hover:text-primary transition-colors"><Youtube className="h-5 w-5" /></Link>
+            <h4 className="text-[9px] font-black mb-8 uppercase tracking-widest text-primary italic">FOLLOW THE MANDATE</h4>
+            <div className="flex gap-5">
+              <Link href="#" className="text-card-foreground/30 hover:text-primary transition-colors"><Facebook className="h-4 w-4" /></Link>
+              <Link href="#" className="text-card-foreground/30 hover:text-primary transition-colors"><Twitter className="h-4 w-4" /></Link>
+              <Link href="#" className="text-card-foreground/30 hover:text-primary transition-colors"><Instagram className="h-4 w-4" /></Link>
+              <Link href="#" className="text-card-foreground/30 hover:text-primary transition-colors"><Youtube className="h-4 w-4" /></Link>
             </div>
           </div>
         </div>
         
-        <div className="mt-24 pt-8 border-t border-border/10 text-center text-[9px] font-bold uppercase tracking-widest text-card-foreground/40">
-          <p>© {new Date().getFullYear()} Growing In Faith Global Church. Transforming non extinct into existence.</p>
+        <div className="mt-20 pt-8 border-t border-white/5 text-center text-[7px] font-black uppercase tracking-[0.3em] text-card-foreground/40">
+          <p>© {new Date().getFullYear()} Growing In Faith Global Church. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
