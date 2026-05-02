@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Play, Zap, Globe, MessageCircle } from "lucide-react";
+import { Play, Zap, Globe, MessageCircle, Shield } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary text-black text-[8px] font-black uppercase tracking-[0.3em] mb-8 animate-in fade-in slide-in-from-top-4 duration-1000">
             Prophetic Revelation
           </div>
-          <h1 className="text-2xl md:text-4xl mb-6 leading-[1.1] font-black tracking-tighter uppercase italic animate-in fade-in zoom-in-95 duration-1000 text-white">
+          <h1 className="text-3xl md:text-5xl mb-6 leading-[1.1] font-black tracking-tighter uppercase italic animate-in fade-in zoom-in-95 duration-1000 text-white">
             GROWING <span className="text-primary">IN FAITH</span> <br/> GLOBAL CHURCH
           </h1>
           <p className="text-[10px] md:text-xs text-muted-foreground mb-10 max-w-3xl mx-auto font-bold italic leading-relaxed uppercase tracking-[0.2em] animate-in fade-in slide-in-from-bottom-4 duration-1000">
@@ -47,22 +47,22 @@ export default function Home() {
               { 
                 icon: Zap, 
                 title: "SUPERNATURAL POWER", 
-                desc: "Operating in the authentic authority of the Holy Spirit to transform destinies and reveal God's glory." 
+                desc: "Operating in the authentic authority of the Holy Spirit to transform destinies." 
               },
               { 
-                icon: Globe, 
-                title: "GLOBAL REACH", 
-                desc: "Connecting millions across the globe through prophetic ministry and divine leadership." 
+                icon: Shield, 
+                title: "PROPHETIC ASSIGNMENT", 
+                desc: "Raising a unique generation of disciples to dominate with Kingdom principles." 
               },
               { 
                 icon: MessageCircle, 
                 title: "DEEP REVELATION", 
-                desc: "Unveiling the hidden mysteries of the Word to provide precise direction for your future." 
+                desc: "Unveiling the hidden mysteries of the Word to provide precise direction." 
               }
             ].map((pillar, idx) => (
-              <div key={idx} className="group space-y-6 text-center md:text-left border-l-0 md:border-l border-primary/20 md:pl-8 transition-all hover:border-primary">
-                <pillar.icon className="h-8 w-8 text-primary mx-auto md:mx-0 group-hover:scale-110 transition-transform" />
-                <h3 className="text-base font-black italic text-white leading-tight">{pillar.title}</h3>
+              <div key={idx} className="group space-y-4 text-center md:text-left border-l-0 md:border-l border-primary/20 md:pl-8 transition-all hover:border-primary">
+                <pillar.icon className="h-6 w-6 text-primary mx-auto md:mx-0 group-hover:scale-110 transition-transform" />
+                <h3 className="text-sm font-black italic text-white leading-tight uppercase">{pillar.title}</h3>
                 <p className="text-muted-foreground leading-relaxed text-[8px] font-bold uppercase tracking-[0.2em]">
                   {pillar.desc}
                 </p>
@@ -90,9 +90,9 @@ export default function Home() {
               <div className="inline-block px-3 py-1 bg-primary/10 border-l-2 border-primary text-primary text-[8px] font-bold uppercase tracking-[0.3em]">
                 The Prophetic Mandate
               </div>
-              <h2 className="text-xl md:text-3xl font-black italic leading-[1.1] text-white uppercase">Transforming <br/> <span className="text-primary underline decoration-primary/30 underline-offset-4">Non Extinct</span> <br/> Into Existence</h2>
+              <h2 className="text-xl md:text-2xl font-black italic leading-[1.1] text-white uppercase">Transforming <br/> <span className="text-primary underline decoration-primary/30 underline-offset-4">Non Extinct</span> <br/> Into Existence</h2>
               <p className="text-[10px] text-muted-foreground leading-relaxed uppercase tracking-wider font-light">
-                Growing In Faith Global Church is dedicated to helping believers discover who they are in Christ and helping people discover their God ordained purpose.
+                Growing In Faith Global Church is dedicated to helping believers discover who they are in Christ and raising a generation that will govern the earth with Kingdom values.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-6 border-y border-white/5">
                 <div className="space-y-2">
@@ -129,7 +129,7 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
             <div className="absolute bottom-8 left-8 z-20">
-              <h4 className="text-base font-black italic text-white group-hover:text-primary transition-colors leading-none mb-2">{item.label}</h4>
+              <h4 className="text-sm font-black italic text-white group-hover:text-primary transition-colors leading-none mb-2 uppercase">{item.label}</h4>
               <p className="text-[8px] font-black uppercase tracking-[0.3em] text-muted-foreground">{item.sub}</p>
             </div>
           </Link>
@@ -142,7 +142,7 @@ export default function Home() {
           <h2 className="text-[10vw] font-black italic opacity-20 select-none uppercase">FAITH</h2>
         </div>
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <h2 className="text-xl md:text-3xl font-black mb-8 italic leading-[1.1] tracking-tighter uppercase">THE SUPERNATURAL AWAITS YOU</h2>
+          <h2 className="text-xl md:text-2xl font-black mb-8 italic leading-[1.1] tracking-tighter uppercase">THE SUPERNATURAL AWAITS YOU</h2>
           <p className="text-[10px] md:text-xs mb-10 font-black uppercase tracking-[0.3em] max-w-2xl mx-auto leading-relaxed italic">
             "Transforming non extinct into existence"
           </p>

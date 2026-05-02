@@ -13,7 +13,7 @@ export default function AboutPage() {
           <div className="inline-block px-3 py-1 bg-primary text-black text-[9px] font-black uppercase tracking-[0.3em] mb-6">
             Our Identity
           </div>
-          <h1 className="text-2xl md:text-4xl mb-6 font-black italic tracking-tighter uppercase text-white leading-none">WHO WE ARE</h1>
+          <h1 className="text-2xl md:text-3xl mb-6 font-black italic tracking-tighter uppercase text-white leading-none">WHO WE ARE</h1>
           <p className="text-[10px] md:text-xs text-muted-foreground max-w-2xl mx-auto uppercase tracking-[0.2em] leading-relaxed">
             A global family united by faith, driven by divine purpose, and anchored in the supernatural power of God.
           </p>
@@ -24,10 +24,10 @@ export default function AboutPage() {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div className="space-y-12">
+            <div className="space-y-10">
               <div className="relative group">
                 <div className="absolute -left-4 top-0 w-1 h-full bg-primary" />
-                <h2 className="text-lg md:text-xl font-black italic mb-4 text-white uppercase">OUR VISION</h2>
+                <h2 className="text-lg font-black italic mb-3 text-white uppercase">OUR VISION</h2>
                 <p className="text-sm md:text-base text-primary leading-relaxed uppercase tracking-wider font-bold italic">
                   "Transforming non extinct into existence" <br/>
                   <span className="text-[10px] text-muted-foreground not-italic tracking-widest">— Romans 4:17</span>
@@ -36,7 +36,7 @@ export default function AboutPage() {
 
               <div className="relative group">
                 <div className="absolute -left-4 top-0 w-1 h-full bg-primary" />
-                <h2 className="text-lg md:text-xl font-black italic mb-4 text-white uppercase">OUR MISSION</h2>
+                <h2 className="text-lg font-black italic mb-3 text-white uppercase">OUR MISSION</h2>
                 <p className="text-[11px] md:text-xs text-muted-foreground leading-relaxed uppercase tracking-widest font-light">
                   To Save, equip and deploy people into their God ordained purpose here on earth.
                 </p>
@@ -44,9 +44,17 @@ export default function AboutPage() {
 
               <div className="relative group">
                 <div className="absolute -left-4 top-0 w-1 h-full bg-primary" />
-                <h2 className="text-lg md:text-xl font-black italic mb-4 text-white uppercase">OUR PURPOSE</h2>
+                <h2 className="text-lg font-black italic mb-3 text-white uppercase">OUR PURPOSE</h2>
                 <p className="text-[11px] md:text-xs text-muted-foreground leading-relaxed uppercase tracking-widest font-light">
                   To help christians or believers to discover who and what they are in Christ Jesus, and to help people to discover their God's ordained purpose on earth.
+                </p>
+              </div>
+
+              <div className="relative group">
+                <div className="absolute -left-4 top-0 w-1 h-full bg-primary" />
+                <h2 className="text-lg font-black italic mb-3 text-white uppercase">OUR ASSIGNMENT</h2>
+                <p className="text-[11px] md:text-xs text-muted-foreground leading-relaxed uppercase tracking-widest font-light">
+                  To raise a unique prophetic generation of disciples who will dominate, govern and colonize the earth with the kingdom principles, leadership, lifestyle, values and culture.
                 </p>
               </div>
             </div>
@@ -67,12 +75,12 @@ export default function AboutPage() {
       <section className="py-20 bg-zinc-950 border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-xl md:text-2xl font-black italic mb-4 leading-none text-white">PROPHETIC LEADERSHIP</h2>
-            <div className="w-12 h-1 bg-primary mx-auto" />
+            <h2 className="text-xl font-black italic mb-4 leading-none text-white uppercase">PROPHETIC LEADERSHIP</h2>
+            <div className="w-12 h-0.5 bg-primary mx-auto" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 space-y-6">
-              <h3 className="text-base font-black italic text-primary">A VOICE TO THE NATIONS</h3>
+              <h3 className="text-sm font-black italic text-primary uppercase">A VOICE TO THE NATIONS</h3>
               <p className="text-[10px] text-muted-foreground leading-relaxed uppercase tracking-widest font-light">
                 Our ministry is built on the foundation of accurate prophecy and apostolic authority. We believe in the leadership that follows the Spirit, providing a clear path for millions to find their divine identity.
               </p>
@@ -111,7 +119,7 @@ export default function AboutPage() {
               { title: "Authority", desc: "Believers are called to walk in divine power and dominion." }
             ].map((belief, idx) => (
               <div key={idx} className="bg-black p-8 group hover:bg-primary transition-all duration-500">
-                <h4 className="text-sm font-black italic mb-3 text-primary group-hover:text-black">{belief.title}</h4>
+                <h4 className="text-xs font-black italic mb-3 text-primary group-hover:text-black uppercase">{belief.title}</h4>
                 <p className="text-[8px] uppercase tracking-widest leading-loose text-muted-foreground group-hover:text-black/80">{belief.desc}</p>
               </div>
             ))}
