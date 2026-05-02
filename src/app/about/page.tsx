@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle2, Target, Users, Zap, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export default function AboutPage() {
@@ -14,28 +13,28 @@ export default function AboutPage() {
           <div className="inline-block px-4 py-1 bg-primary text-black text-[10px] font-black uppercase tracking-[0.4em] mb-8">
             Our Identity
           </div>
-          <h1 className="text-6xl md:text-9xl mb-8 font-black italic tracking-tighter uppercase">WHO WE ARE</h1>
+          <h1 className="text-6xl md:text-9xl mb-8 font-black italic tracking-tighter uppercase text-white">WHO WE ARE</h1>
           <p className="text-lg md:text-2xl text-muted-foreground max-w-3xl mx-auto uppercase tracking-widest leading-relaxed">
-            A global family united by prophetic revelation, driven by divine purpose, and anchored in the supernatural power of God.
+            A global family united by faith, driven by divine purpose, and anchored in the supernatural power of God.
           </p>
         </div>
       </section>
 
-      {/* Vision & Mission Overhaul */}
+      {/* Vision & Mission */}
       <section className="py-32 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
             <div className="space-y-20">
               <div className="relative group">
                 <div className="absolute -left-6 top-0 w-1 h-full bg-primary" />
-                <h2 className="text-4xl md:text-6xl font-black italic mb-6">OUR VISION</h2>
+                <h2 className="text-4xl md:text-6xl font-black italic mb-6 text-white">OUR VISION</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed uppercase tracking-wider font-light">
                   To raise a global community of believers who are spiritually mature, impact-driven, and living evidence of God's power and love in every sphere of life.
                 </p>
               </div>
               <div className="relative group">
                 <div className="absolute -left-6 top-0 w-1 h-full bg-primary" />
-                <h2 className="text-4xl md:text-6xl font-black italic mb-6">OUR MISSION</h2>
+                <h2 className="text-4xl md:text-6xl font-black italic mb-6 text-white">OUR MISSION</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed uppercase tracking-wider font-light">
                   To preach the gospel of Jesus Christ, making disciples of all nations through sound biblical teaching, passionate worship, and authentic community engagement.
                 </p>
@@ -58,7 +57,7 @@ export default function AboutPage() {
       <section className="py-32 bg-zinc-950 border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-24">
-            <h2 className="text-5xl md:text-8xl font-black italic mb-6 leading-none">PROPHETIC <br/> LEADERSHIP</h2>
+            <h2 className="text-5xl md:text-8xl font-black italic mb-6 leading-none text-white">PROPHETIC <br/> LEADERSHIP</h2>
             <div className="w-24 h-1 bg-primary mx-auto" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">

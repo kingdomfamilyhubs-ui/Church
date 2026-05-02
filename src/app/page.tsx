@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, Zap, Globe, MessageCircle, Star } from "lucide-react";
+import { Play, Zap, Globe, MessageCircle } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export default function Home() {
@@ -11,16 +11,16 @@ export default function Home() {
     <div className="flex flex-col bg-black overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative h-[95vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-hero-pattern z-0" />
+        <div className="absolute inset-0 bg-hero-pattern z-0 opacity-40" />
         <div className="relative z-10 text-center px-4 max-w-7xl mx-auto">
           <div className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-black text-[10px] font-black uppercase tracking-[0.4em] mb-10 animate-in fade-in slide-in-from-top-4 duration-1000">
             Prophetic Revelation
           </div>
-          <h1 className="text-6xl md:text-[10rem] mb-8 leading-[0.85] font-black tracking-tighter uppercase italic animate-in fade-in zoom-in-95 duration-1000">
-            SPIRIT <span className="text-primary">REVELATION</span> <br/> CHURCH
+          <h1 className="text-6xl md:text-[10rem] mb-8 leading-[0.85] font-black tracking-tighter uppercase italic animate-in fade-in zoom-in-95 duration-1000 text-white">
+            GROWING <span className="text-primary">IN FAITH</span> <br/> GLOBAL CHURCH
           </h1>
           <p className="text-lg md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto font-light leading-relaxed uppercase tracking-[0.3em] animate-in fade-in slide-in-from-bottom-4 duration-1000">
-            Prophetic Revelation • Supernatural Power • Global Mandate
+            Deeper Faith • Supernatural Power • Global Mandate
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center animate-in fade-in slide-in-from-bottom-8 duration-1000">
             <Button asChild size="lg" className="bg-primary text-black font-black h-20 px-16 text-xs rounded-none hover:bg-white transition-all uppercase tracking-[0.3em]">
@@ -71,7 +71,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Prophet / Leadership Section */}
+      {/* Leadership Section */}
       <section className="py-40 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
@@ -91,7 +91,7 @@ export default function Home() {
               </div>
               <h2 className="text-6xl md:text-8xl font-black italic leading-[0.9] text-white">Raising a <br/> <span className="text-primary underline decoration-primary/30 underline-offset-8">Supernatural</span> <br/> Generation</h2>
               <p className="text-lg text-muted-foreground leading-relaxed uppercase tracking-widest font-light text-justify">
-                Spirit Revelation Church is dedicated to uncovering the deep mysteries of the Kingdom. Through precision, power, and the accurate Word of God, we are raising a generation that walks in divine heritage and global influence.
+                Growing In Faith Global Church is dedicated to uncovering the deep mysteries of the Kingdom. Through precision, power, and the accurate Word of God, we are raising a generation that walks in divine heritage and global influence.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 py-8 border-y border-white/5">
                 <div className="space-y-4">
@@ -138,7 +138,7 @@ export default function Home() {
       {/* Final CTA */}
       <section className="py-60 bg-primary text-black text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center">
-          <h2 className="text-[30vw] font-black italic opacity-20 select-none">REVELATION</h2>
+          <h2 className="text-[30vw] font-black italic opacity-20 select-none">FAITH</h2>
         </div>
         <div className="max-w-5xl mx-auto px-4 relative z-10">
           <h2 className="text-7xl md:text-[9rem] font-black mb-12 italic leading-[0.85] tracking-tighter">THE SUPERNATURAL <br/> AWAITS YOU</h2>

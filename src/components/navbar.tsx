@@ -45,7 +45,7 @@ export function Navbar() {
       name: "Resources",
       href: "#",
       subItems: [
-        { name: "SRE Store", href: "/resources/store" },
+        { name: "GIF Store", href: "/resources/store" },
         { name: "Digital Subscription", href: "/resources/subscription" },
         { name: "Digital Library", href: "/resources/library" },
         { name: "Partnership", href: "/give" },
@@ -65,7 +65,7 @@ export function Navbar() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xl md:text-2xl font-black tracking-tighter text-white leading-none">
-                  SPIRIT <span className="text-primary italic">REVELATION</span>
+                  GROWING <span className="text-primary italic">IN FAITH</span>
                 </span>
                 <span className="text-[8px] md:text-[10px] tracking-[0.4em] text-muted-foreground uppercase">Global Church</span>
               </div>
@@ -124,7 +124,6 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="lg:hidden fixed inset-0 top-20 bg-zinc-950/98 z-40 overflow-y-auto animate-in fade-in duration-300">
           <div className="px-6 py-8 space-y-2">
@@ -133,7 +132,7 @@ export function Navbar() {
                 <div key={link.name} className="border-b border-white/5">
                   {link.subItems ? (
                     <AccordionItem value={link.name} className="border-none">
-                      <AccordionTrigger className="py-5 text-sm font-bold uppercase tracking-[0.2em] hover:text-primary transition-colors hover:no-underline">
+                      <AccordionTrigger className="py-5 text-sm font-bold uppercase tracking-[0.2em] hover:text-primary transition-colors hover:no-underline text-white">
                         {link.name}
                       </AccordionTrigger>
                       <AccordionContent className="pb-4">
@@ -154,7 +153,7 @@ export function Navbar() {
                   ) : (
                     <Link
                       href={link.href}
-                      className="block py-5 text-sm font-bold uppercase tracking-[0.2em] hover:text-primary transition-colors"
+                      className="block py-5 text-sm font-bold uppercase tracking-[0.2em] hover:text-primary transition-colors text-white"
                       onClick={() => setIsOpen(false)}
                     >
                       {link.name}

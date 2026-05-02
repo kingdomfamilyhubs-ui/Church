@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Zap, Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube, Cross } from "lucide-react";
+import { Zap, Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 
 export function Footer() {
   return (
@@ -13,7 +13,7 @@ export function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="text-3xl font-black tracking-tighter text-white leading-none uppercase italic">
-                  SPIRIT <span className="text-primary group-hover:text-white transition-colors">REVELATION</span>
+                  GROWING <span className="text-primary group-hover:text-white transition-colors">IN FAITH</span>
                 </span>
                 <span className="text-[10px] tracking-[0.5em] text-muted-foreground uppercase mt-1">Global Church</span>
               </div>
@@ -26,9 +26,9 @@ export function Footer() {
           <div>
             <h4 className="text-xs font-black mb-12 uppercase tracking-[0.5em] text-primary italic">THE MINISTRY</h4>
             <ul className="space-y-6 text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">
-              <li><Link href="/about" className="hover:text-primary transition-colors">Prophetic Vision</Link></li>
+              <li><Link href="/about" className="hover:text-primary transition-colors">Vision & Mission</Link></li>
               <li><Link href="/sermons" className="hover:text-primary transition-colors">Media Archive</Link></li>
-              <li><Link href="/events" className="hover:text-primary transition-colors">Global Conferences</Link></li>
+              <li><Link href="/events" className="hover:text-primary transition-colors">Upcoming Events</Link></li>
               <li><Link href="/give" className="hover:text-primary transition-colors">Partner With Us</Link></li>
             </ul>
           </div>
@@ -36,9 +36,9 @@ export function Footer() {
           <div>
             <h4 className="text-xs font-black mb-12 uppercase tracking-[0.5em] text-primary italic">GET IN TOUCH</h4>
             <ul className="space-y-6 text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">
-              <li className="flex items-center gap-6"><MapPin className="h-5 w-5 text-primary" /> Revelation HQ, Global Hub</li>
-              <li className="flex items-center gap-6"><Phone className="h-5 w-5 text-primary" /> +1 (800) SPIRIT-NOW</li>
-              <li className="flex items-center gap-6"><Mail className="h-5 w-5 text-primary" /> office@spiritrevelation.org</li>
+              <li className="flex items-center gap-6"><MapPin className="h-5 w-5 text-primary" /> Faith HQ, Global City Hub</li>
+              <li className="flex items-center gap-6"><Phone className="h-5 w-5 text-primary" /> +1 (800) FAITH-NOW</li>
+              <li className="flex items-center gap-6"><Mail className="h-5 w-5 text-primary" /> office@gifglobalchurch.org</li>
             </ul>
           </div>
 
@@ -54,7 +54,7 @@ export function Footer() {
         </div>
         
         <div className="mt-40 pt-12 border-t border-white/5 text-center text-[10px] font-black uppercase tracking-[0.8em] text-muted-foreground">
-          <p>© {new Date().getFullYear()} Spirit Revelation Global Church. All Power To God.</p>
+          <p>© {new Date().getFullYear()} Growing In Faith Global Church. All Power To God.</p>
         </div>
       </div>
     </footer>

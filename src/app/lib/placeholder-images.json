@@ -2,25 +2,25 @@
   "placeholderImages": [
     {
       "id": "hero-prophetic",
-      "description": "Powerful worship scene with dynamic gold lighting.",
+      "description": "Powerful worship scene with dynamic gold lighting at Growing In Faith Global Church.",
       "imageUrl": "https://picsum.photos/seed/src-prophetic/1920/1080",
       "imageHint": "church power"
     },
     {
       "id": "prophet-lead",
-      "description": "Leadership speaking with apostolic authority.",
+      "description": "Leadership speaking with apostolic authority at Growing In Faith.",
       "imageUrl": "https://picsum.photos/seed/prophet-main/800/1000",
       "imageHint": "religious leader"
     },
     {
       "id": "about-vision",
-      "description": "Global community gathered in spiritual unity.",
+      "description": "Growing In Faith global community gathered in spiritual unity.",
       "imageUrl": "https://picsum.photos/seed/vision-global/800/1000",
       "imageHint": "spiritual community"
     },
     {
       "id": "revelation-service",
-      "description": "A service filled with deep biblical revelation.",
+      "description": "A service filled with deep biblical revelation at GIF Global.",
       "imageUrl": "https://picsum.photos/seed/revelation-meeting/800/600",
       "imageHint": "spiritual meeting"
     }
