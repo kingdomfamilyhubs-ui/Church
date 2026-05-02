@@ -1,11 +1,10 @@
-
 "use client";
 
 import { useState } from "react";
 import { getScriptureInsight, type ScriptureInsightOutput } from "@/ai/flows/scripture-insight-flow";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Search, BookOpen, ScrollText, Cross, Loader2 } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
@@ -34,96 +33,81 @@ export default function ScriptureInsightPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background py-16 px-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <div className="bg-primary/20 p-3 rounded-full w-fit mx-auto mb-6">
+    <div className="min-h-screen bg-background pt-32 pb-20 px-4">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-16">
+          <div className="bg-primary/20 p-4 rounded-full w-fit mx-auto mb-8 border border-primary/20">
             <BookOpen className="h-10 w-10 text-primary" />
           </div>
-          <h1 className="text-4xl md:text-5xl mb-4">AI Scripture Insight</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="text-3xl md:text-5xl mb-6 font-black italic uppercase tracking-tighter">SCRIPTURE INSIGHT</h1>
+          <p className="text-xs md:text-sm text-muted-foreground max-w-2xl mx-auto italic font-medium leading-relaxed uppercase tracking-widest">
             Deepen your understanding of God's Word with AI-powered historical, theological, and contextual analysis.
           </p>
         </div>
 
-        <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-4 mb-12">
+        <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-4 mb-20 max-w-3xl mx-auto">
           <div className="relative flex-grow">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               value={verse}
               onChange={(e) => setVerse(e.target.value)}
-              placeholder="Enter a verse (e.g., Romans 8:28, Genesis 1:1)"
-              className="h-14 pl-12 bg-card border-border rounded-xl text-lg focus:ring-accent"
+              placeholder="e.g., Romans 8:28, Genesis 1:1"
+              className="h-12 pl-12 bg-card text-white border-white/10 rounded-md text-xs uppercase font-bold tracking-widest focus:ring-primary"
               disabled={loading}
             />
           </div>
           <Button 
             type="submit" 
             disabled={loading || !verse.trim()} 
-            className="h-14 px-8 rounded-xl bg-primary text-white text-lg min-w-[150px]"
+            className="h-12 px-10 rounded-md bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-[0.3em] min-w-[180px] shadow-lg hover:opacity-90 transition-all"
           >
-            {loading ? <Loader2 className="h-6 w-6 animate-spin" /> : "Get Insight"}
+            {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "GET INSIGHT"}
           </Button>
         </form>
 
         {error && (
-          <Alert variant="destructive" className="mb-8">
-            <AlertTitle>Error</AlertTitle>
-            <AlertDescription>{error}</AlertDescription>
+          <Alert variant="destructive" className="mb-8 border-destructive/20 bg-destructive/10">
+            <AlertTitle className="text-[10px] font-black uppercase tracking-widest mb-1">ERROR DETECTED</AlertTitle>
+            <AlertDescription className="text-[11px] font-medium italic">{error}</AlertDescription>
           </Alert>
         )}
 
         {insight ? (
-          <div className="grid gap-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <h2 className="text-2xl font-bold flex items-center gap-2">
-              Insights for <span className="text-accent underline decoration-primary underline-offset-4">{verse}</span>
-            </h2>
+          <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <div className="flex items-center gap-4 mb-10">
+              <div className="h-0.5 flex-grow bg-primary/20" />
+              <h2 className="text-xl font-black italic uppercase tracking-tight whitespace-nowrap">
+                REVELATION FOR <span className="text-primary underline underline-offset-8">{verse}</span>
+              </h2>
+              <div className="h-0.5 flex-grow bg-primary/20" />
+            </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card className="bg-card border-none shadow-lg">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-primary">
-                    <ScrollText className="h-5 w-5" /> Historical
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {insight.historicalBackground}
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-card border-none shadow-lg">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-accent">
-                    <Cross className="h-5 w-5" /> Theological
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {insight.theologicalContext}
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-card border-none shadow-lg">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-primary">
-                    <BookOpen className="h-5 w-5" /> Contextual
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {insight.contextualMeaning}
-                  </p>
-                </CardContent>
-              </Card>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { title: "HISTORICAL", icon: ScrollText, content: insight.historicalBackground, color: "text-primary" },
+                { title: "THEOLOGICAL", icon: Cross, content: insight.theologicalContext, color: "text-primary" },
+                { title: "CONTEXTUAL", icon: BookOpen, content: insight.contextualMeaning, color: "text-primary" }
+              ].map((card, idx) => (
+                <Card key={idx} className="bg-card text-card-foreground border-none shadow-2xl rounded-xl group hover:border-primary/20 border-transparent border transition-all duration-500">
+                  <CardHeader className="p-8 pb-4">
+                    <div className="flex items-center gap-3 mb-2">
+                      <card.icon className={`h-4 w-4 ${card.color}`} />
+                      <h3 className={`text-[10px] font-black uppercase tracking-widest ${card.color}`}>{card.title} BACKGROUND</h3>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-8 pt-0">
+                    <p className="text-[11px] leading-relaxed text-card-foreground/70 italic font-medium group-hover:text-card-foreground transition-colors">
+                      {card.content}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         ) : !loading && (
-          <div className="text-center py-20 bg-muted/30 rounded-[2rem] border border-dashed border-border">
-            <Search className="h-12 w-12 text-muted-foreground mx-auto mb-4 opacity-20" />
-            <p className="text-muted-foreground">Enter a verse reference above to begin your study.</p>
+          <div className="text-center py-24 bg-secondary/10 rounded-2xl border border-dashed border-border/20 max-w-2xl mx-auto">
+            <Search className="h-10 w-10 text-muted-foreground mx-auto mb-6 opacity-20" />
+            <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground">Enter a verse reference above to begin your study.</p>
           </div>
         )}
       </div>

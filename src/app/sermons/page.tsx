@@ -11,39 +11,39 @@ import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 const SERMONS = [
   {
     id: 1,
-    title: "The Power of Radical Faith",
-    speaker: "Senior Pastor John Doe",
-    date: "Feb 18, 2024",
+    title: "THE POWER OF RADICAL FAITH",
+    speaker: "SENIOR PASTOR JOHN DOE",
+    date: "FEB 18, 2024",
     duration: "45:20",
-    category: "Faith",
-    thumbnail: PlaceHolderImages?.find(i => i.id === "sermon-1")?.imageUrl || "https://picsum.photos/seed/sermon1/600/400"
+    category: "FAITH",
+    thumbnail: PlaceHolderImages?.find(i => i.id === "sermon-1")?.imageUrl || "https://picsum.photos/seed/sermon1/800/600"
   },
   {
     id: 2,
-    title: "Walking in Divine Purpose",
-    speaker: "Assoc. Pastor Jane Smith",
-    date: "Feb 11, 2024",
+    title: "WALKING IN DIVINE PURPOSE",
+    speaker: "ASSOC. PASTOR JANE SMITH",
+    date: "FEB 11, 2024",
     duration: "38:15",
-    category: "Purpose",
-    thumbnail: PlaceHolderImages?.find(i => i.id === "sermon-2")?.imageUrl || "https://picsum.photos/seed/sermon2/600/400"
+    category: "PURPOSE",
+    thumbnail: PlaceHolderImages?.find(i => i.id === "sermon-2")?.imageUrl || "https://picsum.photos/seed/sermon2/800/600"
   },
   {
     id: 3,
-    title: "Healing for the Broken Hearted",
-    speaker: "Pastor Michael Brown",
-    date: "Feb 04, 2024",
+    title: "HEALING FOR THE BROKEN HEARTED",
+    speaker: "PASTOR MICHAEL BROWN",
+    date: "FEB 04, 2024",
     duration: "52:10",
-    category: "Healing",
-    thumbnail: PlaceHolderImages?.find(i => i.id === "sermon-3")?.imageUrl || "https://picsum.photos/seed/sermon3/600/400"
+    category: "HEALING",
+    thumbnail: PlaceHolderImages?.find(i => i.id === "sermon-3")?.imageUrl || "https://picsum.photos/seed/sermon3/800/600"
   },
   {
     id: 4,
-    title: "Financial Stewardship in 2024",
-    speaker: "Elder Sarah Wilson",
-    date: "Jan 28, 2024",
+    title: "FINANCIAL STEWARDSHIP IN 2024",
+    speaker: "ELDER SARAH WILSON",
+    date: "JAN 28, 2024",
     duration: "41:30",
-    category: "Stewardship",
-    thumbnail: PlaceHolderImages?.find(i => i.id === "sermon-4")?.imageUrl || "https://picsum.photos/seed/sermon4/600/400"
+    category: "STEWARDSHIP",
+    thumbnail: PlaceHolderImages?.find(i => i.id === "sermon-4")?.imageUrl || "https://picsum.photos/seed/sermon4/800/600"
   }
 ];
 
@@ -57,85 +57,98 @@ export default function SermonsPage() {
   );
 
   return (
-    <div className="min-h-screen bg-background pb-20">
-      <section className="bg-secondary/50 pt-10 pb-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+    <div className="min-h-screen bg-background pb-20 pt-20">
+      <section className="bg-card text-card-foreground pt-12 pb-24 px-6 border-b border-white/5 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black italic uppercase text-primary whitespace-nowrap">
+            REVELATION
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
             <div className="lg:col-span-2">
-              <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl bg-black group border-4 border-muted">
+              <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl bg-black group border border-white/10">
                 <Image 
                   src={activeSermon.thumbnail} 
                   alt={activeSermon.title} 
                   fill 
-                  className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
-                  data-ai-hint="video player"
+                  className="object-cover opacity-50 group-hover:scale-105 transition-transform duration-1000"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <button className="h-24 w-24 bg-primary text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
-                    <Play className="h-10 w-10 ml-2" />
+                  <button className="h-20 w-20 bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform active:scale-95">
+                    <Play className="h-8 w-8 ml-1" />
                   </button>
                 </div>
               </div>
             </div>
-            <div>
-              <Badge className="bg-accent text-accent-foreground mb-4">{activeSermon.category}</Badge>
-              <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">{activeSermon.title}</h1>
-              <div className="space-y-4 mb-8">
-                <p className="text-lg text-primary font-medium">{activeSermon.speaker}</p>
-                <div className="flex gap-6 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-2"><Calendar className="h-4 w-4" /> {activeSermon.date}</div>
-                  <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> {activeSermon.duration}</div>
+            <div className="space-y-8">
+              <Badge className="bg-primary/20 text-primary border-primary/20 text-[9px] font-black tracking-widest px-3 py-1 uppercase rounded-sm">
+                {activeSermon.category}
+              </Badge>
+              <h1 className="text-3xl md:text-4xl font-black italic mb-6 leading-[1.1] uppercase tracking-tighter">{activeSermon.title}</h1>
+              <div className="space-y-4">
+                <p className="text-[10px] font-black uppercase tracking-widest text-primary italic">{activeSermon.speaker}</p>
+                <div className="flex gap-6 text-[8px] font-black uppercase tracking-widest text-card-foreground/50">
+                  <div className="flex items-center gap-2"><Calendar className="h-3 w-3" /> {activeSermon.date}</div>
+                  <div className="flex items-center gap-2"><Clock className="h-3 w-3" /> {activeSermon.duration}</div>
                 </div>
               </div>
-              <div className="flex gap-4">
-                <Button className="bg-primary text-white flex-1 h-12 rounded-xl">Play Now</Button>
-                <Button variant="outline" size="icon" className="h-12 w-12 rounded-xl border-border"><Share2 className="h-5 w-5" /></Button>
-                <Button variant="outline" size="icon" className="h-12 w-12 rounded-xl border-border"><Download className="h-5 w-5" /></Button>
+              <div className="flex gap-4 pt-4">
+                <Button className="bg-primary text-primary-foreground flex-1 h-12 rounded-md font-black uppercase tracking-[0.2em] text-[10px] shadow-lg hover:opacity-90">
+                  PLAY NOW
+                </Button>
+                <Button variant="outline" size="icon" className="h-12 w-12 rounded-md border-white/10 text-white hover:bg-white/10"><Share2 className="h-4 w-4" /></Button>
+                <Button variant="outline" size="icon" className="h-12 w-12 rounded-md border-white/10 text-white hover:bg-white/10"><Download className="h-4 w-4" /></Button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-4">
+      <section className="py-24 px-6 bg-background">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
-            <h2 className="text-3xl font-bold">Sermon Library</h2>
-            <div className="relative w-full md:w-96">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 border-b border-border pb-8">
+            <div className="space-y-2">
+              <h2 className="text-2xl font-black italic uppercase tracking-tighter">MEDIA ARCHIVE</h2>
+              <p className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.3em]">EQUIPPING THE UNIQUE PROPHETIC GENERATION</p>
+            </div>
+            <div className="relative w-full md:w-80">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input 
-                placeholder="Search by title or speaker..." 
-                className="pl-10 h-12 bg-card rounded-xl border-border"
+                placeholder="SEARCH BY TITLE..." 
+                className="pl-10 h-11 bg-secondary/5 border-border rounded-md text-[9px] font-black tracking-widest uppercase"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {filteredSermons.map(sermon => (
               <div 
                 key={sermon.id} 
-                className="group cursor-pointer"
+                className="group cursor-pointer space-y-4"
                 onClick={() => {
                   setActiveSermon(sermon);
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
               >
-                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-4 shadow-lg">
+                <div className="relative aspect-[16/10] rounded-lg overflow-hidden shadow-xl border border-border transition-all duration-500 hover:border-primary/50">
                   <Image 
                     src={sermon.thumbnail} 
                     alt={sermon.title} 
                     fill 
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                   />
-                  <div className="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-[10px] text-white backdrop-blur">
+                  <div className="absolute bottom-3 right-3 bg-black/80 px-2 py-1 rounded text-[8px] font-black text-white tracking-widest backdrop-blur-sm">
                     {sermon.duration}
                   </div>
                 </div>
-                <h3 className="font-bold text-lg mb-1 group-hover:text-accent transition-colors line-clamp-1">{sermon.title}</h3>
-                <p className="text-sm text-muted-foreground mb-2">{sermon.speaker}</p>
-                <p className="text-xs text-muted-foreground/60">{sermon.date}</p>
+                <div className="space-y-1 px-1">
+                  <h3 className="font-black italic text-xs mb-1 group-hover:text-primary transition-colors uppercase leading-tight line-clamp-1 tracking-tight">{sermon.title}</h3>
+                  <p className="text-[9px] font-black text-primary uppercase tracking-widest opacity-80">{sermon.speaker}</p>
+                  <p className="text-[8px] font-black text-muted-foreground/60 uppercase tracking-widest">{sermon.date}</p>
+                </div>
               </div>
             ))}
           </div>
