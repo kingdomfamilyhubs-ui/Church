@@ -18,42 +18,42 @@ export function Footer() {
                 <span className="text-[7px] tracking-[0.4em] text-muted-foreground uppercase mt-1">Global Church</span>
               </div>
             </Link>
-            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-muted-foreground leading-loose text-justify italic">
+            <p className="text-xs text-muted-foreground leading-loose italic">
               "Transforming non extinct into existence" — Romans 4:17. Our assignment is to raise a unique prophetic generation of disciples who will dominate and colonize the earth with Kingdom culture.
             </p>
           </div>
 
           <div>
-            <h4 className="text-[9px] font-black mb-6 uppercase tracking-[0.4em] text-primary italic">THE MINISTRY</h4>
-            <ul className="space-y-3 text-[9px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
-              <li><Link href="/about" className="hover:text-primary transition-colors">Vision & Mission</Link></li>
-              <li><Link href="/sermons" className="hover:text-primary transition-colors">Media Archive</Link></li>
-              <li><Link href="/events" className="hover:text-primary transition-colors">Upcoming Events</Link></li>
-              <li><Link href="/give" className="hover:text-primary transition-colors">Partner With Us</Link></li>
+            <h4 className="text-[10px] font-black mb-6 uppercase tracking-[0.3em] text-primary italic">THE MINISTRY</h4>
+            <ul className="space-y-4 text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground">
+              <li><Link href="/about" className="hover:text-primary transition-colors">VISION & MISSION</Link></li>
+              <li><Link href="/sermons" className="hover:text-primary transition-colors">MEDIA ARCHIVE</Link></li>
+              <li><Link href="/events" className="hover:text-primary transition-colors">UPCOMING EVENTS</Link></li>
+              <li><Link href="/give" className="hover:text-primary transition-colors">PARTNER WITH US</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-[9px] font-black mb-6 uppercase tracking-[0.4em] text-primary italic">GET IN TOUCH</h4>
-            <ul className="space-y-3 text-[9px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
-              <li className="flex items-center gap-3"><MapPin className="h-3.5 w-3.5 text-primary" /> Faith HQ, Global City Hub</li>
-              <li className="flex items-center gap-3"><Phone className="h-3.5 w-3.5 text-primary" /> +1 (800) FAITH-NOW</li>
-              <li className="flex items-center gap-3"><Mail className="h-3.5 w-3.5 text-primary" /> office@gifglobalchurch.org</li>
+            <h4 className="text-[10px] font-black mb-6 uppercase tracking-[0.3em] text-primary italic">GET IN TOUCH</h4>
+            <ul className="space-y-4 text-xs text-muted-foreground">
+              <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-primary" /> Faith HQ, Global City Hub</li>
+              <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-primary" /> +1 (800) FAITH-NOW</li>
+              <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-primary" /> office@gifglobalchurch.org</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-[9px] font-black mb-6 uppercase tracking-[0.4em] text-primary italic">OUR SOCIALS</h4>
+            <h4 className="text-[10px] font-black mb-6 uppercase tracking-[0.3em] text-primary italic">OUR SOCIALS</h4>
             <div className="flex gap-4">
-              <Link href="#" className="text-white hover:text-primary transition-colors"><Facebook className="h-4 w-4" /></Link>
-              <Link href="#" className="text-white hover:text-primary transition-colors"><Twitter className="h-4 w-4" /></Link>
-              <Link href="#" className="text-white hover:text-primary transition-colors"><Instagram className="h-4 w-4" /></Link>
-              <Link href="#" className="text-white hover:text-primary transition-colors"><Youtube className="h-4 w-4" /></Link>
+              <Link href="#" className="text-white hover:text-primary transition-colors"><Facebook className="h-5 w-5" /></Link>
+              <Link href="#" className="text-white hover:text-primary transition-colors"><Twitter className="h-5 w-5" /></Link>
+              <Link href="#" className="text-white hover:text-primary transition-colors"><Instagram className="h-5 w-5" /></Link>
+              <Link href="#" className="text-white hover:text-primary transition-colors"><Youtube className="h-5 w-5" /></Link>
             </div>
           </div>
         </div>
         
-        <div className="mt-20 pt-8 border-t border-white/5 text-center text-[8px] font-black uppercase tracking-[0.5em] text-muted-foreground">
+        <div className="mt-20 pt-8 border-t border-white/5 text-center text-[10px] font-bold uppercase tracking-[0.4em] text-muted-foreground">
           <p>© {new Date().getFullYear()} Growing In Faith Global Church. All Power To God.</p>
         </div>
       </div>

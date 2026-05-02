@@ -8,52 +8,52 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-black pt-20">
       {/* Header */}
-      <section className="bg-zinc-950 py-16 px-4 text-center border-b border-white/5">
+      <section className="bg-zinc-950 py-20 px-4 text-center border-b border-white/5">
         <div className="max-w-4xl mx-auto">
-          <div className="inline-block px-3 py-1 bg-primary text-black text-[9px] font-black uppercase tracking-[0.3em] mb-6">
+          <div className="inline-block px-3 py-1 bg-primary text-black text-[10px] font-black uppercase tracking-[0.3em] mb-6">
             Our Identity
           </div>
-          <h1 className="text-2xl md:text-3xl mb-6 font-black italic tracking-tighter uppercase text-white leading-none">WHO WE ARE</h1>
-          <p className="text-[10px] md:text-xs text-muted-foreground max-w-2xl mx-auto uppercase tracking-[0.2em] leading-relaxed">
+          <h1 className="text-3xl md:text-5xl mb-6 font-black italic tracking-tighter uppercase text-white leading-none">WHO WE ARE</h1>
+          <p className="text-xs md:text-sm text-muted-foreground max-w-2xl mx-auto uppercase tracking-[0.2em] leading-relaxed">
             A global family united by faith, driven by divine purpose, and anchored in the supernatural power of God.
           </p>
         </div>
       </section>
 
       {/* Core Identity Sections */}
-      <section className="py-20 px-4">
+      <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div className="space-y-10">
+            <div className="space-y-12">
               <div className="relative group">
                 <div className="absolute -left-4 top-0 w-1 h-full bg-primary" />
-                <h2 className="text-lg font-black italic mb-3 text-white uppercase">OUR VISION</h2>
-                <p className="text-sm md:text-base text-primary leading-relaxed uppercase tracking-wider font-bold italic">
+                <h2 className="text-xl font-black italic mb-4 text-white uppercase">OUR VISION</h2>
+                <p className="text-sm md:text-lg text-primary leading-relaxed font-bold italic">
                   "Transforming non extinct into existence" <br/>
-                  <span className="text-[10px] text-muted-foreground not-italic tracking-widest">— Romans 4:17</span>
+                  <span className="text-xs text-muted-foreground not-italic tracking-widest">— Romans 4:17</span>
                 </p>
               </div>
 
               <div className="relative group">
                 <div className="absolute -left-4 top-0 w-1 h-full bg-primary" />
-                <h2 className="text-lg font-black italic mb-3 text-white uppercase">OUR MISSION</h2>
-                <p className="text-[11px] md:text-xs text-muted-foreground leading-relaxed uppercase tracking-widest font-light">
-                  To Save, equip and deploy people into their God ordained purpose here on earth.
+                <h2 className="text-xl font-black italic mb-4 text-white uppercase">OUR MISSION</h2>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                  To save, equip and deploy people into their God ordained purpose here on earth.
                 </p>
               </div>
 
               <div className="relative group">
                 <div className="absolute -left-4 top-0 w-1 h-full bg-primary" />
-                <h2 className="text-lg font-black italic mb-3 text-white uppercase">OUR PURPOSE</h2>
-                <p className="text-[11px] md:text-xs text-muted-foreground leading-relaxed uppercase tracking-widest font-light">
-                  To help christians or believers to discover who and what they are in Christ Jesus, and to help people to discover their God's ordained purpose on earth.
+                <h2 className="text-xl font-black italic mb-4 text-white uppercase">OUR PURPOSE</h2>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                  To help Christians or believers to discover who and what they are in Christ Jesus, and to help people to discover their God's ordained purpose on earth.
                 </p>
               </div>
 
               <div className="relative group">
                 <div className="absolute -left-4 top-0 w-1 h-full bg-primary" />
-                <h2 className="text-lg font-black italic mb-3 text-white uppercase">OUR ASSIGNMENT</h2>
-                <p className="text-[11px] md:text-xs text-muted-foreground leading-relaxed uppercase tracking-widest font-light">
+                <h2 className="text-xl font-black italic mb-4 text-white uppercase">OUR ASSIGNMENT</h2>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                   To raise a unique prophetic generation of disciples who will dominate, govern and colonize the earth with the kingdom principles, leadership, lifestyle, values and culture.
                 </p>
               </div>
@@ -72,22 +72,22 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Section */}
-      <section className="py-20 bg-zinc-950 border-y border-white/5">
+      <section className="py-24 bg-zinc-950 border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-xl font-black italic mb-4 leading-none text-white uppercase">PROPHETIC LEADERSHIP</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-2xl font-black italic mb-4 leading-none text-white uppercase">PROPHETIC LEADERSHIP</h2>
             <div className="w-12 h-0.5 bg-primary mx-auto" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="order-2 md:order-1 space-y-6">
               <h3 className="text-sm font-black italic text-primary uppercase">A VOICE TO THE NATIONS</h3>
-              <p className="text-[10px] text-muted-foreground leading-relaxed uppercase tracking-widest font-light">
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                 Our ministry is built on the foundation of accurate prophecy and apostolic authority. We believe in the leadership that follows the Spirit, providing a clear path for millions to find their divine identity.
               </p>
-              <div className="grid grid-cols-1 gap-3">
+              <div className="grid grid-cols-1 gap-4">
                 {["Infallible Word of God", "The Holy Trinity", "Supernatural Healing", "Prophetic Revelation", "Kingdom Expansion"].map(item => (
-                  <div key={item} className="flex items-center gap-3 text-[8px] font-bold uppercase tracking-[0.2em] text-white">
-                    <Star className="h-2.5 w-2.5 text-primary fill-primary" />
+                  <div key={item} className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-white">
+                    <Star className="h-3 w-3 text-primary fill-primary" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -107,20 +107,20 @@ export default function AboutPage() {
       </section>
 
       {/* Beliefs Grid */}
-      <section className="py-20 px-4 bg-black">
+      <section className="py-24 px-4 bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5">
             {[
-              { title: "The Bible", desc: "The inspired and only infallible Word of God." },
-              { title: "The Trinity", desc: "One God, eternally existent in three persons." },
-              { title: "Salvation", desc: "Regeneration by the Holy Spirit is absolutely essential." },
-              { title: "Healing", desc: "Redemptive work provides healing for the human body." },
-              { title: "Resurrection", desc: "The resurrection of both the saved and the lost." },
-              { title: "Authority", desc: "Believers are called to walk in divine power and dominion." }
+              { title: "THE BIBLE", desc: "The inspired and only infallible Word of God." },
+              { title: "THE TRINITY", desc: "One God, eternally existent in three persons." },
+              { title: "SALVATION", desc: "Regeneration by the Holy Spirit is absolutely essential." },
+              { title: "HEALING", desc: "Redemptive work provides healing for the human body." },
+              { title: "RESURRECTION", desc: "The resurrection of both the saved and the lost." },
+              { title: "AUTHORITY", desc: "Believers are called to walk in divine power and dominion." }
             ].map((belief, idx) => (
-              <div key={idx} className="bg-black p-8 group hover:bg-primary transition-all duration-500">
-                <h4 className="text-xs font-black italic mb-3 text-primary group-hover:text-black uppercase">{belief.title}</h4>
-                <p className="text-[8px] uppercase tracking-widest leading-loose text-muted-foreground group-hover:text-black/80">{belief.desc}</p>
+              <div key={idx} className="bg-black p-10 group hover:bg-primary transition-all duration-500">
+                <h4 className="text-xs font-black italic mb-4 text-primary group-hover:text-black uppercase">{belief.title}</h4>
+                <p className="text-xs text-muted-foreground group-hover:text-black/80 leading-relaxed">{belief.desc}</p>
               </div>
             ))}
           </div>
