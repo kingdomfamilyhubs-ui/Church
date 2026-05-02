@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { Zap, Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 
@@ -38,15 +39,15 @@ export function Footer() {
             <ul className="space-y-5 text-[11px] text-muted-foreground font-medium">
               <li className="flex items-center gap-4">
                 <MapPin className="h-4 w-4 text-primary shrink-0" /> 
-                <span className="text-card-foreground">Faith HQ, Global City Hub</span>
+                <span className="text-card-foreground uppercase text-[9px] font-bold tracking-wider">Faith HQ, Global City Hub</span>
               </li>
               <li className="flex items-center gap-4">
                 <Phone className="h-4 w-4 text-primary shrink-0" /> 
-                <span className="text-card-foreground">+1 (800) FAITH-NOW</span>
+                <span className="text-card-foreground uppercase text-[9px] font-bold tracking-wider">+1 (800) FAITH-NOW</span>
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="h-4 w-4 text-primary shrink-0" /> 
-                <span className="text-card-foreground">office@gifglobalchurch.org</span>
+                <span className="text-card-foreground text-[9px] font-bold tracking-wider">growinginfaithglobalchurch@gmail.com</span>
               </li>
             </ul>
           </div>
