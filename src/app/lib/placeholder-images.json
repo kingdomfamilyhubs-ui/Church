@@ -30,6 +30,24 @@
       "description": "A service filled with deep biblical revelation at GIF Global.",
       "imageUrl": "https://picsum.photos/seed/revelation-meeting/800/600",
       "imageHint": "spiritual meeting"
+    },
+    {
+      "id": "leadership-founder",
+      "description": "Professional portrait of a ministry founder with a visionary background.",
+      "imageUrl": "https://picsum.photos/seed/founder/600/800",
+      "imageHint": "visionary leader"
+    },
+    {
+      "id": "leadership-director",
+      "description": "Professional portrait of a corporate or ministry director.",
+      "imageUrl": "https://picsum.photos/seed/director/600/800",
+      "imageHint": "corporate leader"
+    },
+    {
+      "id": "leadership-board",
+      "description": "Group of professional board members in a meeting setting.",
+      "imageUrl": "https://picsum.photos/seed/board/800/600",
+      "imageHint": "business council"
     }
   ]
 }
