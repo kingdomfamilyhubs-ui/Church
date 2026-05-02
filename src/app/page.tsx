@@ -21,7 +21,7 @@ export default function Home() {
             priority
             data-ai-hint="modern church"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-background" />
         </div>
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
@@ -43,8 +43,8 @@ export default function Home() {
             <Button asChild className="bg-primary text-primary-foreground font-black h-11 px-8 rounded-md uppercase text-[9px] tracking-[0.2em] transition-all border-none shadow-xl">
               <Link href="/about">DISCOVER OUR VISION</Link>
             </Button>
-            <Button variant="outline" asChild className="h-11 px-8 rounded-md border-white/20 text-white hover:bg-white/10 uppercase text-[9px] font-black tracking-[0.2em] transition-all backdrop-blur-sm">
-              <Link href="/join" className="flex items-center gap-2">
+            <Button variant="outline" asChild className="h-11 px-8 rounded-md border-white/40 text-white hover:bg-white/10 uppercase text-[9px] font-black tracking-[0.2em] transition-all backdrop-blur-sm">
+              <Link href="/join" className="flex items-center gap-2 text-white">
                 JOIN YOUR TRIBE <ArrowRight className="h-3 w-3" />
               </Link>
             </Button>
