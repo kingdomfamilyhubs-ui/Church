@@ -1,4 +1,8 @@
+
+'use client';
+
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 
 export function Footer() {
@@ -7,9 +11,16 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative h-8 w-8 overflow-hidden rounded-md bg-primary/20 flex items-center justify-center border border-primary/10">
-                <span className="text-primary font-black italic text-xs">GIF</span>
+            <div className="flex items-center gap-3 group">
+              <div className="relative h-10 w-10 overflow-hidden rounded-md bg-primary/20 flex items-center justify-center border border-primary/10">
+                <Image 
+                  src="/logo.png" 
+                  alt="GIF Logo" 
+                  fill 
+                  className="object-contain p-1 z-10"
+                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                />
+                <span className="text-primary font-black italic text-xs absolute z-0">GIF</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-sm font-black tracking-tighter text-card-foreground leading-none uppercase italic">
@@ -17,7 +28,7 @@ export function Footer() {
                 </span>
                 <span className="text-[6px] tracking-[0.4em] text-card-foreground/50 uppercase mt-1 font-black">Global Church</span>
               </div>
-            </Link>
+            </div>
             <p className="text-[10px] text-card-foreground/60 leading-relaxed italic font-medium">
               "Transforming non extinct into existence" — Romans 4:17. Raising a unique prophetic generation of disciples to govern and colonize the earth.
             </p>

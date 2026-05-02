@@ -1,3 +1,4 @@
+
 {
   "entities": {
     "Event": {
@@ -10,9 +11,40 @@
         "time": { "type": "string", "description": "The time of the event." },
         "location": { "type": "string", "description": "Where the event takes place." },
         "description": { "type": "string", "description": "Details about the event." },
-        "imageUrl": { "type": "string", "description": "Link to an event image." }
+        "imageUrl": { "type": "string", "description": "Link to an event image." },
+        "createdAt": { "type": "string", "format": "date-time" }
       },
       "required": ["title", "date", "time", "location", "description"]
+    },
+    "Sermon": {
+      "title": "Sermon",
+      "description": "A recorded ministry message.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "speaker": { "type": "string" },
+        "date": { "type": "string" },
+        "duration": { "type": "string" },
+        "category": { "type": "string" },
+        "thumbnail": { "type": "string" },
+        "videoUrl": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "speaker", "date", "category"]
+    },
+    "Resource": {
+      "title": "Resource",
+      "description": "A book, digital download, or store item.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "description": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "accessUrl": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "category", "description"]
     }
   },
   "auth": {
@@ -22,6 +54,14 @@
     "/events/{eventId}": {
       "schema": "Event",
       "description": "Collection of ministry events."
+    },
+    "/sermons/{sermonId}": {
+      "schema": "Sermon",
+      "description": "Collection of recorded sermons."
+    },
+    "/resources/{resourceId}": {
+      "schema": "Resource",
+      "description": "Collection of digital resources and store items."
     }
   }
 }
