@@ -19,7 +19,7 @@ export default function AboutPage() {
             Our Divine Mandate
           </div>
           <h1 className="text-4xl md:text-6xl mb-8 font-black italic tracking-tighter uppercase text-card-foreground leading-[0.9]">WHO WE ARE</h1>
-          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed italic">
+          <p className="text-sm md:text-base text-card-foreground/80 max-w-2xl mx-auto leading-relaxed italic">
             A global family united by faith, driven by divine purpose, and anchored in the supernatural power of God.
           </p>
         </div>

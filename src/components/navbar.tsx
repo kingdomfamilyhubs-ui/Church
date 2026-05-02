@@ -62,7 +62,7 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-card/95 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 w-full z-50 bg-card border-b border-border/10 shadow-lg">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex justify-between h-20 items-center">
           <div className="flex-shrink-0 flex items-center gap-4">
@@ -74,7 +74,7 @@ export function Navbar() {
                 <span className="text-lg font-black tracking-tighter text-card-foreground leading-none uppercase italic">
                   GROWING <span className="text-primary">IN FAITH</span>
                 </span>
-                <span className="text-[8px] tracking-[0.4em] text-muted-foreground uppercase mt-1">Global Church</span>
+                <span className="text-[8px] tracking-[0.4em] text-card-foreground/50 uppercase mt-1 font-bold">Global Church</span>
               </div>
             </Link>
           </div>
@@ -89,7 +89,7 @@ export function Navbar() {
                       <DropdownMenuTrigger className="flex items-center gap-1 text-[10px] font-black uppercase tracking-widest text-card-foreground hover:text-primary transition-colors outline-none">
                         {link.name} <ChevronDown className="h-3 w-3" />
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent className="bg-card border-border min-w-[200px] rounded-md p-1 mt-2 shadow-xl">
+                      <DropdownMenuContent className="bg-card border-border/20 min-w-[200px] rounded-md p-1 mt-2 shadow-2xl">
                         {link.subItems.map((sub) => (
                           <DropdownMenuItem key={sub.name} asChild>
                             <Link
@@ -129,8 +129,8 @@ export function Navbar() {
                   <Menu className="h-7 w-7" />
                 </button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-card border-l border-border p-0 w-[300px]">
-                <SheetHeader className="p-6 border-b border-border">
+              <SheetContent side="right" className="bg-card border-l border-border/10 p-0 w-[300px]">
+                <SheetHeader className="p-6 border-b border-border/10">
                   <SheetTitle className="text-left">
                      <div className="flex items-center gap-3">
                         <Zap className="h-5 w-5 text-primary" />
@@ -143,7 +143,7 @@ export function Navbar() {
                 <div className="px-6 py-6 space-y-1">
                   <Accordion type="single" collapsible className="w-full">
                     {navLinks.map((link) => (
-                      <div key={link.name} className="border-b border-border/50">
+                      <div key={link.name} className="border-b border-border/10">
                         {link.subItems ? (
                           <AccordionItem value={link.name} className="border-none">
                             <AccordionTrigger className="py-4 text-[10px] font-black uppercase tracking-widest text-card-foreground hover:text-primary hover:no-underline">
@@ -155,7 +155,7 @@ export function Navbar() {
                                   <Link
                                     key={sub.name}
                                     href={sub.href}
-                                    className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground hover:text-primary py-1"
+                                    className="text-[9px] font-bold uppercase tracking-widest text-card-foreground/70 hover:text-primary py-1"
                                     onClick={() => setIsOpen(false)}
                                   >
                                     {sub.name}
