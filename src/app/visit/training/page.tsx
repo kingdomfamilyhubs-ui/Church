@@ -2,23 +2,15 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BookOpen, Globe, MapPin, CheckCircle2, Star, ShieldCheck, ArrowRight } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
-import { useToast } from "@/hooks/use-toast";
 
 export default function MandatoryTrainingPage() {
-  const { toast } = useToast();
   const trainingImage = PlaceHolderImages.find(img => img.id === "training-hero")?.imageUrl;
-
-  const handleBeginTraining = () => {
-    toast({
-      title: "MODULES ACTIVATED",
-      description: "Redirecting you to the first phase of the Kingdom Orientation modules.",
-    });
-  };
 
   return (
     <div className="min-h-screen bg-background pt-20">
@@ -104,9 +96,9 @@ export default function MandatoryTrainingPage() {
             <TabsContent value="local" className="mt-0">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {[
-                  { step: "01", title: "VISION ORIENTATION", desc: "A 1-hour session on the Romans 4:17 mandate and our local community focus." },
-                  { step: "02", title: "SERVICE PROTOCOL", desc: "Learning the flow of prophetic services and sanctuary etiquette." },
-                  { step: "03", title: "BRANCH ACTIVATION", desc: "Connecting with your local branch leaders for ongoing discipleship." }
+                  { id: "local-01", step: "01", title: "VISION ORIENTATION", desc: "A 1-hour session on the Romans 4:17 mandate and our local community focus." },
+                  { id: "local-02", step: "02", title: "SERVICE PROTOCOL", desc: "Learning the flow of prophetic services and sanctuary etiquette." },
+                  { id: "local-03", step: "03", title: "BRANCH ACTIVATION", desc: "Connecting with your local branch leaders for ongoing discipleship." }
                 ].map((item, idx) => (
                   <Card key={idx} className="bg-card border-white/5 rounded-2xl overflow-hidden group hover:border-primary/40 transition-all shadow-xl">
                     <CardHeader className="bg-secondary/5 p-8 border-b border-white/5">
@@ -114,10 +106,10 @@ export default function MandatoryTrainingPage() {
                       <CardTitle className="text-md font-black italic uppercase text-white tracking-tight">{item.title}</CardTitle>
                     </CardHeader>
                     <CardContent className="p-8">
-                      <p className="text-[11px] text-white/60 italic leading-relaxed font-medium mb-6">{item.desc}</p>
-                      <div className="flex items-center gap-2 text-[8px] font-black text-primary uppercase tracking-widest">
-                        <CheckCircle2 className="h-3 w-3" /> REQUIRED FOR ENTRY
-                      </div>
+                      <p className="text-[11px] text-white/60 italic leading-relaxed font-medium mb-8">{item.desc}</p>
+                      <Button asChild className="w-full h-11 bg-primary text-primary-foreground font-black uppercase tracking-widest text-[9px] rounded-md">
+                        <Link href={`/visit/training/${item.id}`}>BEGIN MODULE</Link>
+                      </Button>
                     </CardContent>
                   </Card>
                 ))}
@@ -127,9 +119,9 @@ export default function MandatoryTrainingPage() {
             <TabsContent value="international" className="mt-0">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {[
-                  { step: "01", title: "GLOBAL MANDATE", desc: "Deep dive into our international mission to colonize the earth with Kingdom culture." },
-                  { step: "02", title: "VISA & ACCOMMODATION", desc: "Detailed brief on logistical protocols for our international visitors' hub." },
-                  { step: "03", title: "PROPHETIC DEPLOYMENT", desc: "Training on how to carry the GIF Global mantle back to your home nation." }
+                  { id: "intl-01", step: "01", title: "GLOBAL MANDATE", desc: "Deep dive into our international mission to colonize the earth with Kingdom culture." },
+                  { id: "intl-02", step: "02", title: "VISA & ACCOMMODATION", desc: "Detailed brief on logistical protocols for our international visitors' hub." },
+                  { id: "intl-03", step: "03", title: "PROPHETIC DEPLOYMENT", desc: "Training on how to carry the GIF Global mantle back to your home nation." }
                 ].map((item, idx) => (
                   <Card key={idx} className="bg-card border-white/5 rounded-2xl overflow-hidden group hover:border-primary/40 transition-all shadow-xl">
                     <CardHeader className="bg-secondary/5 p-8 border-b border-white/5">
@@ -137,35 +129,16 @@ export default function MandatoryTrainingPage() {
                       <CardTitle className="text-md font-black italic uppercase text-white tracking-tight">{item.title}</CardTitle>
                     </CardHeader>
                     <CardContent className="p-8">
-                      <p className="text-[11px] text-white/60 italic leading-relaxed font-medium mb-6">{item.desc}</p>
-                      <div className="flex items-center gap-2 text-[8px] font-black text-primary uppercase tracking-widest">
-                        <CheckCircle2 className="h-3 w-3" /> PRE-FLIGHT REQUIREMENT
-                      </div>
+                      <p className="text-[11px] text-white/60 italic leading-relaxed font-medium mb-8">{item.desc}</p>
+                      <Button asChild className="w-full h-11 bg-primary text-primary-foreground font-black uppercase tracking-widest text-[9px] rounded-md">
+                        <Link href={`/visit/training/${item.id}`}>BEGIN MODULE</Link>
+                      </Button>
                     </CardContent>
                   </Card>
                 ))}
               </div>
             </TabsContent>
           </Tabs>
-
-          {/* CTA */}
-          <div className="mt-24 text-center bg-card p-12 rounded-2xl shadow-2xl relative overflow-hidden group border border-white/5">
-             <div className="absolute inset-0 opacity-[0.05] pointer-events-none select-none">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12vw] font-black italic uppercase text-primary whitespace-nowrap">
-                PREPARE
-              </div>
-            </div>
-            <h2 className="text-2xl font-black italic text-white uppercase tracking-tight mb-4 relative z-10">READY TO START YOUR TRAINING?</h2>
-            <p className="text-[10px] font-bold text-white/60 uppercase tracking-widest mb-10 max-w-lg mx-auto italic relative z-10">
-              Select your path above and complete the modules to receive your visitor authorization for Growing In Faith Global Church.
-            </p>
-            <Button 
-              onClick={handleBeginTraining}
-              className="h-12 px-12 bg-primary text-primary-foreground hover:opacity-90 rounded-md font-black uppercase tracking-[0.3em] text-[10px] relative z-10 transition-all active:scale-95 shadow-xl flex items-center gap-3 mx-auto"
-            >
-              BEGIN TRAINING MODULES <ArrowRight className="h-4 w-4" />
-            </Button>
-          </div>
         </div>
       </section>
     </div>
