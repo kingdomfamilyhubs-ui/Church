@@ -5,11 +5,20 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { BookOpen, Globe, MapPin, CheckCircle2, Star, ShieldCheck } from "lucide-react";
+import { BookOpen, Globe, MapPin, CheckCircle2, Star, ShieldCheck, ArrowRight } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
+import { useToast } from "@/hooks/use-toast";
 
 export default function MandatoryTrainingPage() {
+  const { toast } = useToast();
   const trainingImage = PlaceHolderImages.find(img => img.id === "training-hero")?.imageUrl;
+
+  const handleBeginTraining = () => {
+    toast({
+      title: "MODULES ACTIVATED",
+      description: "Redirecting you to the first phase of the Kingdom Orientation modules.",
+    });
+  };
 
   return (
     <div className="min-h-screen bg-background pt-20">
@@ -54,15 +63,15 @@ export default function MandatoryTrainingPage() {
                       <item.icon className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h4 className="text-[10px] font-black text-white uppercase mb-1 tracking-widest">{item.title}</h4>
-                      <p className="text-[10px] text-white/40 font-medium italic">{item.desc}</p>
+                      <h4 className="text-[10px] font-black text-foreground uppercase mb-1 tracking-widest">{item.title}</h4>
+                      <p className="text-[10px] text-muted-foreground font-medium italic">{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-border/10">
               <Image 
                 src={trainingImage || "https://picsum.photos/seed/training-gif/1200/800"} 
                 alt="Kingdom Training" 
@@ -81,12 +90,12 @@ export default function MandatoryTrainingPage() {
           {/* Visitor Paths */}
           <Tabs defaultValue="local" className="w-full">
             <div className="text-center mb-12">
-              <h2 className="text-xl font-black italic uppercase tracking-tighter mb-8">SELECT YOUR VISITOR PATH</h2>
-              <TabsList className="bg-secondary/10 border border-white/5 h-14 p-1 rounded-xl">
-                <TabsTrigger value="local" className="px-10 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-[9px] font-black uppercase tracking-widest">
+              <h2 className="text-xl font-black italic uppercase tracking-tighter mb-8 text-foreground">SELECT YOUR VISITOR PATH</h2>
+              <TabsList className="bg-secondary/10 border border-border/10 h-14 p-1 rounded-xl">
+                <TabsTrigger value="local" className="px-10 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-[9px] font-black uppercase tracking-widest transition-all">
                   <MapPin className="h-4 w-4 mr-2" /> LOCAL VISITOR
                 </TabsTrigger>
-                <TabsTrigger value="international" className="px-10 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-[9px] font-black uppercase tracking-widest">
+                <TabsTrigger value="international" className="px-10 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-[9px] font-black uppercase tracking-widest transition-all">
                   <Globe className="h-4 w-4 mr-2" /> INTERNATIONAL VISITOR
                 </TabsTrigger>
               </TabsList>
@@ -99,7 +108,7 @@ export default function MandatoryTrainingPage() {
                   { step: "02", title: "SERVICE PROTOCOL", desc: "Learning the flow of prophetic services and sanctuary etiquette." },
                   { step: "03", title: "BRANCH ACTIVATION", desc: "Connecting with your local branch leaders for ongoing discipleship." }
                 ].map((item, idx) => (
-                  <Card key={idx} className="bg-card border-white/5 rounded-2xl overflow-hidden group hover:border-primary/40 transition-all">
+                  <Card key={idx} className="bg-card border-white/5 rounded-2xl overflow-hidden group hover:border-primary/40 transition-all shadow-xl">
                     <CardHeader className="bg-secondary/5 p-8 border-b border-white/5">
                       <span className="text-primary font-black italic text-3xl opacity-20">{item.step}</span>
                       <CardTitle className="text-md font-black italic uppercase text-white tracking-tight">{item.title}</CardTitle>
@@ -122,7 +131,7 @@ export default function MandatoryTrainingPage() {
                   { step: "02", title: "VISA & ACCOMMODATION", desc: "Detailed brief on logistical protocols for our international visitors' hub." },
                   { step: "03", title: "PROPHETIC DEPLOYMENT", desc: "Training on how to carry the GIF Global mantle back to your home nation." }
                 ].map((item, idx) => (
-                  <Card key={idx} className="bg-card border-white/5 rounded-2xl overflow-hidden group hover:border-primary/40 transition-all">
+                  <Card key={idx} className="bg-card border-white/5 rounded-2xl overflow-hidden group hover:border-primary/40 transition-all shadow-xl">
                     <CardHeader className="bg-secondary/5 p-8 border-b border-white/5">
                       <span className="text-primary font-black italic text-3xl opacity-20">{item.step}</span>
                       <CardTitle className="text-md font-black italic uppercase text-white tracking-tight">{item.title}</CardTitle>
@@ -140,18 +149,21 @@ export default function MandatoryTrainingPage() {
           </Tabs>
 
           {/* CTA */}
-          <div className="mt-24 text-center bg-primary p-12 rounded-2xl shadow-2xl relative overflow-hidden group">
+          <div className="mt-24 text-center bg-card p-12 rounded-2xl shadow-2xl relative overflow-hidden group border border-white/5">
              <div className="absolute inset-0 opacity-[0.05] pointer-events-none select-none">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12vw] font-black italic uppercase text-black whitespace-nowrap">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12vw] font-black italic uppercase text-primary whitespace-nowrap">
                 PREPARE
               </div>
             </div>
-            <h2 className="text-2xl font-black italic text-primary-foreground uppercase tracking-tight mb-4 relative z-10">READY TO START YOUR TRAINING?</h2>
-            <p className="text-[10px] font-bold text-primary-foreground/80 uppercase tracking-widest mb-10 max-w-lg mx-auto italic relative z-10">
-              Select your path above and complete the modules to receive your visitor authorization.
+            <h2 className="text-2xl font-black italic text-white uppercase tracking-tight mb-4 relative z-10">READY TO START YOUR TRAINING?</h2>
+            <p className="text-[10px] font-bold text-white/60 uppercase tracking-widest mb-10 max-w-lg mx-auto italic relative z-10">
+              Select your path above and complete the modules to receive your visitor authorization for Growing In Faith Global Church.
             </p>
-            <Button className="h-12 px-12 bg-black text-white hover:opacity-90 rounded-md font-black uppercase tracking-[0.3em] text-[10px] relative z-10 transition-all active:scale-95">
-              BEGIN TRAINING MODULES
+            <Button 
+              onClick={handleBeginTraining}
+              className="h-12 px-12 bg-primary text-primary-foreground hover:opacity-90 rounded-md font-black uppercase tracking-[0.3em] text-[10px] relative z-10 transition-all active:scale-95 shadow-xl flex items-center gap-3 mx-auto"
+            >
+              BEGIN TRAINING MODULES <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
         </div>
