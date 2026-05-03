@@ -56,7 +56,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-black italic text-[9px] uppercase tracking-widest mb-1.5 text-primary">CALL US</h3>
-                    <p className="text-[11px] text-card-foreground/70 leading-relaxed font-bold">+1 (800) FAITH-NOW</p>
+                    <p className="text-[11px] text-card-foreground/70 leading-relaxed font-bold">+260770933607</p>
                   </div>
                 </div>
                 <div className="flex gap-5 items-start">
