@@ -50,7 +50,14 @@ export function Navbar() {
       ],
     },
     { name: "EVENTS", href: "/events" },
-    { name: "VISIT", href: "/contact" },
+    {
+      name: "VISIT",
+      href: "/contact",
+      subItems: [
+        { name: "CONTACT US", href: "/contact" },
+        { name: "MANDATORY TRAINING", href: "/visit/training" },
+      ],
+    },
     {
       name: "RESOURCES",
       href: "/resources/library",

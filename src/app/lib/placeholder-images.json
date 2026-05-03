@@ -48,6 +48,12 @@
       "description": "Group of professional board members in a meeting setting.",
       "imageUrl": "https://picsum.photos/seed/board/800/600",
       "imageHint": "business council"
+    },
+    {
+      "id": "training-hero",
+      "description": "A sophisticated educational setting representing kingdom training and activation.",
+      "imageUrl": "https://picsum.photos/seed/training-gif/1200/800",
+      "imageHint": "classroom excellence"
     }
   ]
 }
