@@ -4,7 +4,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, Heart, ChevronDown, LayoutDashboard, X } from "lucide-react";
+import { Menu, Heart, ChevronDown, LayoutDashboard, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import {
@@ -46,9 +46,8 @@ export function Navbar() {
       subItems: [
         { name: "GOOD HOPE VOW", href: "/give" },
         { name: "GIF GLOBAL TRAINING CENTER", href: "/give" },
+        { name: "PARTNERSHIP SEED", href: "/give" },
         { name: "FIRST FRUIT", href: "/give" },
-        { name: "SALARY VOW", href: "/give" },
-        { name: "USA PROPERTY VOW", href: "/give" },
       ],
     },
     { name: "EVENTS", href: "/events" },
@@ -129,18 +128,18 @@ export function Navbar() {
                   )}
                 </div>
               ))}
+              
               <div className="flex items-center gap-6 pl-6 border-l border-white/10">
-                <Link 
-                  href="/admin" 
-                  className="flex items-center gap-2 text-[9px] font-black uppercase tracking-widest text-primary hover:text-white transition-colors"
-                >
-                  <LayoutDashboard className="h-4 w-4" />
-                  ADMIN
-                </Link>
-                <Button asChild size="sm" className="bg-primary text-black hover:opacity-90 rounded-md font-black uppercase tracking-widest text-[8px] px-6 h-9 shadow-lg">
+                <Button asChild variant="ghost" className="h-10 px-4 bg-primary/10 border border-primary/20 hover:bg-primary hover:text-black transition-all group">
+                  <Link href="/admin" className="flex items-center gap-2">
+                    <LayoutDashboard className="h-4 w-4 text-primary group-hover:text-black" />
+                    <span className="text-[9px] font-black uppercase tracking-widest text-primary group-hover:text-black">ADMIN</span>
+                  </Link>
+                </Button>
+                <Button asChild size="sm" className="bg-primary text-black hover:opacity-90 rounded-md font-black uppercase tracking-widest text-[8px] px-6 h-10 shadow-lg border-none">
                   <Link href="/give" className="flex items-center gap-2">
                     <Heart className="h-3 w-3 fill-current" />
-                    Partnership
+                    PARTNER
                   </Link>
                 </Button>
               </div>
@@ -156,15 +155,13 @@ export function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="bg-card border-l border-white/5 p-0 w-[280px]">
                 <SheetHeader className="p-6 border-b border-white/5">
-                  <div className="flex items-center justify-between">
-                    <SheetTitle className="text-left">
-                       <div className="flex items-center gap-3">
-                          <span className="text-sm font-black tracking-tighter uppercase italic text-card-foreground">
-                            GROWING <span className="text-primary">IN FAITH</span>
-                          </span>
-                       </div>
-                    </SheetTitle>
-                  </div>
+                  <SheetTitle className="text-left">
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm font-black tracking-tighter uppercase italic text-card-foreground">
+                        GROWING <span className="text-primary">IN FAITH</span>
+                      </span>
+                    </div>
+                  </SheetTitle>
                 </SheetHeader>
                 <div className="px-6 py-6 space-y-1">
                   <Accordion type="single" collapsible className="w-full">
@@ -203,17 +200,19 @@ export function Navbar() {
                     ))}
                   </Accordion>
                   <div className="pt-8 space-y-4">
-                    <Link 
-                      href="/admin" 
-                      className="flex items-center gap-3 py-4 text-[9px] font-black uppercase tracking-widest text-primary border-b border-white/5"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      <LayoutDashboard className="h-4 w-4" />
-                      ADMIN COMMAND CENTER
-                    </Link>
+                    <Button asChild variant="outline" className="w-full border-primary/20 bg-primary/5 hover:bg-primary hover:text-black h-12">
+                      <Link 
+                        href="/admin" 
+                        className="flex items-center justify-center gap-3 text-[9px] font-black uppercase tracking-widest text-primary hover:text-black"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <LayoutDashboard className="h-4 w-4" />
+                        COMMAND CENTER
+                      </Link>
+                    </Button>
                     <Button asChild className="w-full bg-primary text-black h-12 rounded-md font-black uppercase tracking-widest text-[9px]">
                       <Link href="/give" onClick={() => setIsOpen(false)}>
-                        Give & Partner
+                        <Heart className="h-3 w-3 mr-2" /> GIVE & PARTNER
                       </Link>
                     </Button>
                   </div>

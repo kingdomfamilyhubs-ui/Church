@@ -3,43 +3,43 @@
 
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar, Play, BookOpen, GraduationCap, MapPin, ArrowRight } from "lucide-react";
+import { Calendar, Play, BookOpen, GraduationCap, MapPin, ArrowRight, Settings, Image as ImageIcon } from "lucide-react";
 
 export default function AdminDashboard() {
   const sections = [
     {
-      title: "EVENT MANAGEMENT",
-      description: "Post new gatherings and manage the prophetic calendar.",
+      title: "PROGRAMS & SERVICES",
+      description: "Manage weekly gatherings at the Lusaka Hub and other regional branches.",
       href: "/admin/events",
       icon: Calendar,
       color: "text-primary"
     },
     {
-      title: "SERMON ARCHIVE",
-      description: "Upload messages and manage media revelation.",
-      href: "/admin/sermons",
-      icon: Play,
-      color: "text-primary"
-    },
-    {
-      title: "RESOURCE LIBRARY",
-      description: "Manage books, digital downloads, and store items.",
-      href: "/admin/resources",
-      icon: BookOpen,
-      color: "text-primary"
-    },
-    {
-      title: "TRAINING PORTAL",
-      description: "Create and manage mandatory visitor training modules.",
+      title: "TRAINING CENTER",
+      description: "Manage Growing In Faith Global Training Center modules and visitor paths.",
       href: "/admin/training",
       icon: GraduationCap,
       color: "text-primary"
     },
     {
       title: "BRANCH DIRECTORY",
-      description: "Manage headquarters and regional branch contacts.",
+      description: "Update the Headquarters (Shooting Star School) and global contact records.",
       href: "/admin/branches",
       icon: MapPin,
+      color: "text-primary"
+    },
+    {
+      title: "SERMON ARCHIVE",
+      description: "Curate the digital bread and prophetic media for the global community.",
+      href: "/admin/sermons",
+      icon: Play,
+      color: "text-primary"
+    },
+    {
+      title: "RESOURCE LIBRARY",
+      description: "Manage books, digital downloads, and kingdom store inventory.",
+      href: "/admin/resources",
+      icon: BookOpen,
       color: "text-primary"
     }
   ];
@@ -52,7 +52,7 @@ export default function AdminDashboard() {
             KINGDOM ADMINISTRATION
           </div>
           <h1 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter mb-4 text-foreground">COMMAND CENTER</h1>
-          <p className="text-[10px] text-muted-foreground uppercase tracking-widest italic font-medium">Equipping the unique prophetic generation through digital excellence.</p>
+          <p className="text-[10px] text-muted-foreground uppercase tracking-widest italic font-medium">Equipping the unique prophetic generation through administrative excellence.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -70,12 +70,30 @@ export default function AdminDashboard() {
                     {section.description}
                   </p>
                   <div className="flex items-center gap-2 text-[8px] font-black uppercase tracking-widest text-primary">
-                    MANAGE SECTION <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
+                    ACCESS PORTAL <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </CardContent>
               </Card>
             </Link>
           ))}
+
+          {/* Quick Guide for Site Identity */}
+          <Card className="bg-primary/5 border border-dashed border-primary/20 h-full rounded-xl overflow-hidden">
+            <CardHeader className="p-8">
+              <div className="p-4 bg-primary/10 w-fit rounded-lg mb-6">
+                <ImageIcon className="h-6 w-6 text-primary" />
+              </div>
+              <CardTitle className="text-lg font-black italic uppercase tracking-tight text-primary">SITE IDENTITY</CardTitle>
+            </CardHeader>
+            <CardContent className="p-8 pt-0 space-y-4">
+              <p className="text-[10px] text-white/40 leading-relaxed italic font-medium">
+                To update the Logo, Hero Landing Photo, or static About/Tribe copy, please refer to the centralized media configuration files.
+              </p>
+              <div className="p-3 bg-black/40 rounded border border-white/5 font-mono text-[8px] text-white/60">
+                src/app/lib/placeholder-images.json
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>

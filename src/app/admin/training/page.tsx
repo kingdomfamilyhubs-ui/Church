@@ -72,8 +72,8 @@ export default function AdminTrainingPage() {
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 text-primary text-[8px] font-black uppercase tracking-[0.4em] mb-6 rounded-md">
             ACADEMIC OVERSIGHT
           </div>
-          <h1 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter mb-4 text-foreground">TRAINING MANAGEMENT</h1>
-          <p className="text-[10px] text-muted-foreground uppercase tracking-widest italic font-medium">Equip visitors with prophetic alignment and protocol.</p>
+          <h1 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter mb-4 text-foreground">TRAINING CENTER MANAGEMENT</h1>
+          <p className="text-[10px] text-muted-foreground uppercase tracking-widest italic font-medium">Equip visitors for Growing In Faith Global Training Center.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -120,7 +120,7 @@ export default function AdminTrainingPage() {
                   <Label className="text-[9px] font-black uppercase tracking-widest text-primary">FOUNDATIONAL SCRIPTURE</Label>
                   <Input value={formData.scripture} onChange={(e) => setFormData({...formData, scripture: e.target.value})} placeholder="E.G., ROMANS 4:17" className="h-11 bg-secondary/5 border-white/10 text-xs italic text-white" />
                 </div>
-                <Button type="submit" className="w-full h-12 bg-primary text-black text-[10px] font-black uppercase tracking-[0.3em] rounded-md hover:opacity-90" disabled={loading}>
+                <Button type="submit" className="w-full h-12 bg-primary text-black text-[10px] font-black uppercase tracking-[0.3em] rounded-md hover:opacity-90 shadow-xl border-none" disabled={loading}>
                   {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "PUBLISH MODULE"}
                 </Button>
               </form>
@@ -135,7 +135,7 @@ export default function AdminTrainingPage() {
             ) : (
               <div className="space-y-4">
                 {modules?.map((mod: any) => (
-                  <Card key={mod.id} className="bg-card border-white/5 overflow-hidden group hover:border-primary/20 transition-all rounded-xl">
+                  <Card key={mod.id} className="bg-card border-white/5 overflow-hidden group hover:border-primary/20 transition-all rounded-xl shadow-xl">
                     <CardContent className="p-4 flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className="bg-primary/10 p-2 rounded-lg">
