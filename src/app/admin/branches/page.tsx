@@ -20,8 +20,8 @@ export default function AdminBranchesPage() {
   const firestore = useFirestore();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    address: "",
+    name: "LUSAKA HUB",
+    address: "Chipata Compound at SHOOTING STAR CHRISTIAN SCHOOL, Lusaka, Zambia",
     phone: "+260770933607",
     email: "growinginfaithglobalchurch@gmail.com",
     isHeadquarters: false,
@@ -48,7 +48,14 @@ export default function AdminBranchesPage() {
     })
     .then(() => {
       toast({ title: "BRANCH ADDED", description: "The location has been successfully registered." });
-      setFormData({ name: "", address: "", phone: "+260770933607", email: "growinginfaithglobalchurch@gmail.com", isHeadquarters: false, pastor: "" });
+      setFormData({ 
+        name: "LUSAKA HUB", 
+        address: "Chipata Compound at SHOOTING STAR CHRISTIAN SCHOOL, Lusaka, Zambia", 
+        phone: "+260770933607", 
+        email: "growinginfaithglobalchurch@gmail.com", 
+        isHeadquarters: false, 
+        pastor: "" 
+      });
       setLoading(false);
     })
     .catch(async () => {
@@ -118,7 +125,7 @@ export default function AdminBranchesPage() {
                   <Label className="text-[9px] font-black uppercase tracking-widest text-primary">EMAIL ADDRESS</Label>
                   <Input value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} placeholder="EMAIL@GIFGLOBAL.COM" className="h-11 bg-secondary/5 border-white/10 text-xs text-white" />
                 </div>
-                <Button type="submit" className="w-full h-12 bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-[0.3em] rounded-md" disabled={loading}>
+                <Button type="submit" className="w-full h-12 bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-[0.3em] rounded-md shadow-xl hover:opacity-90" disabled={loading}>
                   {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "PUBLISH BRANCH"}
                 </Button>
               </form>
@@ -129,11 +136,13 @@ export default function AdminBranchesPage() {
           <div className="space-y-6">
             <h2 className="text-sm font-black italic uppercase tracking-widest text-primary">ACTIVE LOCATIONS</h2>
             {listLoading ? (
-              <Loader2 className="h-8 w-8 animate-spin text-primary mx-auto" />
+              <div className="flex justify-center py-20">
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
+              </div>
             ) : (
               <div className="space-y-4">
                 {branches?.map((branch: any) => (
-                  <Card key={branch.id} className="bg-card border-white/5 overflow-hidden group hover:border-primary/20 transition-all rounded-xl">
+                  <Card key={branch.id} className="bg-card border-white/5 overflow-hidden group hover:border-primary/20 transition-all rounded-xl shadow-xl">
                     <CardContent className="p-4 flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className="bg-primary/10 p-2 rounded-lg">
@@ -143,7 +152,7 @@ export default function AdminBranchesPage() {
                           <div className="flex items-center gap-2">
                             <h4 className="text-[10px] font-black uppercase text-white">{branch.name}</h4>
                             {branch.isHeadquarters && (
-                              <span className="flex items-center gap-1 bg-primary/20 text-primary text-[6px] font-black px-1.5 py-0.5 rounded uppercase">
+                              <span className="flex items-center gap-1 bg-primary text-black text-[6px] font-black px-1.5 py-0.5 rounded uppercase shadow-sm">
                                 <Shield className="h-2 w-2" /> HQ
                               </span>
                             )}

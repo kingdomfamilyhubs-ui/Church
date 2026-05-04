@@ -60,13 +60,19 @@ export function Footer() {
           <div>
             <h4 className="text-[9px] font-black mb-8 uppercase tracking-widest text-primary italic">GET IN TOUCH</h4>
             {loading ? (
-              <Loader2 className="h-4 w-4 animate-spin text-primary" />
+              <div className="flex items-center gap-2">
+                <Loader2 className="h-4 w-4 animate-spin text-primary" />
+                <span className="text-[8px] font-black uppercase text-primary">Loading Global HQ...</span>
+              </div>
             ) : (
               <ul className="space-y-5 text-[10px] text-card-foreground/70 font-medium">
                 <li className="flex items-center gap-4">
                   <MapPin className="h-4 w-4 text-primary shrink-0" /> 
-                  <span className="text-card-foreground uppercase text-[8px] font-black tracking-wider">
-                    {hq?.name || "Faith HQ, Global City Hub"}
+                  <span className="text-card-foreground uppercase text-[8px] font-black tracking-wider leading-relaxed">
+                    {hq?.name || "LUSAKA HUB (HQ)"}<br/>
+                    <span className="text-card-foreground/50">
+                      {hq?.address || "Chipata Compound at SHOOTING STAR CHRISTIAN SCHOOL, Lusaka, Zambia"}
+                    </span>
                   </span>
                 </li>
                 <li className="flex items-center gap-4">

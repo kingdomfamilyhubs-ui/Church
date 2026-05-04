@@ -61,8 +61,10 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-black italic text-[9px] uppercase tracking-widest mb-1.5 text-primary">PRIMARY HUB</h3>
-                    <p className="text-[11px] text-card-foreground/70 leading-relaxed font-bold uppercase">{hq?.name || "Faith HQ, Global City Hub"}</p>
-                    <p className="text-[9px] text-card-foreground/50 leading-relaxed italic uppercase mt-1">{hq?.address || "Global Location"}</p>
+                    <p className="text-[11px] text-card-foreground/70 leading-relaxed font-bold uppercase">{hq?.name || "Lusaka Hub (Headquarters)"}</p>
+                    <p className="text-[9px] text-card-foreground/50 leading-relaxed italic uppercase mt-1">
+                      {hq?.address || "Chipata Compound at SHOOTING STAR CHRISTIAN SCHOOL, Lusaka, Zambia"}
+                    </p>
                   </div>
                 </div>
                 <div className="flex gap-5 items-start">
@@ -80,7 +82,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-black italic text-[9px] uppercase tracking-widest mb-1.5 text-primary">EMAIL MANDATE</h3>
-                    <p className="text-[10px] text-card-foreground/70 leading-relaxed font-bold break-all">{hq?.email || "growinginfaithglobalchurch@gmail.com"}</p>
+                    <p className="text-[10px] text-card-foreground/70 leading-relaxed font-bold break-all uppercase">{hq?.email || "growinginfaithglobalchurch@gmail.com"}</p>
                   </div>
                 </div>
               </CardContent>
@@ -174,7 +176,7 @@ export default function ContactPage() {
         {/* Dynamic Branch Directory */}
         <section className="mt-24 pt-24 border-t border-white/5">
           <div className="text-center mb-16">
-            <h2 className="text-2xl font-black italic uppercase tracking-tighter mb-4">GLOBAL BRANCHES</h2>
+            <h2 className="text-2xl font-black italic uppercase tracking-tighter mb-4 text-foreground">GLOBAL BRANCHES</h2>
             <div className="w-12 h-0.5 bg-primary mx-auto" />
           </div>
 
@@ -192,7 +194,7 @@ export default function ContactPage() {
                         <MapPin className="h-4 w-4 text-primary" />
                       </div>
                       {branch.isHeadquarters && (
-                        <span className="bg-primary text-primary-foreground text-[7px] font-black px-2 py-0.5 rounded uppercase tracking-widest">GLOBAL HQ</span>
+                        <span className="bg-primary text-primary-foreground text-[7px] font-black px-2 py-0.5 rounded uppercase tracking-widest shadow-lg">GLOBAL HQ</span>
                       )}
                     </div>
                     <div>
@@ -207,7 +209,7 @@ export default function ContactPage() {
                         {branch.email && (
                           <div className="flex items-center gap-3">
                             <Mail className="h-3 w-3 text-primary" />
-                            <span className="text-[9px] font-bold text-white/80">{branch.email}</span>
+                            <span className="text-[9px] font-bold text-white/80 uppercase">{branch.email}</span>
                           </div>
                         )}
                         {branch.pastor && (
