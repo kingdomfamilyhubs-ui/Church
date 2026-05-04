@@ -4,7 +4,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, Heart, ChevronDown, LayoutDashboard, Settings } from "lucide-react";
+import { Menu, Heart, ChevronDown, LayoutDashboard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import {

@@ -7,8 +7,9 @@ import { Toaster } from '@/components/ui/toaster';
 import { FirebaseClientProvider } from '@/firebase/client-provider';
 
 export const metadata: Metadata = {
-  title: 'Growing In Faith Global Church',
+  title: 'Growing In Faith Global Church | Transforming Realities',
   description: 'Transforming non extinct into existence, Romans 4:17. Our assignment is to raise a unique prophetic generation of disciples who will dominate, govern and colonize the earth with Kingdom principles.',
+  keywords: ['Church', 'Prophetic', 'Faith', 'Kingdom', 'Global Church', 'Zambia', 'Lusaka Hub'],
 };
 
 export default function RootLayout({
