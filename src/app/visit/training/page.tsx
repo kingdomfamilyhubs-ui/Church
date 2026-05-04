@@ -3,14 +3,28 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useFirestore, useCollection } from "@/firebase";
+import { collection, query, orderBy } from "firebase/firestore";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { BookOpen, Globe, MapPin, CheckCircle2, Star, ShieldCheck, ArrowRight } from "lucide-react";
+import { BookOpen, Globe, MapPin, Star, ShieldCheck, Loader2 } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
+import { useMemoFirebase } from "@/firebase/use-memo-firebase";
 
 export default function MandatoryTrainingPage() {
+  const firestore = useFirestore();
   const trainingImage = PlaceHolderImages.find(img => img.id === "training-hero")?.imageUrl;
+
+  const modulesQuery = useMemoFirebase(() => {
+    if (!firestore) return null;
+    return query(collection(firestore, "training_modules"), orderBy("stepNumber", "asc"));
+  }, [firestore]);
+
+  const { data: modules, loading } = useCollection(modulesQuery);
+
+  const localModules = modules?.filter(m => m.pathType === "local");
+  const intlModules = modules?.filter(m => m.pathType === "international");
 
   return (
     <div className="min-h-screen bg-background pt-20">
@@ -79,66 +93,76 @@ export default function MandatoryTrainingPage() {
             </div>
           </div>
 
-          {/* Visitor Paths */}
-          <Tabs defaultValue="local" className="w-full">
-            <div className="text-center mb-12">
-              <h2 className="text-xl font-black italic uppercase tracking-tighter mb-8 text-foreground">SELECT YOUR VISITOR PATH</h2>
-              <TabsList className="bg-secondary/10 border border-border/10 h-14 p-1 rounded-xl">
-                <TabsTrigger value="local" className="px-10 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-[9px] font-black uppercase tracking-widest transition-all">
-                  <MapPin className="h-4 w-4 mr-2" /> LOCAL VISITOR
-                </TabsTrigger>
-                <TabsTrigger value="international" className="px-10 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-[9px] font-black uppercase tracking-widest transition-all">
-                  <Globe className="h-4 w-4 mr-2" /> INTERNATIONAL VISITOR
-                </TabsTrigger>
-              </TabsList>
+          {loading ? (
+            <div className="text-center py-20">
+              <Loader2 className="h-10 w-10 animate-spin text-primary mx-auto mb-4" />
+              <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Accessing the prophetic curriculum...</p>
             </div>
-
-            <TabsContent value="local" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[
-                  { id: "local-01", step: "01", title: "VISION ORIENTATION", desc: "A 1-hour session on the Romans 4:17 mandate and our local community focus." },
-                  { id: "local-02", step: "02", title: "SERVICE PROTOCOL", desc: "Learning the flow of prophetic services and sanctuary etiquette." },
-                  { id: "local-03", step: "03", title: "BRANCH ACTIVATION", desc: "Connecting with your local branch leaders for ongoing discipleship." }
-                ].map((item, idx) => (
-                  <Card key={idx} className="bg-card border-white/5 rounded-2xl overflow-hidden group hover:border-primary/40 transition-all shadow-xl">
-                    <CardHeader className="bg-secondary/5 p-8 border-b border-white/5">
-                      <span className="text-primary font-black italic text-3xl opacity-20">{item.step}</span>
-                      <CardTitle className="text-md font-black italic uppercase text-white tracking-tight">{item.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-8">
-                      <p className="text-[11px] text-white/60 italic leading-relaxed font-medium mb-8">{item.desc}</p>
-                      <Button asChild className="w-full h-11 bg-primary text-primary-foreground font-black uppercase tracking-widest text-[9px] rounded-md">
-                        <Link href={`/visit/training/${item.id}`}>BEGIN MODULE</Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                ))}
+          ) : (
+            <Tabs defaultValue="local" className="w-full">
+              <div className="text-center mb-12">
+                <h2 className="text-xl font-black italic uppercase tracking-tighter mb-8 text-foreground">SELECT YOUR VISITOR PATH</h2>
+                <TabsList className="bg-secondary/10 border border-border/10 h-14 p-1 rounded-xl">
+                  <TabsTrigger value="local" className="px-10 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-black text-[9px] font-black uppercase tracking-widest transition-all">
+                    <MapPin className="h-4 w-4 mr-2" /> LOCAL VISITOR
+                  </TabsTrigger>
+                  <TabsTrigger value="international" className="px-10 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-black text-[9px] font-black uppercase tracking-widest transition-all">
+                    <Globe className="h-4 w-4 mr-2" /> INTERNATIONAL VISITOR
+                  </TabsTrigger>
+                </TabsList>
               </div>
-            </TabsContent>
 
-            <TabsContent value="international" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[
-                  { id: "intl-01", step: "01", title: "GLOBAL MANDATE", desc: "Deep dive into our international mission to colonize the earth with Kingdom culture." },
-                  { id: "intl-02", step: "02", title: "VISA & ACCOMMODATION", desc: "Detailed brief on logistical protocols for our international visitors' hub." },
-                  { id: "intl-03", step: "03", title: "PROPHETIC DEPLOYMENT", desc: "Training on how to carry the GIF Global mantle back to your home nation." }
-                ].map((item, idx) => (
-                  <Card key={idx} className="bg-card border-white/5 rounded-2xl overflow-hidden group hover:border-primary/40 transition-all shadow-xl">
-                    <CardHeader className="bg-secondary/5 p-8 border-b border-white/5">
-                      <span className="text-primary font-black italic text-3xl opacity-20">{item.step}</span>
-                      <CardTitle className="text-md font-black italic uppercase text-white tracking-tight">{item.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-8">
-                      <p className="text-[11px] text-white/60 italic leading-relaxed font-medium mb-8">{item.desc}</p>
-                      <Button asChild className="w-full h-11 bg-primary text-primary-foreground font-black uppercase tracking-widest text-[9px] rounded-md">
-                        <Link href={`/visit/training/${item.id}`}>BEGIN MODULE</Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
+              <TabsContent value="local" className="mt-0">
+                {localModules && localModules.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {localModules.map((item, idx) => (
+                      <Card key={idx} className="bg-card border-white/5 rounded-2xl overflow-hidden group hover:border-primary/40 transition-all shadow-xl">
+                        <CardHeader className="bg-secondary/5 p-8 border-b border-white/5">
+                          <span className="text-primary font-black italic text-3xl opacity-20">{item.stepNumber}</span>
+                          <CardTitle className="text-md font-black italic uppercase text-white tracking-tight">{item.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-8">
+                          <p className="text-[11px] text-white/60 italic leading-relaxed font-medium mb-8 line-clamp-3">{item.description}</p>
+                          <Button asChild className="w-full h-11 bg-primary text-black font-black uppercase tracking-widest text-[9px] rounded-md hover:opacity-90">
+                            <Link href={`/visit/training/${item.id}`}>BEGIN MODULE</Link>
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-20 bg-secondary/5 rounded-xl border border-dashed border-white/5">
+                    <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest italic">Local curriculum is currently being prepared.</p>
+                  </div>
+                )}
+              </TabsContent>
+
+              <TabsContent value="international" className="mt-0">
+                {intlModules && intlModules.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {intlModules.map((item, idx) => (
+                      <Card key={idx} className="bg-card border-white/5 rounded-2xl overflow-hidden group hover:border-primary/40 transition-all shadow-xl">
+                        <CardHeader className="bg-secondary/5 p-8 border-b border-white/5">
+                          <span className="text-primary font-black italic text-3xl opacity-20">{item.stepNumber}</span>
+                          <CardTitle className="text-md font-black italic uppercase text-white tracking-tight">{item.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-8">
+                          <p className="text-[11px] text-white/60 italic leading-relaxed font-medium mb-8 line-clamp-3">{item.description}</p>
+                          <Button asChild className="w-full h-11 bg-primary text-black font-black uppercase tracking-widest text-[9px] rounded-md hover:opacity-90">
+                            <Link href={`/visit/training/${item.id}`}>BEGIN MODULE</Link>
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-20 bg-secondary/5 rounded-xl border border-dashed border-white/5">
+                    <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest italic">International curriculum is currently being prepared.</p>
+                  </div>
+                )}
+              </TabsContent>
+            </Tabs>
+          )}
         </div>
       </section>
     </div>

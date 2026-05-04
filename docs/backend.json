@@ -45,6 +45,21 @@
         "createdAt": { "type": "string", "format": "date-time" }
       },
       "required": ["title", "category", "description"]
+    },
+    "TrainingModule": {
+      "title": "Training Module",
+      "description": "A mandatory lesson for visitors.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "pathType": { "type": "string", "enum": ["local", "international"] },
+        "stepNumber": { "type": "string" },
+        "description": { "type": "string" },
+        "content": { "type": "string" },
+        "scripture": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "pathType", "stepNumber", "description", "content"]
     }
   },
   "auth": {
@@ -62,6 +77,10 @@
     "/resources/{resourceId}": {
       "schema": "Resource",
       "description": "Collection of digital resources and store items."
+    },
+    "/training_modules/{moduleId}": {
+      "schema": "TrainingModule",
+      "description": "Collection of mandatory training modules."
     }
   }
 }

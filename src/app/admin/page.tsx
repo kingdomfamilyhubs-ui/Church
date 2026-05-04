@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar, Play, BookOpen, Settings, ArrowRight } from "lucide-react";
+import { Calendar, Play, BookOpen, GraduationCap, ArrowRight } from "lucide-react";
 
 export default function AdminDashboard() {
   const sections = [
@@ -27,6 +27,13 @@ export default function AdminDashboard() {
       href: "/admin/resources",
       icon: BookOpen,
       color: "text-primary"
+    },
+    {
+      title: "TRAINING PORTAL",
+      description: "Create and manage mandatory visitor training modules.",
+      href: "/admin/training",
+      icon: GraduationCap,
+      color: "text-primary"
     }
   ];
 
@@ -41,7 +48,7 @@ export default function AdminDashboard() {
           <p className="text-[10px] text-muted-foreground uppercase tracking-widest italic font-medium">Equipping the unique prophetic generation through digital excellence.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {sections.map((section) => (
             <Link key={section.title} href={section.href}>
               <Card className="bg-card border-white/5 hover:border-primary/40 transition-all duration-500 group cursor-pointer h-full rounded-xl overflow-hidden shadow-2xl">

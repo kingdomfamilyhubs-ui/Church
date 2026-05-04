@@ -3,6 +3,8 @@
 
 import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { useFirestore, useDoc } from "@/firebase";
+import { doc } from "firebase/firestore";
 import { trainingAssistant } from "@/ai/flows/training-assistant-flow";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,49 +12,61 @@ import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, Send, Sparkles, CheckCircle2, Loader2, BookOpen } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
-const MODULE_CONTENT: Record<string, { title: string; content: string; scripture: string }> = {
-  "local-01": {
-    title: "VISION ORIENTATION",
-    content: "The heart of Growing In Faith Global Church is the Romans 4:17 mandate: Calling those things which be not as though they were. As a local visitor, you are entering a space where the supernatural is natural. You will be taught how to activate your prophetic identity within your immediate community.",
-    scripture: "Romans 4:17"
-  },
-  "intl-01": {
-    title: "GLOBAL MANDATE",
-    content: "Our assignment is to colonize the earth with Kingdom culture. This module focuses on the apostolic authority required to influence nations. As an international visitor, you are being equipped to carry this mantle back to your home country, establishing outposts of light wherever you go.",
-    scripture: "Matthew 28:19-20"
-  }
-};
+import { useMemoFirebase } from "@/firebase/use-memo-firebase";
 
 export default function PropheticClassroom() {
   const { moduleId } = useParams();
   const router = useRouter();
+  const firestore = useFirestore();
   const { toast } = useToast();
   const [question, setQuestion] = useState("");
   const [chat, setChat] = useState<{ q: string; a: string; s?: string }[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [aiLoading, setAiLoading] = useState(false);
 
-  const module = MODULE_CONTENT[moduleId as string] || {
-    title: "MODULE IN PROGRESS",
-    content: "This prophetic material is currently being archived for the generation. Please check back shortly as the revelation is prepared.",
-    scripture: "Habakkuk 2:3"
-  };
+  const moduleRef = useMemoFirebase(() => {
+    if (!firestore || !moduleId) return null;
+    return doc(firestore, "training_modules", moduleId as string);
+  }, [firestore, moduleId]);
+
+  const { data: module, loading } = useDoc(moduleRef);
 
   const handleAskAI = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!question.trim()) return;
 
-    setLoading(true);
+    setAiLoading(true);
     try {
-      const result = await trainingAssistant({ question, context: module.title });
+      const result = await trainingAssistant({ question, context: module?.title });
       setChat([...chat, { q: question, a: result.answer, s: result.scriptureReference }]);
       setQuestion("");
     } catch (err) {
       toast({ variant: "destructive", title: "CONNECTION INTERRUPTED", description: "Failed to reach the prophetic assistant." });
     } finally {
-      setLoading(false);
+      setAiLoading(false);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center space-y-4">
+        <Loader2 className="h-10 w-10 animate-spin text-primary" />
+        <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Opening the kingdom archives...</p>
+      </div>
+    );
+  }
+
+  if (!module) {
+    return (
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center text-center p-6">
+        <BookOpen className="h-12 w-12 text-muted-foreground/20 mb-6" />
+        <h1 className="text-xl font-black italic uppercase text-white mb-4">MODULE NOT FOUND</h1>
+        <p className="text-xs text-white/40 mb-8">The requested revelation is not available in the current archive.</p>
+        <Button onClick={() => router.push("/visit/training")} className="bg-primary text-black font-black uppercase text-[9px] tracking-widest px-8 h-12 rounded-md">
+          RETURN TO PORTAL
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background pt-32 pb-20 px-4">
@@ -66,9 +80,9 @@ export default function PropheticClassroom() {
           <div className="space-y-6">
             <div className="flex justify-between items-end">
               <h1 className="text-3xl font-black italic uppercase tracking-tighter text-white">{module.title}</h1>
-              <span className="text-[8px] font-black uppercase text-primary tracking-widest">ORIENTATION PHASE</span>
+              <span className="text-[8px] font-black uppercase text-primary tracking-widest">ORIENTATION PHASE • STEP {module.stepNumber}</span>
             </div>
-            <Progress value={45} className="h-2 bg-white/5" />
+            <Progress value={60} className="h-2 bg-white/5" />
           </div>
 
           <Card className="bg-card border-white/5 shadow-2xl rounded-2xl overflow-hidden">
@@ -84,11 +98,13 @@ export default function PropheticClassroom() {
               <p className="text-sm text-white/80 leading-relaxed italic font-medium whitespace-pre-wrap">
                 {module.content}
               </p>
-              <div className="p-6 bg-primary/10 border border-primary/20 rounded-xl">
-                <p className="text-[9px] font-black uppercase tracking-widest text-primary mb-2">FOUNDATIONAL SCRIPTURE</p>
-                <p className="text-xs font-bold text-white italic">"{module.scripture}"</p>
-              </div>
-              <Button onClick={() => toast({ title: "MODULE COMPLETE", description: "Revelation received. Proceed to the next module." })} className="w-full h-14 bg-primary text-primary-foreground font-black uppercase tracking-[0.4em] text-[10px] rounded-md shadow-xl">
+              {module.scripture && (
+                <div className="p-6 bg-primary/10 border border-primary/20 rounded-xl">
+                  <p className="text-[9px] font-black uppercase tracking-widest text-primary mb-2">FOUNDATIONAL SCRIPTURE</p>
+                  <p className="text-xs font-bold text-white italic">"{module.scripture}"</p>
+                </div>
+              )}
+              <Button onClick={() => toast({ title: "MODULE COMPLETE", description: "Revelation received. Proceed with divine focus." })} className="w-full h-14 bg-primary text-black font-black uppercase tracking-[0.4em] text-[10px] rounded-md shadow-xl hover:opacity-90">
                 COMPLETE & CONTINUE <CheckCircle2 className="h-4 w-4 ml-3" />
               </Button>
             </CardContent>
@@ -135,10 +151,10 @@ export default function PropheticClassroom() {
                   onChange={(e) => setQuestion(e.target.value)}
                   placeholder="ASK THE SPIRIT..."
                   className="h-12 bg-card border-white/10 text-[10px] font-bold uppercase tracking-widest pr-12 rounded-md"
-                  disabled={loading}
+                  disabled={aiLoading}
                 />
-                <button type="submit" disabled={loading} className="absolute right-3 top-1/2 -translate-y-1/2 text-primary hover:text-white transition-colors">
-                  {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+                <button type="submit" disabled={aiLoading} className="absolute right-3 top-1/2 -translate-y-1/2 text-primary hover:text-white transition-colors">
+                  {aiLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
                 </button>
               </form>
             </div>
