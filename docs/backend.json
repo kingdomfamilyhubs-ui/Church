@@ -60,6 +60,21 @@
         "createdAt": { "type": "string", "format": "date-time" }
       },
       "required": ["title", "pathType", "stepNumber", "description", "content"]
+    },
+    "Branch": {
+      "title": "Branch",
+      "description": "A church location or branch office.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Branch name (e.g. Lusaka Hub)" },
+        "isHeadquarters": { "type": "boolean" },
+        "address": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "pastor": { "type": "string", "description": "Lead pastor of the branch" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "address", "phone"]
     }
   },
   "auth": {
@@ -81,6 +96,10 @@
     "/training_modules/{moduleId}": {
       "schema": "TrainingModule",
       "description": "Collection of mandatory training modules."
+    },
+    "/branches/{branchId}": {
+      "schema": "Branch",
+      "description": "Collection of global church branches and locations."
     }
   }
 }

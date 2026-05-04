@@ -1,10 +1,24 @@
+
 'use client';
 
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { useFirestore, useCollection } from "@/firebase";
+import { collection, query, where, limit } from "firebase/firestore";
+import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube, Loader2 } from "lucide-react";
+import { useMemoFirebase } from "@/firebase/use-memo-firebase";
 
 export function Footer() {
+  const firestore = useFirestore();
+  
+  const hqQuery = useMemoFirebase(() => {
+    if (!firestore) return null;
+    return query(collection(firestore, "branches"), where("isHeadquarters", "==", true), limit(1));
+  }, [firestore]);
+
+  const { data: branches, loading } = useCollection(hqQuery);
+  const hq = branches && branches.length > 0 ? branches[0] : null;
+
   return (
     <footer className="bg-card py-20 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -45,20 +59,30 @@ export function Footer() {
 
           <div>
             <h4 className="text-[9px] font-black mb-8 uppercase tracking-widest text-primary italic">GET IN TOUCH</h4>
-            <ul className="space-y-5 text-[10px] text-card-foreground/70 font-medium">
-              <li className="flex items-center gap-4">
-                <MapPin className="h-4 w-4 text-primary shrink-0" /> 
-                <span className="text-card-foreground uppercase text-[8px] font-black tracking-wider">Faith HQ, Global City Hub</span>
-              </li>
-              <li className="flex items-center gap-4">
-                <Phone className="h-4 w-4 text-primary shrink-0" /> 
-                <span className="text-card-foreground uppercase text-[8px] font-black tracking-wider">+260770933607</span>
-              </li>
-              <li className="flex items-center gap-4">
-                <Mail className="h-4 w-4 text-primary shrink-0" /> 
-                <span className="text-card-foreground text-[8px] font-black tracking-wider break-all uppercase">growinginfaithglobalchurch@gmail.com</span>
-              </li>
-            </ul>
+            {loading ? (
+              <Loader2 className="h-4 w-4 animate-spin text-primary" />
+            ) : (
+              <ul className="space-y-5 text-[10px] text-card-foreground/70 font-medium">
+                <li className="flex items-center gap-4">
+                  <MapPin className="h-4 w-4 text-primary shrink-0" /> 
+                  <span className="text-card-foreground uppercase text-[8px] font-black tracking-wider">
+                    {hq?.name || "Faith HQ, Global City Hub"}
+                  </span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <Phone className="h-4 w-4 text-primary shrink-0" /> 
+                  <span className="text-card-foreground uppercase text-[8px] font-black tracking-wider">
+                    {hq?.phone || "+260770933607"}
+                  </span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <Mail className="h-4 w-4 text-primary shrink-0" /> 
+                  <span className="text-card-foreground text-[8px] font-black tracking-wider break-all uppercase">
+                    {hq?.email || "growinginfaithglobalchurch@gmail.com"}
+                  </span>
+                </li>
+              </ul>
+            )}
           </div>
 
           <div>
