@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Menu, Heart, ChevronDown, LayoutDashboard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
+import { useFirestore, useDoc } from "@/firebase";
+import { doc } from "firebase/firestore";
+import { useMemoFirebase } from "@/firebase/use-memo-firebase";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -35,7 +38,17 @@ interface NavLink {
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const logo = PlaceHolderImages.find(img => img.id === "logo-main")?.imageUrl || "/logo.png";
+  const firestore = useFirestore();
+  
+  const brandingRef = useMemoFirebase(() => {
+    if (!firestore) return null;
+    return doc(firestore, "settings", "branding");
+  }, [firestore]);
+
+  const { data: branding } = useDoc(brandingRef);
+  
+  const logo = branding?.logoUrl || PlaceHolderImages.find(img => img.id === "logo-main")?.imageUrl || "/logo.png";
+  const ministryName = branding?.ministryName || "GROWING IN FAITH";
 
   const navLinks: NavLink[] = [
     { name: "HOME", href: "/" },
@@ -80,7 +93,7 @@ export function Navbar() {
               <div className="relative h-12 w-12 overflow-hidden rounded-md bg-primary/10 flex items-center justify-center border border-primary/20 p-1">
                 <Image 
                   src={logo} 
-                  alt="GIF Logo" 
+                  alt="Logo" 
                   fill 
                   className="object-contain p-1 z-10"
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
@@ -89,7 +102,7 @@ export function Navbar() {
               </div>
               <div className="flex flex-col">
                 <span className="text-[16px] font-black tracking-tighter text-card-foreground leading-none uppercase italic">
-                  GROWING <span className="text-primary">IN FAITH</span>
+                  {ministryName.split(' ').slice(0, 2).join(' ')} <span className="text-primary">{ministryName.split(' ').slice(2).join(' ')}</span>
                 </span>
                 <span className="text-[7px] tracking-[0.4em] text-card-foreground/50 uppercase mt-1 font-black">Global Church</span>
               </div>

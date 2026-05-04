@@ -3,10 +3,17 @@
 
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar, Play, BookOpen, GraduationCap, MapPin, ArrowRight, Settings, Image as ImageIcon } from "lucide-react";
+import { Calendar, Play, BookOpen, GraduationCap, MapPin, ArrowRight, Settings, Image as ImageIcon, Palette } from "lucide-react";
 
 export default function AdminDashboard() {
   const sections = [
+    {
+      title: "BRANDING & MEDIA",
+      description: "Update the Ministry Logo, Hero Landing Photo, and Global visual identity.",
+      href: "/admin/branding",
+      icon: Palette,
+      color: "text-primary"
+    },
     {
       title: "PROGRAMS & SERVICES",
       description: "Manage weekly gatherings at the Lusaka Hub and other regional branches.",
@@ -76,24 +83,6 @@ export default function AdminDashboard() {
               </Card>
             </Link>
           ))}
-
-          {/* Quick Guide for Site Identity */}
-          <Card className="bg-primary/5 border border-dashed border-primary/20 h-full rounded-xl overflow-hidden">
-            <CardHeader className="p-8">
-              <div className="p-4 bg-primary/10 w-fit rounded-lg mb-6">
-                <ImageIcon className="h-6 w-6 text-primary" />
-              </div>
-              <CardTitle className="text-lg font-black italic uppercase tracking-tight text-primary">SITE IDENTITY</CardTitle>
-            </CardHeader>
-            <CardContent className="p-8 pt-0 space-y-4">
-              <p className="text-[10px] text-white/40 leading-relaxed italic font-medium">
-                To update the Logo, Hero Landing Photo, or static About/Tribe copy, please refer to the centralized media configuration files.
-              </p>
-              <div className="p-3 bg-black/40 rounded border border-white/5 font-mono text-[8px] text-white/60">
-                src/app/lib/placeholder-images.json
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </div>

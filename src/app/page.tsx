@@ -3,8 +3,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useFirestore, useCollection } from "@/firebase";
-import { collection, query, orderBy, limit } from "firebase/firestore";
+import { useFirestore, useCollection, useDoc } from "@/firebase";
+import { collection, query, orderBy, limit, doc } from "firebase/firestore";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Star, ShieldCheck, Zap, Calendar, Clock, MapPin, Loader2 } from "lucide-react";
@@ -13,7 +13,16 @@ import { useMemoFirebase } from "@/firebase/use-memo-firebase";
 
 export default function Home() {
   const firestore = useFirestore();
-  const heroImage = PlaceHolderImages?.find(img => img.id === "hero-landing")?.imageUrl;
+
+  const brandingRef = useMemoFirebase(() => {
+    if (!firestore) return null;
+    return doc(firestore, "settings", "branding");
+  }, [firestore]);
+
+  const { data: branding } = useDoc(brandingRef);
+
+  const heroImage = branding?.heroUrl || PlaceHolderImages?.find(img => img.id === "hero-landing")?.imageUrl;
+  const mandate = branding?.mandate || "Transforming non extinct into existence";
 
   const eventsQuery = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -44,9 +53,9 @@ export default function Home() {
           </div>
           
           <h1 className="text-4xl md:text-6xl mb-8 font-black tracking-tighter uppercase italic leading-[1.05] text-white text-shadow-glow">
-            TRANSFORMING <br/> 
-            <span className="text-primary">NON EXTINCT</span> <br/> 
-            INTO EXISTENCE
+            {mandate.split(' ').slice(0, 1).join(' ')} <br/> 
+            <span className="text-primary">{mandate.split(' ').slice(1, 3).join(' ')}</span> <br/> 
+            {mandate.split(' ').slice(3).join(' ')}
           </h1>
           
           <p className="text-xs md:text-sm text-white/90 mb-12 max-w-2xl mx-auto italic font-medium leading-relaxed uppercase tracking-widest">
