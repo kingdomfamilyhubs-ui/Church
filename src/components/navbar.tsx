@@ -39,6 +39,7 @@ interface NavLink {
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const firestore = useFirestore();
+  const [imgError, setImgError] = useState(false);
   
   const brandingRef = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -91,13 +92,16 @@ export function Navbar() {
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center gap-4 group">
               <div className="relative h-12 w-12 overflow-hidden rounded-md bg-primary/10 flex items-center justify-center border border-primary/20 p-1">
-                <Image 
-                  src={logo} 
-                  alt="Logo" 
-                  fill 
-                  className="object-contain p-1 z-10"
-                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                />
+                {(!imgError && logo) ? (
+                  <Image 
+                    src={logo} 
+                    alt="Logo" 
+                    fill 
+                    className="object-contain p-1 z-10"
+                    onError={() => setImgError(true)}
+                    unoptimized={logo.startsWith('http') && !logo.includes('picsum') && !logo.includes('unsplash')}
+                  />
+                ) : null}
                 <span className="text-primary font-black italic text-lg absolute z-0">GIF</span>
               </div>
               <div className="flex flex-col">

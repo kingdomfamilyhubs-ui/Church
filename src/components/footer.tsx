@@ -1,6 +1,7 @@
 
 'use client';
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useFirestore, useCollection } from "@/firebase";
@@ -10,6 +11,7 @@ import { useMemoFirebase } from "@/firebase/use-memo-firebase";
 
 export function Footer() {
   const firestore = useFirestore();
+  const [imgError, setImgError] = useState(false);
   
   const hqQuery = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -26,13 +28,15 @@ export function Footer() {
           <div className="space-y-6">
             <div className="flex items-center gap-3 group">
               <div className="relative h-10 w-10 overflow-hidden rounded-md bg-primary/20 flex items-center justify-center border border-primary/10">
-                <Image 
-                  src="/logo.png" 
-                  alt="GIF Logo" 
-                  fill 
-                  className="object-contain p-1 z-10"
-                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                />
+                {!imgError && (
+                  <Image 
+                    src="/logo.png" 
+                    alt="GIF Logo" 
+                    fill 
+                    className="object-contain p-1 z-10"
+                    onError={() => setImgError(true)}
+                  />
+                )}
                 <span className="text-primary font-black italic text-xs absolute z-0">GIF</span>
               </div>
               <div className="flex flex-col">
