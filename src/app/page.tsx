@@ -1,8 +1,8 @@
-
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star, ShieldCheck, Zap } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight, Star, ShieldCheck, Zap, Calendar, Clock, MapPin } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export default function Home() {
@@ -40,7 +40,7 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button asChild className="bg-primary text-primary-foreground font-black h-11 px-8 rounded-md uppercase text-[9px] tracking-[0.2em] transition-all border-none shadow-xl">
+            <Button asChild className="bg-primary text-black font-black h-11 px-8 rounded-md uppercase text-[9px] tracking-[0.2em] transition-all border-none shadow-xl">
               <Link href="/about">DISCOVER OUR VISION</Link>
             </Button>
             <Button asChild className="bg-white text-black hover:bg-white/90 font-black h-11 px-8 rounded-md uppercase text-[9px] tracking-[0.2em] transition-all border-none shadow-xl">
@@ -95,6 +95,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Service Schedule - High Impact */}
+      <section className="py-24 bg-secondary/5 border-y border-border">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+             <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-[8px] font-black uppercase tracking-[0.4em] mb-4 rounded-md">
+              Apostolic Gatherings
+            </div>
+            <h2 className="text-3xl font-black italic uppercase text-foreground tracking-tighter mb-4">WEEKLY PROGRAMS</h2>
+            <div className="w-16 h-1 bg-primary mx-auto" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { title: "DOMINION SERVICE", day: "SUNDAY", time: "09:00 AM CAT", location: "Main Sanctuary" },
+              { title: "PROPHETIC SCHOOL", day: "WEDNESDAY", time: "05:00 PM CAT", location: "Global Hub" },
+              { title: "MID-WEEK MANNA", day: "FRIDAY", time: "05:00 PM CAT", location: "Digital Portal" },
+              { title: "YOUTH IMPACT", day: "SATURDAY", time: "02:00 PM CAT", location: "Hub Lounge" }
+            ].map((service, idx) => (
+              <Card key={idx} className="bg-card border-border hover:border-primary transition-all group rounded-xl shadow-xl overflow-hidden">
+                <CardContent className="p-8 space-y-6 text-center">
+                  <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto border border-primary/20 group-hover:bg-primary group-hover:text-black transition-all">
+                    <Calendar className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-[10px] font-black uppercase text-primary tracking-widest mb-1">{service.day}</h4>
+                    <h3 className="text-lg font-black italic uppercase text-white leading-none mb-3">{service.title}</h3>
+                    <div className="space-y-2 pt-2 border-t border-white/5">
+                       <p className="text-[8px] font-black text-white/50 flex items-center justify-center gap-2 uppercase tracking-widest">
+                        <Clock className="h-3 w-3 text-primary" /> {service.time}
+                      </p>
+                      <p className="text-[8px] font-black text-white/50 flex items-center justify-center gap-2 uppercase tracking-widest">
+                        <MapPin className="h-3 w-3 text-primary" /> {service.location}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Professional CTA Section */}
       <section className="py-24 bg-card border-y border-border relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.015] pointer-events-none select-none">
@@ -110,7 +152,7 @@ export default function Home() {
           <p className="text-[10px] md:text-xs text-card-foreground/70 mb-10 max-w-lg mx-auto italic font-medium leading-relaxed">
             Join a global community of believers dedicated to kingdom leadership, core values, and supernatural excellence in every sphere of life.
           </p>
-          <Button asChild className="bg-primary text-primary-foreground font-black h-12 px-10 rounded-md uppercase text-[9px] tracking-[0.3em] transition-all hover:opacity-90 active:scale-95 shadow-lg">
+          <Button asChild className="bg-primary text-black font-black h-12 px-10 rounded-md uppercase text-[9px] tracking-[0.3em] transition-all hover:opacity-90 active:scale-95 shadow-lg">
             <Link href="/contact">LOCATE A BRANCH NEAR YOU</Link>
           </Button>
         </div>
