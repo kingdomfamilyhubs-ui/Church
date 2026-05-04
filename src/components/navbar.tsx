@@ -4,7 +4,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, Heart, ChevronDown, LayoutDashboard } from "lucide-react";
+import { Menu, Heart, ChevronDown, LayoutDashboard, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import {
@@ -129,9 +129,13 @@ export function Navbar() {
                   )}
                 </div>
               ))}
-              <div className="flex items-center gap-4 pl-4 border-l border-white/10">
-                <Link href="/admin" className="text-card-foreground/40 hover:text-primary transition-colors">
+              <div className="flex items-center gap-6 pl-6 border-l border-white/10">
+                <Link 
+                  href="/admin" 
+                  className="flex items-center gap-2 text-[9px] font-black uppercase tracking-widest text-primary hover:text-white transition-colors"
+                >
                   <LayoutDashboard className="h-4 w-4" />
+                  ADMIN
                 </Link>
                 <Button asChild size="sm" className="bg-primary text-black hover:opacity-90 rounded-md font-black uppercase tracking-widest text-[8px] px-6 h-9 shadow-lg">
                   <Link href="/give" className="flex items-center gap-2">
@@ -152,13 +156,15 @@ export function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="bg-card border-l border-white/5 p-0 w-[280px]">
                 <SheetHeader className="p-6 border-b border-white/5">
-                  <SheetTitle className="text-left">
-                     <div className="flex items-center gap-3">
-                        <span className="text-sm font-black tracking-tighter uppercase italic text-card-foreground">
-                          GROWING <span className="text-primary">IN FAITH</span>
-                        </span>
-                     </div>
-                  </SheetTitle>
+                  <div className="flex items-center justify-between">
+                    <SheetTitle className="text-left">
+                       <div className="flex items-center gap-3">
+                          <span className="text-sm font-black tracking-tighter uppercase italic text-card-foreground">
+                            GROWING <span className="text-primary">IN FAITH</span>
+                          </span>
+                       </div>
+                    </SheetTitle>
+                  </div>
                 </SheetHeader>
                 <div className="px-6 py-6 space-y-1">
                   <Accordion type="single" collapsible className="w-full">
@@ -196,7 +202,15 @@ export function Navbar() {
                       </div>
                     ))}
                   </Accordion>
-                  <div className="pt-8">
+                  <div className="pt-8 space-y-4">
+                    <Link 
+                      href="/admin" 
+                      className="flex items-center gap-3 py-4 text-[9px] font-black uppercase tracking-widest text-primary border-b border-white/5"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <LayoutDashboard className="h-4 w-4" />
+                      ADMIN COMMAND CENTER
+                    </Link>
                     <Button asChild className="w-full bg-primary text-black h-12 rounded-md font-black uppercase tracking-widest text-[9px]">
                       <Link href="/give" onClick={() => setIsOpen(false)}>
                         Give & Partner
