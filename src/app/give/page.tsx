@@ -11,18 +11,43 @@ import { Heart, CreditCard, Smartphone, Banknote, ShieldCheck, CheckCircle2 } fr
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
+/**
+ * EDITING INSTRUCTIONS:
+ * Update the constants below to change the giving options and account details.
+ */
+
+const GIVING_CATEGORIES = [
+  { id: "partnership", label: "GENERAL PARTNERSHIP" },
+  { id: "good-hope", label: "GOOD HOPE VOW" },
+  { id: "d-realms", label: "D-REALMS TRAINING CENTRE" },
+  { id: "first-fruit", label: "FIRST FRUIT" },
+  { id: "salary-vow", label: "SALARY VOW" },
+  { id: "property-vow", label: "USA PROPERTY VOW" },
+];
+
+const BANK_DETAILS = {
+  accountName: "GIF GLOBAL CHURCH",
+  accountNumber: "1234567890",
+  bankName: "FIRST FAITH BANK",
+};
+
+const MOBILE_MONEY_DETAILS = {
+  number: "+260770933607",
+  name: "GROWING IN FAITH",
+};
+
+const PRESET_AMOUNTS = ["50", "100", "500", "1000"];
+
 export default function GivePage() {
   const { toast } = useToast();
   const [amount, setAmount] = useState<string>("");
   const [category, setCategory] = useState<string>("partnership");
   const [isRecurring, setIsRecurring] = useState(false);
 
-  const amounts = ["50", "100", "500", "1000"];
-
   const handleGive = () => {
     toast({
       title: "GIVING INITIATED",
-      description: `Thank you for your seed of ${amount || '0'}. Redirecting to secure portal...`,
+      description: `Thank you for your seed of $${amount || '0'}. Redirecting to secure portal...`,
     });
   };
 
@@ -55,12 +80,11 @@ export default function GivePage() {
                     <SelectValue placeholder="Select Category" />
                   </SelectTrigger>
                   <SelectContent className="bg-card border-white/10">
-                    <SelectItem value="partnership" className="text-[10px] font-bold uppercase">General Partnership</SelectItem>
-                    <SelectItem value="good-hope" className="text-[10px] font-bold uppercase">Good Hope Vow</SelectItem>
-                    <SelectItem value="d-realms" className="text-[10px] font-bold uppercase">D-Realms Training Centre</SelectItem>
-                    <SelectItem value="first-fruit" className="text-[10px] font-bold uppercase">First Fruit</SelectItem>
-                    <SelectItem value="salary-vow" className="text-[10px] font-bold uppercase">Salary Vow</SelectItem>
-                    <SelectItem value="property-vow" className="text-[10px] font-bold uppercase">USA Property Vow</SelectItem>
+                    {GIVING_CATEGORIES.map((cat) => (
+                      <SelectItem key={cat.id} value={cat.id} className="text-[10px] font-bold uppercase">
+                        {cat.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
@@ -69,14 +93,14 @@ export default function GivePage() {
               <div className="space-y-4">
                 <Label className="text-[9px] font-black uppercase tracking-widest text-primary">SELECT OR ENTER AMOUNT</Label>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {amounts.map((amt) => (
+                  {PRESET_AMOUNTS.map((amt) => (
                     <Button
                       key={amt}
                       variant="outline"
                       onClick={() => setAmount(amt)}
                       className={cn(
                         "h-12 border-white/10 text-[11px] font-black uppercase transition-all rounded-md",
-                        amount === amt ? "bg-primary text-primary-foreground border-primary" : "bg-transparent text-white hover:bg-white/5"
+                        amount === amt ? "bg-primary text-black border-primary" : "bg-transparent text-white hover:bg-white/5"
                       )}
                     >
                       ${amt}
@@ -119,7 +143,7 @@ export default function GivePage() {
 
               <Button 
                 onClick={handleGive}
-                className="w-full h-14 bg-primary text-primary-foreground rounded-md text-[10px] font-black uppercase tracking-[0.4em] hover:opacity-90 transition-all shadow-2xl"
+                className="w-full h-14 bg-primary text-black rounded-md text-[10px] font-black uppercase tracking-[0.4em] hover:opacity-90 transition-all shadow-2xl"
               >
                 PROCEED TO GIVE ${amount || '0'}
               </Button>
@@ -137,9 +161,9 @@ export default function GivePage() {
                     <Banknote className="h-4 w-4 text-primary" /> BANK TRANSFER
                   </div>
                   <p className="text-[10px] text-muted-foreground font-bold leading-relaxed uppercase pl-7">
-                    GIF GLOBAL CHURCH<br/>
-                    ACCT: 1234567890<br/>
-                    BANK: FIRST FAITH BANK
+                    {BANK_DETAILS.accountName}<br/>
+                    ACCT: {BANK_DETAILS.accountNumber}<br/>
+                    BANK: {BANK_DETAILS.bankName}
                   </p>
                 </div>
 
@@ -148,8 +172,8 @@ export default function GivePage() {
                     <Smartphone className="h-4 w-4 text-primary" /> MOBILE MONEY
                   </div>
                   <p className="text-[10px] text-muted-foreground font-bold leading-relaxed uppercase pl-7">
-                    NUMBER: +260770933607<br/>
-                    NAME: GROWING IN FAITH
+                    NUMBER: {MOBILE_MONEY_DETAILS.number}<br/>
+                    NAME: {MOBILE_MONEY_DETAILS.name}
                   </p>
                 </div>
               </CardContent>
