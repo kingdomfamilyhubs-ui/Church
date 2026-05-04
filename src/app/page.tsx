@@ -1,12 +1,26 @@
+
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useFirestore, useCollection } from "@/firebase";
+import { collection, query, orderBy, limit } from "firebase/firestore";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Star, ShieldCheck, Zap, Calendar, Clock, MapPin } from "lucide-react";
+import { ArrowRight, Star, ShieldCheck, Zap, Calendar, Clock, MapPin, Loader2 } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
+import { useMemoFirebase } from "@/firebase/use-memo-firebase";
 
 export default function Home() {
+  const firestore = useFirestore();
   const heroImage = PlaceHolderImages?.find(img => img.id === "hero-landing")?.imageUrl;
+
+  const eventsQuery = useMemoFirebase(() => {
+    if (!firestore) return null;
+    return query(collection(firestore, "events"), orderBy("createdAt", "desc"), limit(4));
+  }, [firestore]);
+
+  const { data: events, loading: eventsLoading } = useCollection(eventsQuery);
 
   return (
     <div className="flex flex-col bg-background overflow-x-hidden">
@@ -95,7 +109,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Service Schedule - High Impact */}
+      {/* Service Schedule - High Impact Dynamic Section */}
       <section className="py-24 bg-secondary/5 border-y border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -106,34 +120,39 @@ export default function Home() {
             <div className="w-16 h-1 bg-primary mx-auto" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { title: "DOMINION SERVICE", day: "SUNDAY", time: "09:00 AM CAT", location: "Main Sanctuary" },
-              { title: "PROPHETIC SCHOOL", day: "WEDNESDAY", time: "05:00 PM CAT", location: "Global Hub" },
-              { title: "MID-WEEK MANNA", day: "FRIDAY", time: "05:00 PM CAT", location: "Digital Portal" },
-              { title: "YOUTH IMPACT", day: "SATURDAY", time: "02:00 PM CAT", location: "Hub Lounge" }
-            ].map((service, idx) => (
-              <Card key={idx} className="bg-card border-border hover:border-primary transition-all group rounded-xl shadow-xl overflow-hidden">
-                <CardContent className="p-8 space-y-6 text-center">
-                  <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto border border-primary/20 group-hover:bg-primary group-hover:text-black transition-all">
-                    <Calendar className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-[10px] font-black uppercase text-primary tracking-widest mb-1">{service.day}</h4>
-                    <h3 className="text-lg font-black italic uppercase text-white leading-none mb-3">{service.title}</h3>
-                    <div className="space-y-2 pt-2 border-t border-white/5">
-                       <p className="text-[8px] font-black text-white/50 flex items-center justify-center gap-2 uppercase tracking-widest">
-                        <Clock className="h-3 w-3 text-primary" /> {service.time}
-                      </p>
-                      <p className="text-[8px] font-black text-white/50 flex items-center justify-center gap-2 uppercase tracking-widest">
-                        <MapPin className="h-3 w-3 text-primary" /> {service.location}
-                      </p>
+          {eventsLoading ? (
+            <div className="flex justify-center py-20">
+              <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            </div>
+          ) : events && events.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {events.map((service: any) => (
+                <Card key={service.id} className="bg-card border-border hover:border-primary transition-all group rounded-xl shadow-xl overflow-hidden">
+                  <CardContent className="p-8 space-y-6 text-center">
+                    <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto border border-primary/20 group-hover:bg-primary group-hover:text-black transition-all">
+                      <Calendar className="h-5 w-5" />
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                    <div>
+                      <h4 className="text-[10px] font-black uppercase text-primary tracking-widest mb-1">{service.date}</h4>
+                      <h3 className="text-lg font-black italic uppercase text-white leading-none mb-3">{service.title}</h3>
+                      <div className="space-y-2 pt-2 border-t border-white/5">
+                         <p className="text-[8px] font-black text-white/50 flex items-center justify-center gap-2 uppercase tracking-widest">
+                          <Clock className="h-3 w-3 text-primary" /> {service.time}
+                        </p>
+                        <p className="text-[8px] font-black text-white/50 flex items-center justify-center gap-2 uppercase tracking-widest">
+                          <MapPin className="h-3 w-3 text-primary" /> {service.location}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-20 bg-card/50 border border-dashed border-border rounded-xl">
+              <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground italic">No programs currently listed. Visit the Admin Portal to add services.</p>
+            </div>
+          )}
         </div>
       </section>
 
