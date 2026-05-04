@@ -32,6 +32,12 @@
       "imageHint": "spiritual community"
     },
     {
+      "id": "leadership-founder",
+      "description": "Lead pastor with prophetic presence.",
+      "imageUrl": "https://picsum.photos/seed/founder-gif/800/1000",
+      "imageHint": "spiritual leader"
+    },
+    {
       "id": "training-hero",
       "description": "Sophisticated educational setting for kingdom training.",
       "imageUrl": "https://picsum.photos/seed/training-gif/1200/800",

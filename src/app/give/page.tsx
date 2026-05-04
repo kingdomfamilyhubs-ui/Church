@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -25,8 +26,8 @@ const GIVING_CATEGORIES = [
 ];
 
 const CURRENCIES = [
-  { id: "USD", label: "US DOLLAR ($)", symbol: "$" },
   { id: "ZMW", label: "ZAMBIAN KWACHA (ZMW/ZMK)", symbol: "K" },
+  { id: "USD", label: "US DOLLAR ($)", symbol: "$" },
   { id: "GBP", label: "BRITISH POUND (£)", symbol: "£" },
   { id: "EUR", label: "EURO (€)", symbol: "€" },
   { id: "ZAR", label: "SOUTH AFRICAN RAND (R)", symbol: "R" },
@@ -49,7 +50,7 @@ export default function GivePage() {
   const { toast } = useToast();
   const [amount, setAmount] = useState<string>("");
   const [category, setCategory] = useState<string>("partnership");
-  const [currency, setCurrency] = useState<string>("USD");
+  const [currency, setCurrency] = useState<string>("ZMW");
   const [isRecurring, setIsRecurring] = useState(false);
 
   const selectedCurrency = CURRENCIES.find(c => c.id === currency) || CURRENCIES[0];
@@ -75,7 +76,6 @@ export default function GivePage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Main Giving Form */}
           <Card className="lg:col-span-2 bg-card text-card-foreground border-none shadow-2xl rounded-xl overflow-hidden">
             <CardHeader className="p-8 md:p-10 border-b border-white/5 bg-secondary/5">
               <CardTitle className="text-lg font-black italic uppercase tracking-tight text-white">SECURE ONLINE GIVING</CardTitle>
@@ -84,7 +84,6 @@ export default function GivePage() {
             <CardContent className="p-8 md:p-10 space-y-10">
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Category Selection */}
                 <div className="space-y-3">
                   <Label className="text-[9px] font-black uppercase tracking-widest text-primary">SELECT GIVING CATEGORY</Label>
                   <Select value={category} onValueChange={setCategory}>
@@ -101,7 +100,6 @@ export default function GivePage() {
                   </Select>
                 </div>
 
-                {/* Currency Selection */}
                 <div className="space-y-3">
                   <Label className="text-[9px] font-black uppercase tracking-widest text-primary">SELECT CURRENCY</Label>
                   <Select value={currency} onValueChange={setCurrency}>
@@ -122,7 +120,6 @@ export default function GivePage() {
                 </div>
               </div>
 
-              {/* Amount Selection */}
               <div className="space-y-4">
                 <Label className="text-[9px] font-black uppercase tracking-widest text-primary">SELECT OR ENTER AMOUNT ({currency})</Label>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -152,7 +149,6 @@ export default function GivePage() {
                 </div>
               </div>
 
-              {/* Frequency Toggle */}
               <div className="flex gap-4 p-1 bg-secondary/10 rounded-lg max-w-sm mx-auto">
                 <Button 
                   onClick={() => setIsRecurring(false)}
@@ -183,7 +179,6 @@ export default function GivePage() {
             </CardContent>
           </Card>
 
-          {/* Sidebar Info */}
           <div className="space-y-8">
             <Card className="bg-secondary/10 border border-white/5 shadow-xl rounded-xl">
               <CardContent className="p-8 space-y-8">
