@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -19,7 +18,7 @@ import { cn } from "@/lib/utils";
 const GIVING_CATEGORIES = [
   { id: "partnership", label: "GENERAL PARTNERSHIP" },
   { id: "good-hope", label: "GOOD HOPE VOW" },
-  { id: "d-realms", label: "D-REALMS TRAINING CENTRE" },
+  { id: "gif-training", label: "GROWING IN FAITH GLOBAL TRAINING CENTER" },
   { id: "first-fruit", label: "FIRST FRUIT" },
   { id: "salary-vow", label: "SALARY VOW" },
   { id: "property-vow", label: "USA PROPERTY VOW" },

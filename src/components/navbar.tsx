@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -43,7 +42,7 @@ export function Navbar() {
       href: "/give",
       subItems: [
         { name: "GOOD HOPE VOW", href: "/give" },
-        { name: "D-REALMS TRAINING CENTRE", href: "/give" },
+        { name: "GROWING IN FAITH GLOBAL TRAINING CENTER", href: "/give" },
         { name: "FIRST FRUIT", href: "/give" },
         { name: "SALARY VOW", href: "/give" },
         { name: "USA PROPERTY VOW", href: "/give" },
