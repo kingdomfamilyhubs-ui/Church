@@ -2,56 +2,38 @@
 {
   "placeholderImages": [
     {
+      "id": "logo-main",
+      "description": "Primary ministry logo for Growing In Faith Global Church.",
+      "imageUrl": "/logo.png",
+      "imageHint": "church logo"
+    },
+    {
       "id": "hero-landing",
-      "description": "A high-impact, cinematic image of a modern church sanctuary with dynamic light rays, representing spiritual clarity and power.",
+      "description": "High-impact, cinematic landing image representing the prophetic mandate.",
       "imageUrl": "https://picsum.photos/seed/gif-landing/1920/1080",
       "imageHint": "modern church"
     },
     {
       "id": "hero-prophetic",
-      "description": "Powerful worship scene with dynamic gold lighting at Growing In Faith Global Church.",
+      "description": "Powerful worship scene with dynamic gold lighting.",
       "imageUrl": "https://picsum.photos/seed/src-prophetic/1920/1080",
       "imageHint": "church power"
     },
     {
       "id": "prophet-lead",
-      "description": "Leadership speaking with apostolic authority at Growing In Faith.",
+      "description": "Leadership speaking with apostolic authority.",
       "imageUrl": "https://picsum.photos/seed/prophet-main/800/1000",
       "imageHint": "religious leader"
     },
     {
       "id": "about-vision",
-      "description": "Growing In Faith global community gathered in spiritual unity.",
+      "description": "Global community gathered in spiritual unity.",
       "imageUrl": "https://picsum.photos/seed/vision-global/800/1000",
       "imageHint": "spiritual community"
     },
     {
-      "id": "revelation-service",
-      "description": "A service filled with deep biblical revelation at GIF Global.",
-      "imageUrl": "https://picsum.photos/seed/revelation-meeting/800/600",
-      "imageHint": "spiritual meeting"
-    },
-    {
-      "id": "leadership-founder",
-      "description": "Professional portrait of a ministry founder with a visionary background.",
-      "imageUrl": "https://picsum.photos/seed/founder/600/800",
-      "imageHint": "visionary leader"
-    },
-    {
-      "id": "leadership-director",
-      "description": "Professional portrait of a corporate or ministry director.",
-      "imageUrl": "https://picsum.photos/seed/director/600/800",
-      "imageHint": "corporate leader"
-    },
-    {
-      "id": "leadership-board",
-      "description": "Group of professional board members in a meeting setting.",
-      "imageUrl": "https://picsum.photos/seed/board/800/600",
-      "imageHint": "business council"
-    },
-    {
       "id": "training-hero",
-      "description": "A sophisticated educational setting representing kingdom training and activation.",
+      "description": "Sophisticated educational setting for kingdom training.",
       "imageUrl": "https://picsum.photos/seed/training-gif/1200/800",
       "imageHint": "classroom excellence"
     }

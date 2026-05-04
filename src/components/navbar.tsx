@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -5,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Menu, Heart, ChevronDown, LayoutDashboard } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,6 +35,7 @@ interface NavLink {
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const logo = PlaceHolderImages.find(img => img.id === "logo-main")?.imageUrl || "/logo.png";
 
   const navLinks: NavLink[] = [
     { name: "HOME", href: "/" },
@@ -42,7 +45,7 @@ export function Navbar() {
       href: "/give",
       subItems: [
         { name: "GOOD HOPE VOW", href: "/give" },
-        { name: "GROWING IN FAITH GLOBAL TRAINING CENTER", href: "/give" },
+        { name: "GIF GLOBAL TRAINING CENTER", href: "/give" },
         { name: "FIRST FRUIT", href: "/give" },
         { name: "SALARY VOW", href: "/give" },
         { name: "USA PROPERTY VOW", href: "/give" },
@@ -62,8 +65,8 @@ export function Navbar() {
       href: "/resources/library",
       subItems: [
         { name: "GIF STORE", href: "/resources/library" },
-        { name: "DIGITAL SUBSCRIPTION", href: "/resources/library" },
         { name: "DIGITAL LIBRARY", href: "/resources/library" },
+        { name: "SERMON ARCHIVE", href: "/sermons" },
       ],
     },
     { name: "JOIN YOUR TRIBE", href: "/join" },
@@ -75,9 +78,9 @@ export function Navbar() {
         <div className="flex justify-between h-20 items-center">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center gap-4 group">
-              <div className="relative h-10 w-10 overflow-hidden rounded-md bg-primary/20 flex items-center justify-center border border-primary/20">
+              <div className="relative h-12 w-12 overflow-hidden rounded-md bg-primary/10 flex items-center justify-center border border-primary/20 p-1">
                 <Image 
-                  src="/logo.png" 
+                  src={logo} 
                   alt="GIF Logo" 
                   fill 
                   className="object-contain p-1 z-10"
@@ -94,7 +97,6 @@ export function Navbar() {
             </Link>
           </div>
 
-          {/* Desktop Nav */}
           <div className="hidden lg:block">
             <div className="flex items-center space-x-8">
               {navLinks.map((link) => (
@@ -131,7 +133,7 @@ export function Navbar() {
                 <Link href="/admin" className="text-card-foreground/40 hover:text-primary transition-colors">
                   <LayoutDashboard className="h-4 w-4" />
                 </Link>
-                <Button asChild size="sm" className="bg-primary text-primary-foreground hover:opacity-90 rounded-md font-black uppercase tracking-widest text-[8px] px-6 h-9 shadow-lg">
+                <Button asChild size="sm" className="bg-primary text-black hover:opacity-90 rounded-md font-black uppercase tracking-widest text-[8px] px-6 h-9 shadow-lg">
                   <Link href="/give" className="flex items-center gap-2">
                     <Heart className="h-3 w-3 fill-current" />
                     Partnership
@@ -141,7 +143,6 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Nav Toggle */}
           <div className="lg:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
@@ -194,16 +195,9 @@ export function Navbar() {
                         )}
                       </div>
                     ))}
-                    <Link
-                      href="/admin"
-                      className="block py-4 text-[9px] font-black uppercase tracking-widest text-primary"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      ADMIN DASHBOARD
-                    </Link>
                   </Accordion>
                   <div className="pt-8">
-                    <Button asChild className="w-full bg-primary text-primary-foreground h-12 rounded-md font-black uppercase tracking-widest text-[9px]">
+                    <Button asChild className="w-full bg-primary text-black h-12 rounded-md font-black uppercase tracking-widest text-[9px]">
                       <Link href="/give" onClick={() => setIsOpen(false)}>
                         Give & Partner
                       </Link>
