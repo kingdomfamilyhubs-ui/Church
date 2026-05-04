@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Palette, Image as ImageIcon, Save, Info } from "lucide-react";
+import { Loader2, Palette, Image as ImageIcon, Save, Info, Globe, ShieldCheck } from "lucide-react";
 import { errorEmitter } from "@/firebase/error-emitter";
 import { FirestorePermissionError } from "@/firebase/errors";
 import { useMemoFirebase } from "@/firebase/use-memo-firebase";
@@ -54,11 +54,18 @@ export default function AdminBrandingPage() {
       updatedAt: serverTimestamp()
     }, { merge: true })
     .then(() => {
-      toast({ title: "IDENTITY UPDATED", description: "The ministry branding has been successfully updated across all platforms." });
+      toast({ 
+        title: "IDENTITY UPDATED", 
+        description: "The ministry branding has been successfully updated across all platforms." 
+      });
       setLoading(false);
     })
     .catch(async () => {
-      errorEmitter.emit('permission-error', new FirestorePermissionError({ path: brandingRef.path, operation: 'write', requestResourceData: formData }));
+      errorEmitter.emit('permission-error', new FirestorePermissionError({ 
+        path: brandingRef.path, 
+        operation: 'write', 
+        requestResourceData: formData 
+      }));
       setLoading(false);
     });
   };
@@ -68,33 +75,34 @@ export default function AdminBrandingPage() {
       <div className="max-w-4xl mx-auto space-y-16">
         <div className="text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 text-primary text-[8px] font-black uppercase tracking-[0.4em] mb-6 rounded-md">
-            SITE IDENTITY
+            GLOBAL IDENTITY
           </div>
-          <h1 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter mb-4 text-foreground">BRANDING & MEDIA</h1>
+          <h1 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter mb-4 text-foreground">SITE IDENTITY & BRANDING</h1>
           <p className="text-[10px] text-muted-foreground uppercase tracking-widest italic font-medium">Control the visual mandate and prophetic representation of the church.</p>
         </div>
 
         <div className="grid grid-cols-1 gap-12">
-          <Card className="bg-card border-white/5 shadow-2xl rounded-xl">
+          {/* Visual Assets Card */}
+          <Card className="bg-card border-white/5 shadow-2xl rounded-xl overflow-hidden">
             <CardHeader className="bg-secondary/5 border-b border-white/5 p-8">
               <CardTitle className="text-[11px] font-black italic uppercase tracking-[0.2em] text-primary flex items-center gap-3">
                 <Palette className="h-4 w-4" /> VISUAL ASSETS
               </CardTitle>
               <CardDescription className="text-[9px] uppercase font-bold text-white/40 tracking-widest mt-2">
-                Use high-quality hosted URLs for your images.
+                Reference local files or cloud-hosted URLs.
               </CardDescription>
             </CardHeader>
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
-                    <div className="flex items-center gap-2">
-                      <Label className="text-[9px] font-black uppercase tracking-widest text-primary">MINISTRY LOGO URL</Label>
+                    <div className="flex items-center justify-between">
+                      <Label className="text-[9px] font-black uppercase tracking-widest text-primary">MINISTRY LOGO</Label>
                     </div>
                     <Input 
                       value={formData.logoUrl} 
                       onChange={(e) => setFormData({...formData, logoUrl: e.target.value})} 
-                      placeholder="HTTPS://..." 
+                      placeholder="/logo.png OR https://..." 
                       className="h-11 bg-secondary/5 border-white/10 text-[10px] font-bold text-white" 
                     />
                     <div className="p-4 bg-black/40 rounded-lg border border-white/5 flex items-center gap-4">
@@ -105,16 +113,19 @@ export default function AdminBrandingPage() {
                           <ImageIcon className="h-5 w-5 text-white/20" />
                         )}
                       </div>
-                      <p className="text-[8px] text-white/40 uppercase italic">Current Logo Preview</p>
+                      <div>
+                        <p className="text-[8px] text-white/40 uppercase italic">Logo Preview</p>
+                        <p className="text-[7px] text-primary uppercase font-black mt-1">Status: Active</p>
+                      </div>
                     </div>
                   </div>
 
                   <div className="space-y-4">
-                    <Label className="text-[9px] font-black uppercase tracking-widest text-primary">HERO LANDING PHOTO URL</Label>
+                    <Label className="text-[9px] font-black uppercase tracking-widest text-primary">HERO LANDING PHOTO</Label>
                     <Input 
                       value={formData.heroUrl} 
                       onChange={(e) => setFormData({...formData, heroUrl: e.target.value})} 
-                      placeholder="HTTPS://..." 
+                      placeholder="/hero.jpg OR https://..." 
                       className="h-11 bg-secondary/5 border-white/10 text-[10px] font-bold text-white" 
                     />
                     <div className="p-4 bg-black/40 rounded-lg border border-white/5 flex items-center gap-4">
@@ -132,7 +143,7 @@ export default function AdminBrandingPage() {
 
                 <div className="space-y-6 pt-6 border-t border-white/5">
                    <div className="space-y-2">
-                    <Label className="text-[9px] font-black uppercase tracking-widest text-primary">MINISTRY NAME</Label>
+                    <Label className="text-[9px] font-black uppercase tracking-widest text-primary">OFFICIAL MINISTRY NAME</Label>
                     <Input 
                       value={formData.ministryName} 
                       onChange={(e) => setFormData({...formData, ministryName: e.target.value})} 
@@ -140,7 +151,7 @@ export default function AdminBrandingPage() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label className="text-[9px] font-black uppercase tracking-widest text-primary">MANDATE / SLOGAN</Label>
+                    <Label className="text-[9px] font-black uppercase tracking-widest text-primary">PROPHETIC MANDATE / SLOGAN</Label>
                     <Input 
                       value={formData.mandate} 
                       onChange={(e) => setFormData({...formData, mandate: e.target.value})} 
@@ -156,13 +167,29 @@ export default function AdminBrandingPage() {
             </CardContent>
           </Card>
 
-          <div className="bg-primary/5 border border-dashed border-primary/20 rounded-xl p-8 flex gap-6 items-start">
-            <Info className="h-6 w-6 text-primary shrink-0" />
-            <div className="space-y-2">
-              <h4 className="text-[10px] font-black uppercase text-white tracking-widest">HOW TO UPLOAD IMAGES</h4>
-              <p className="text-[9px] text-white/60 leading-relaxed italic">
-                To upload your official logo or photos, we recommend using <strong>Firebase Storage</strong> in your console or a professional hosting service. Once uploaded, copy the "Download URL" and paste it into the fields above. This ensures your images load instantly across all global Hubs.
-              </p>
+          {/* Identity Info Panel */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-primary/5 border border-dashed border-primary/20 rounded-xl p-8 flex gap-6 items-start">
+              <Info className="h-6 w-6 text-primary shrink-0" />
+              <div className="space-y-2">
+                <h4 className="text-[10px] font-black uppercase text-white tracking-widest">LOCAL ASSET UPLOAD</h4>
+                <p className="text-[9px] text-white/60 leading-relaxed italic">
+                  To use photos from your local storage: <br/>
+                  1. Place your file in the <strong>public/</strong> folder. <br/>
+                  2. Type the path (e.g., <strong>/logo.png</strong>) above. <br/>
+                  3. This allows you to manage visuals without external hosting.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-secondary/10 border border-white/5 rounded-xl p-8 flex gap-6 items-start">
+              <ShieldCheck className="h-6 w-6 text-primary shrink-0" />
+              <div className="space-y-2">
+                <h4 className="text-[10px] font-black uppercase text-white tracking-widest">CLOUD HOSTING</h4>
+                <p className="text-[9px] text-white/60 leading-relaxed italic">
+                  For global hubs, we recommend <strong>Firebase Storage</strong>. Paste the "Download URL" here to ensure all international branches see the same high-quality visuals instantly.
+                </p>
+              </div>
             </div>
           </div>
         </div>
