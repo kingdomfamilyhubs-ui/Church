@@ -75,6 +75,18 @@
         "createdAt": { "type": "string", "format": "date-time" }
       },
       "required": ["name", "address", "phone"]
+    },
+    "Settings": {
+      "title": "Ministry Settings",
+      "description": "Global branding and site configuration.",
+      "type": "object",
+      "properties": {
+        "logoUrl": { "type": "string" },
+        "heroUrl": { "type": "string" },
+        "ministryName": { "type": "string" },
+        "mandate": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
     }
   },
   "auth": {
@@ -100,6 +112,10 @@
     "/branches/{branchId}": {
       "schema": "Branch",
       "description": "Collection of global church branches and locations."
+    },
+    "/settings/{settingId}": {
+      "schema": "Settings",
+      "description": "Collection for global site settings."
     }
   }
 }
