@@ -135,7 +135,7 @@ export default function ContactPage() {
                           <Label htmlFor="message" className="text-[9px] font-black uppercase tracking-widest text-primary">MESSAGE</Label>
                           <Textarea id="message" placeholder="Write your message here..." className="min-h-[140px] bg-secondary/5 border-white/10 rounded-md text-xs text-white resize-none" required />
                         </div>
-                        <Button className="w-full h-12 bg-primary text-primary-foreground text-[9px] font-black uppercase tracking-[0.3em] rounded-md hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-lg" disabled={loading}>
+                        <Button className="w-full bg-primary text-primary-foreground text-[9px] font-black uppercase tracking-[0.3em] rounded-md hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-lg" disabled={loading}>
                           {loading ? "SENDING..." : <>SEND MESSAGE <Send className="h-3 w-3" /></>}
                         </Button>
                       </form>
@@ -161,7 +161,7 @@ export default function ContactPage() {
                           <Label htmlFor="request" className="text-[9px] font-black uppercase tracking-widest text-primary">YOUR PRAYER REQUEST</Label>
                           <Textarea id="request" placeholder="How can we pray for you today?" className="min-h-[180px] bg-secondary/5 border-white/10 rounded-md text-xs text-white resize-none" required />
                         </div>
-                        <Button className="w-full h-12 bg-primary text-primary-foreground text-[9px] font-black uppercase tracking-[0.3em] rounded-md hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-lg" disabled={loading}>
+                        <Button className="w-full bg-primary text-primary-foreground text-[9px] font-black uppercase tracking-[0.3em] rounded-md hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-lg" disabled={loading}>
                           {loading ? "SENDING..." : <>SUBMIT PRAYER REQUEST <Heart className="h-3 w-3" /></>}
                         </Button>
                       </form>

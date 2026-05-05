@@ -11,11 +11,6 @@ import { Heart, CreditCard, Smartphone, Banknote, ShieldCheck, CheckCircle2, Glo
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
-/**
- * EDITING INSTRUCTIONS:
- * Update the constants below to change the giving options and account details.
- */
-
 const GIVING_CATEGORIES = [
   { id: "partnership", label: "GENERAL PARTNERSHIP" },
   { id: "good-hope", label: "GOOD HOPE VOW" },
@@ -87,7 +82,7 @@ export default function GivePage() {
                 <div className="space-y-3">
                   <Label className="text-[9px] font-black uppercase tracking-widest text-primary">SELECT GIVING CATEGORY</Label>
                   <Select value={category} onValueChange={setCategory}>
-                    <SelectTrigger className="h-12 bg-secondary/5 border-white/10 rounded-md text-xs font-bold uppercase text-white">
+                    <SelectTrigger className="bg-secondary/5 border-white/10 rounded-md text-xs font-bold uppercase text-white">
                       <SelectValue placeholder="Select Category" />
                     </SelectTrigger>
                     <SelectContent className="bg-card border-white/10">
@@ -103,7 +98,7 @@ export default function GivePage() {
                 <div className="space-y-3">
                   <Label className="text-[9px] font-black uppercase tracking-widest text-primary">SELECT CURRENCY</Label>
                   <Select value={currency} onValueChange={setCurrency}>
-                    <SelectTrigger className="h-12 bg-secondary/5 border-white/10 rounded-md text-xs font-bold uppercase text-white">
+                    <SelectTrigger className="bg-secondary/5 border-white/10 rounded-md text-xs font-bold uppercase text-white">
                       <div className="flex items-center gap-2">
                         <Globe className="h-3 w-3 text-primary" />
                         <SelectValue placeholder="Select Currency" />
@@ -129,7 +124,7 @@ export default function GivePage() {
                       variant="outline"
                       onClick={() => setAmount(amt)}
                       className={cn(
-                        "h-12 border-white/10 text-[11px] font-black uppercase transition-all rounded-md",
+                        "border-white/10 text-[11px] font-black uppercase transition-all rounded-md",
                         amount === amt ? "bg-primary text-black border-primary" : "bg-transparent text-white hover:bg-white/5"
                       )}
                     >
@@ -144,7 +139,7 @@ export default function GivePage() {
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
                     placeholder="ENTER CUSTOM AMOUNT"
-                    className="h-12 pl-10 bg-secondary/5 border-white/10 rounded-md text-xs font-bold uppercase text-white placeholder:text-white/20"
+                    className="pl-10 bg-secondary/5 border-white/10 rounded-md text-xs font-bold uppercase text-white placeholder:text-white/20"
                   />
                 </div>
               </div>
@@ -152,8 +147,9 @@ export default function GivePage() {
               <div className="flex gap-4 p-1 bg-secondary/10 rounded-lg max-w-sm mx-auto">
                 <Button 
                   onClick={() => setIsRecurring(false)}
+                  variant="ghost"
                   className={cn(
-                    "flex-1 h-10 rounded-md text-[9px] font-black uppercase tracking-widest transition-all",
+                    "flex-1 rounded-md text-[9px] font-black uppercase tracking-widest transition-all",
                     !isRecurring ? "bg-white text-black" : "bg-transparent text-white/40"
                   )}
                 >
@@ -161,8 +157,9 @@ export default function GivePage() {
                 </Button>
                 <Button 
                   onClick={() => setIsRecurring(true)}
+                  variant="ghost"
                   className={cn(
-                    "flex-1 h-10 rounded-md text-[9px] font-black uppercase tracking-widest transition-all",
+                    "flex-1 rounded-md text-[9px] font-black uppercase tracking-widest transition-all",
                     isRecurring ? "bg-white text-black" : "bg-transparent text-white/40"
                   )}
                 >
@@ -172,7 +169,7 @@ export default function GivePage() {
 
               <Button 
                 onClick={handleGive}
-                className="w-full h-14 bg-primary text-black rounded-md text-[10px] font-black uppercase tracking-[0.4em] hover:opacity-90 transition-all shadow-2xl"
+                className="w-full bg-primary text-black rounded-md text-[10px] font-black uppercase tracking-[0.4em] hover:opacity-90 transition-all shadow-2xl"
               >
                 PROCEED TO GIVE {selectedCurrency.symbol}{amount || '0'}
               </Button>

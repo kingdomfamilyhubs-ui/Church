@@ -63,10 +63,10 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button asChild className="bg-primary text-black font-black h-14 px-10 rounded-md uppercase text-[10px] tracking-[0.3em] transition-all border-none shadow-2xl hover:scale-105 active:scale-95">
+            <Button asChild className="bg-primary text-black font-black px-10 rounded-md uppercase text-[10px] tracking-[0.3em] transition-all border-none shadow-2xl hover:scale-105 active:scale-95">
               <Link href="/about">DISCOVER OUR VISION</Link>
             </Button>
-            <Button asChild className="bg-white text-black hover:bg-white/90 font-black h-14 px-10 rounded-md uppercase text-[10px] tracking-[0.3em] transition-all border-none shadow-2xl hover:scale-105 active:scale-95">
+            <Button asChild className="bg-white text-black hover:bg-white/90 font-black px-10 rounded-md uppercase text-[10px] tracking-[0.3em] transition-all border-none shadow-2xl hover:scale-105 active:scale-95">
               <Link href="/join" className="flex items-center gap-2">
                 JOIN YOUR TRIBE <ArrowRight className="h-4 w-4" />
               </Link>
@@ -180,7 +180,7 @@ export default function Home() {
           <p className="text-xs md:text-sm text-white/60 mb-12 max-w-xl mx-auto italic font-medium leading-relaxed uppercase tracking-widest">
             Join a global community dedicated to kingdom leadership, core values, and supernatural excellence in every sphere of life.
           </p>
-          <Button asChild className="bg-primary text-black font-black h-14 px-12 rounded-md uppercase text-[10px] tracking-[0.4em] transition-all hover:scale-105 active:scale-95 shadow-2xl">
+          <Button asChild className="bg-primary text-black font-black px-12 rounded-md uppercase text-[10px] tracking-[0.4em] transition-all hover:scale-105 active:scale-95 shadow-2xl">
             <Link href="/contact">LOCATE A BRANCH NEAR YOU</Link>
           </Button>
         </div>
